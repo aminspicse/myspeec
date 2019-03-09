@@ -9,5 +9,5 @@ Release Information
 *******************
 
 The link of myspeec
-<http://localhost/myspeec/>`_ page.
+<http://www.myspeec.com>`_ page.
 
