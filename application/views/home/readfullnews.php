@@ -1,5 +1,5 @@
 
-        <div class="content-wrapper">
+        <div class="content-wrapper container">
             <?php foreach($query->result() as $row){ ?>
                 <div class="row">
                     <div class="col-12">
@@ -30,7 +30,7 @@
                         <form action="<?= base_url() ?>Home/Like_Dislike" method="get">
                             <p>
                                 
-                                <input type="submit" name="likenews" class="btn btn-link card-link" class="fas fa-thumbs-up" value="Like" />
+                                <input type="submit" name="likenews" class="btn btn-link card-link" class="fa fa-thumbs-up" value="Like" />
                                 <span class="badge"><?= $likes->num_rows(); ?> People Likes</span>
                                 
                                 <input type="submit" name="dislikenews" class="btn btn-link card-link" value="DisLike" />

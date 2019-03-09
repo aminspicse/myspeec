@@ -28,7 +28,9 @@ class Home extends CI_Controller {
 
         $this->load->view("header");
        // $this->load->view('leftnav');
-        $this->load->view('home/index');
+        $this->load->view('leftnav');
+        $this->load->view('home/index'); 
+
     }
 
     function ReadFullNews($news_id){
@@ -37,7 +39,7 @@ class Home extends CI_Controller {
         $data['likes'] = $this->Home_Model->Likes($news_id);
         $data['dislikes'] = $this->Home_Model->DisLikes($news_id);
         $data['likevalidation'] = $this->Home_Model->Like_Validation($news_id);
-        $this->load->view('home/header',$data);
+        $this->load->view('header',$data);
         $this->load->view('leftnav');
         $this->load->view('home/readfullnews',$data);
         

@@ -1,46 +1,34 @@
 <main class="cd-main-content">
 		<nav class="cd-side-nav">
 			<ul>
-				<li class="has-children overview">
-					<a href="<?= base_url() ?>Profile" class="card-link">Profile</a>
-					
-					<ul>
-						<li><a href="<?= base_url() ?>Profile" class="card-link">Profile</a></li>
-						<li><a href="<?= base_url() ?>profile/profilepic.asp" class="card-link">Update Profile Pic</a></li>
-					
-					</ul>
+				<li class="">
+					<a href="<?= base_url() ?>Profile" class="card-link"> <i class="fa fa-user"></i> Profile</a>
 					
 				</li>
-				<li class="has-children overview ">
-					<a href="<?= base_url() ?>Profile/update_personal_info" class="card-link" target="">Update Info</a>
+				<li class="">
+					<a href="<?= base_url() ?>Profile/update_personal_info" class="card-link" target=""> <i class="fas fa-edit"></i> Update Info</a>
+					<!--
 					<ul>
 						<li><a href="<?= base_url() ?>Profile/update_personal_info" class="card-link">Update Info</a></li>
                         <li><a href="<?= base_url() ?>ChangePassword/" class="card-link">Change Password</a></li>
 					</ul>
+					-->
 				</li>
-				<li class="has-children overview ">
-					<a href="<?= base_url() ?>NewSpeec/" class="card-link" target="">New Speek</a>
-					<ul>
-						<li><a href="<?= base_url() ?>NewSpeec/" class="card-link">New Speek</a></li>
-					</ul>
+				<li class="">
+					<a href="<?= base_url() ?>NewSpeec/" class="card-link" target=""><i class="fa fa-newspaper"></i> New Speek</a>
+					
 				</li>
-                <li class="has-children overview ">
-					<a href="<?= base_url() ?>ChangePassword/" class="card-link" target="">Change Password</a>
-					<ul>
-						<li><a href="<?= base_url() ?>ChangePassword/" class="card-link">Change Password</a></li>
-					</ul>
+                <li class=" ">
+					<a href="<?= base_url() ?>ChangePassword/" class="card-link" target=""> <i class="fa fa-unlock"></i> Change Password</a>
+					
 				</li>
-                <li class="has-children overview ">
-					<a href="<?= base_url() ?>" class="card-link" target="">Embed Video</a>
-					<ul>
-						<li><a href="<?= base_url() ?>" class="card-link">Embed Video</a></li>
-					</ul>
+                <li class="">
+					<a href="<?= base_url() ?>" class="card-link" target=""><i class="fa fas fa-play"></i> Embed Video</a>
+					
 				</li>
-				<li class="has-children overview ">
+				<li class="">
 					<a href="<?= base_url() ?>MySpeech/index.asp" class="card-link" target="">My Speec</a>
-					<ul>
-						<li><a href="<?= base_url() ?>MySpeech/index.asp" class="card-link">My Speec</a></li>
-					</ul>
+
 				</li>
 				<!--
 				<li class="has-children comments">

@@ -54,16 +54,17 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
     <script src="<?= base_url() ?>assets/js/jquery-3.3.1.min.js"></script> 
     <script src="<?= base_url() ?>assets/headandnav/js/main.js"></script>
-    
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
     
 </head>
 <body class="">
     <header class="cd-main-header">
             <a href="<?= base_url() ?>Home/" class="cd-logo"><img src="<?= base_url() ?>assets/headandnav/img/cd-logo.svg" alt=""></a>
             
-            <div class="cd-search is-hidden">
+            <div class="cd-search ">
                 <form action="">
                     <input type="search" placeholder="Search...">
+                   
                 </form>
             </div> <!-- cd-search -->
 
@@ -71,6 +72,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
             <nav class="cd-nav">
                 <ul class="cd-top-nav">
+                    <li><a href="<?= base_url() ?>" class="card-link"> <i class="fa fa-home"></i> Home</a></li>
+                    <li><a href="<?= base_url() ?>" class="card-link"> <i class="fa fa-bell"></i> Notification</a></li>
                     <li><a href="<?= base_url() ?>SignUp/" class="card-link">SignUp</a></li>
                     <li><a href="<?= base_url() ?>Login/" class="card-link">SignIn</a></li>
                     <li class="has-children account">
