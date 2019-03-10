@@ -43,14 +43,15 @@
                 <!-- Start Chatting -->
 				<div class="col-md-8 col-xl-6 chat">
 					<div class="card">
+						<?php foreach($friendinfo->result() as $frinfo){?>
 						<div class="card-header msg_head">
 							<div class="d-flex bd-highlight">
 								<div class="img_cont">
-									<img src="https://devilsworkshop.org/files/2013/01/enlarged-facebook-profile-picture.jpg" class="rounded-circle user_img">
+									<img src="<?= $frinfo->photo?>" class="rounded-circle user_img">
 									<span class="online_icon"></span>
 								</div>
 								<div class="user_info">
-									<span>Chat with Maryam Naz</span>
+									<span><?= $frinfo->fname.' '.$frinfo->lname?></span>
 									<p>1767 Messages</p>
 								</div>
 								<div class="video_cam">
@@ -61,87 +62,55 @@
 							<span id="action_menu_btn"><i class="fas fa-ellipsis-v"></i></span>
 							<div class="action_menu">
 								<ul>
-									<li><i class="fas fa-user-circle"></i> View profile</li>
+									<li><i class="fas fa-user-circle"></i> <a target="new" class="card-link" href="<?= base_url('Public_Profile/index/').$frinfo->user_id?>">View profile</a></li>
 									<li><i class="fas fa-users"></i> Add to close friends</li>
 									<li><i class="fas fa-plus"></i> Add to group</li>
 									<li><i class="fas fa-ban"></i> Block</li>
 								</ul>
 							</div>
 						</div>
+						<?php } ?>
 						<div class="card-body msg_card_body">
+							<?php foreach($message->result() as $sms){?>
 							<div class="d-flex justify-content-start mb-4">
 								<div class="img_cont_msg">
 									<img src="https://devilsworkshop.org/files/2013/01/enlarged-facebook-profile-picture.jpg" class="rounded-circle user_img_msg">
 								</div>
 								<div class="msg_cotainer">
-									Hi, how are you samim?
-									<span class="msg_time">8:40 AM, Today</span>
+									<p><?= $sms->message?></p>
+									<?= $sms->send_time?>
+									<span class="msg_time"></span>
 								</div>
 							</div>
+							
 							<div class="d-flex justify-content-end mb-4">
 								<div class="msg_cotainer_send">
-									Hi Maryam i am good tnx how about you?
+									
+									
 									<span class="msg_time_send">8:55 AM, Today</span>
 								</div>
 								<div class="">
 								</div>
 							</div>
-							<div class="d-flex justify-content-start mb-4">
-								<div class="img_cont_msg">
-									<img src="https://devilsworkshop.org/files/2013/01/enlarged-facebook-profile-picture.jpg" class="rounded-circle user_img_msg">
-								</div>
-								<div class="msg_cotainer">
-									I am good too, thank you for your chat template
-									<span class="msg_time">9:00 AM, Today</span>
-								</div>
-							</div>
-							<div class="d-flex justify-content-end mb-4">
-								<div class="msg_cotainer_send">
-									You welcome Maryam
-									<span class="msg_time_send">9:05 AM, Today</span>
-								</div>
-								<div class="img_cont_msg">
-							<img src="">
-								</div>
-							</div>
-							<div class="d-flex justify-content-start mb-4">
-								<div class="img_cont_msg">
-									<img src="https://devilsworkshop.org/files/2013/01/enlarged-facebook-profile-picture.jpg" class="rounded-circle user_img_msg">
-								</div>
-								<div class="msg_cotainer">
-									I am looking for your next templates
-									<span class="msg_time">9:07 AM, Today</span>
-								</div>
-							</div>
-							<div class="d-flex justify-content-end mb-4">
-								<div class="msg_cotainer_send">
-									Ok, thank you have a good day
-									<span class="msg_time_send">9:10 AM, Today</span>
-								</div>
-								<div class="img_cont_msg">
-						        <img src="" class="rounded-circle user_img_msg">
-								</div>
-							</div>
-							<div class="d-flex justify-content-start mb-4">
-								<div class="img_cont_msg">
-									<img src="https://devilsworkshop.org/files/2013/01/enlarged-facebook-profile-picture.jpg" class="rounded-circle user_img_msg">
-								</div>
-								<div class="msg_cotainer">
-									Bye, see you
-									<span class="msg_time">9:12 AM, Today</span>
-								</div>
-							</div>
+							
+						<?php } ?>
 						</div>
+						
 						<div class="card-footer">
+							<form action="<?= base_url('SMS/chating/').$frinfo->user_id?>" method="post">
 							<div class="input-group">
 								<div class="input-group-append">
 									<span class="input-group-text attach_btn"><i class="fas fa-paperclip"></i></span>
 								</div>
-								<textarea name="" class="form-control type_msg" placeholder="Type your message..."></textarea>
+								<textarea name="message" class="form-control type_msg" placeholder="Type your message..."></textarea>
 								<div class="input-group-append">
-									<span class="input-group-text send_btn"><i class="fas fa-location-arrow"></i></span>
+									<input type="submit" name="send" value="Send" class="btn btn-info">
+									<!--
+										<span class="input-group-text send_btn"><i class="fas fa-location-arrow"></i></span>
+									-->
 								</div>
 							</div>
+							</form>
 						</div>
 					</div>
 				</div>

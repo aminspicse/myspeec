@@ -11,7 +11,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
              if($this->session->userdata('user_id') == false){
                 redirect(base_url().'Login/', $this->session->set_flashdata('msg', 'You Need To SignIn. if you have no account <a href="'.base_url('SignUp').'">Click to SignUp</a>'));
              }
-        }
+        } 
 
         public function friend_request($user_id){
             $data['user_id'] = $user_id;

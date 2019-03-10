@@ -1,7 +1,7 @@
 <?php 
     defined('BASEPATH') OR exit('No direct script access allowed');
 ?>
-
+ 
         <div class="content-wrapper">
             <?php foreach($queryindex->result() as $rows){?>
             <div class="row" style="bg-color: red">
