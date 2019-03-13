@@ -28,6 +28,9 @@
                      } ?>
                     </a>
                 </div>
+                <div class="col-md-2 col-xs-4">
+                    <a href="<?= base_url('SMS/chating/').$user_id ?>" class="card-link">Send Message</a>
+                </div>
             </div>
         </div>
    

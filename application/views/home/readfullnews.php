@@ -29,13 +29,19 @@
                         <hr>
                         <form action="<?= base_url() ?>Home/Like_Dislike" method="get">
                             <p>
-                                
+                                <?php if($likevalidation->num_rows()>0){ ?>
+                                    <input type="submit" name="" disabled class="btn btn-link card-link" class="fa fa-thumbs-up" value="Liked" />
+                                    <span class="badge"><?= $likes->num_rows(); ?> People Likes</span>
+                                <?php }else{ ?>
                                 <input type="submit" name="likenews" class="btn btn-link card-link" class="fa fa-thumbs-up" value="Like" />
+                                <input type="text" name="news_id" style="display:none" value="<?= $row->news_id ?>">
                                 <span class="badge"><?= $likes->num_rows(); ?> People Likes</span>
-                                
+                                <?php }?>
                                 <input type="submit" name="dislikenews" class="btn btn-link card-link" value="DisLike" />
                                 <span class="badge"> <?= $dislikes->num_rows() ?> People DisLikes</span>
                                 <input type="button" value="Comments" class="btn btn-link card-link"> <span class="badge"> <?php echo $commentquery->num_rows();?> People Comments</span>
+                                
+                                <!-- Start FB Share Button -->
                                 <div id="fb-root"></div>
                                     <script>(function(d, s, id) {
                                         var js, fjs = d.getElementsByTagName(s)[0];
@@ -44,13 +50,12 @@
                                         js.src = "https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v3.0";
                                         fjs.parentNode.insertBefore(js, fjs);
                                     }(document, 'script', 'facebook-jssdk'));</script>
-
                                     <!-- Your share button code -->
                                     <div class="fb-share-button" 
                                         data-href="http://www.myspeec.com/Home/ReadFullNews/<?php echo $row->news_id;?>" 
                                         data-layout="button_count">
                                 </div>
-
+                                <!-- End FB share button -->
                                
                              </p>
                             <input type="text" name="news_id" style="display:none" value="<?= $row->news_id; ?>">

@@ -72,28 +72,30 @@
 						<?php } ?>
 						<div class="card-body msg_card_body">
 							<?php foreach($message->result() as $sms){?>
+							<?php if($sms->send_id == $this->session->userdata('user_id')){?>
+							<div class="d-flex justify-content-end mb-4">
+								<div class="msg_cotainer_send">
+									<p><?= nl2br($sms->message)?></p>
+									<p class="" style="font-size: 10px"><?= $sms->send_time?></p>
+									<span class="msg_time_send"></span>
+								</div>
+								<div class="img_cont_msg">
+									<img src="<?= $this->session->userdata('photo')?>" class="rounded-circle user_img_msg">
+								</div>
+							</div>
+							<?php }else{?>
+							
 							<div class="d-flex justify-content-start mb-4">
 								<div class="img_cont_msg">
-									<img src="https://devilsworkshop.org/files/2013/01/enlarged-facebook-profile-picture.jpg" class="rounded-circle user_img_msg">
+									<img src="<?= $frinfo->photo?>" class="rounded-circle user_img_msg">
 								</div>
 								<div class="msg_cotainer">
-									<p><?= $sms->message?></p>
-									<?= $sms->send_time?>
+									<p><?= nl2br($sms->message)?></p>
+									<p class="" style="font-size: 10px"><?= $sms->send_time?></p>
 									<span class="msg_time"></span>
 								</div>
 							</div>
-							
-							<div class="d-flex justify-content-end mb-4">
-								<div class="msg_cotainer_send">
-									
-									
-									<span class="msg_time_send">8:55 AM, Today</span>
-								</div>
-								<div class="">
-								</div>
-							</div>
-							
-						<?php } ?>
+						<?php } }?>
 						</div>
 						
 						<div class="card-footer">

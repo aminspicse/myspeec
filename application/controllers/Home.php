@@ -31,14 +31,14 @@ class Home extends CI_Controller {
         $this->load->view('leftnav');
         $this->load->view('home/index'); 
 
-    }
+    } 
 
     function ReadFullNews($news_id){
         $data['query']=$this->Home_Model->ReadFull_News($news_id);
         $data['commentquery']=$this->Home_Model->Comment_query($news_id);
         $data['likes'] = $this->Home_Model->Likes($news_id);
         $data['dislikes'] = $this->Home_Model->DisLikes($news_id);
-        $data['likevalidation'] = $this->Home_Model->Like_Validation($news_id);
+        $data['likevalidation'] = $this->Home_Model->Like_Validation($news_id); 
         $this->load->view('header',$data);
         $this->load->view('leftnav');
         $this->load->view('home/readfullnews',$data);

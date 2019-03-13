@@ -11,7 +11,7 @@
             $this->db->from('make_friends');
             $this->db->where('parent_id',$parent_id);
             $this->db->where('sub_id', $sub_id);
-            $this->db->where('request_status',1);
+            //$this->db->where('request_status',1);
             $this->db->where('delete_status',0);
             //$this->db->where('request_status',1);
             if($query = $this->db->get()){
@@ -21,4 +21,4 @@
             }
         }
     }
-?>
+?> 

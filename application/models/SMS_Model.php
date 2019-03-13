@@ -29,7 +29,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             $this->db->insert('messages', $message);
         }
 
-        public function conversation($sub_id){
+        public function receiver($sub_id){
             $this->db->select('*');
             $this->db->from('messages');
             $this->db->where('send_id', $this->session->userdata('user_id'));
@@ -37,17 +37,19 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             $this->db->order_by('send_time', 'desc');
             return $this->db->get();
         }
-        public function receiver($sub_id){
+        public function conversation($sub_id){
+           // $condition= "`sender_id`= '$sender_id' AND `receiver_id` = '$receiver_id' OR `sender_id`= '$receiver_id' AND `
+            //receiver_id` = '$sender_id'";
+            $send_id = $this->session->userdata('user_id');
+            $condition = "'send_id' = '$send_id' AND 'receive_id' = '$sub_id' OR 'send_id' = '$sub_id' AND 'receive_id' = '$send_id'";
             $this->db->select('*');
             $this->db->from('messages');
-            $this->db->where('send_id', $sub_id);
-            $this->db->where('receive_id', $this->session->userdata('user_id'));
+            //$this->db->where($condition);
+            //$this->db->where('receive_id', $this->session->userdata('user_id'));
+            //$this->db->where('send_id',$send_id);
+            $this->db->where("receive_id='$sub_id' && send_id='$send_id' || receive_id='$send_id' && send_id='$sub_id'");
             $this->db->order_by('send_time', 'desc');
-            if($query = $this->db->get()){
-                return $query->row_array();
-            } else{
-                return false;
-            }          
+            return $this->db->get();
         }
     }
 

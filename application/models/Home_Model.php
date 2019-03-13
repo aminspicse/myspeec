@@ -35,10 +35,12 @@
             return $this->db->get();
         }
 
+        // Insert model for Like or Dislike 
         function LikeDislike($likedata){
             $this->db->insert('news_like_dislike',$likedata);
         }
 
+        //Like Query for a news
         function Likes($news_id){
             $this->db->select('*');
             $this->db->from('news_like_dislike');
@@ -47,6 +49,7 @@
             return $this->db->get();
         }
 
+        //DisLike Query for a news
         function DisLikes($news_id){
             $this->db->select('*');
             $this->db->from('news_like_dislike');
