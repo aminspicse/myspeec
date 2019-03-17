@@ -1,7 +1,7 @@
 <?php 
 	//session_start();
     include '../config/db_connection.php';
-    
+    $result;
     if(isset($_POST['submit'])) {
 		
 		$classes = $_POST['classes'];

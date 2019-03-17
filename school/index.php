@@ -3,11 +3,11 @@
 <html lang="en-US">
 <head>
 	<meta charset="UTF-8">
-	<title></title>
+	<title>Landing Page</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta name="author" content="MD. AL AMIN">
-	<title>admin-Pannel</title>
-	<link href="management.com/css/bootstrap.css" rel="stylesheet" type="text/css">
+	
+	<link href="management/css/bootstrap.css" rel="stylesheet" type="text/css">
 	
 </head>
 <body class="bg-light">
@@ -20,15 +20,26 @@
 		<div class="row">
 			<div class="col-md-3 col-md-offset-3">
 				<div class="thumbnail">
-					<a href="management.com/index.php" class="link-card"><h2 class="text-center">Admin Login</h2></a>
+					<a href="management/index.php" class="link-card"><h2 class="text-center">Admin Login</h2></a>
 				</div>
 			</div>
 			<div class="col-md-3">
 				<div class="thumbnail">
-					<a href="management.com/student login/index.php" class="link-card"><h2 class="text-center">Check Result</h2></a>
+					<a href="management/student login/index.php" class="nav-link"><h2 class="text-center">Check Result</h2></a>
 				</div>
 			</div>
 		</div>
+        <div class="row">
+            <div class="col-md-3"></div>
+            <div class="col-md-6">
+                <p><b>School Management is a free digital School managing system</b></p>
+                <p>if you are interested for using this software then please create an account <a href="https://amincse.blogspot.com/2018/07/account-create-of-school-management.html">How to Create an account</a></p>
+                <h3 class="text-warning">Free Login Email: admin@sms.com  Password: admin</h3>
+                <h4 class="text-success">If any complain or query: Email: aminspicse@gmail.com, Mobile: +880 1689-015612</h4>
+                <p>Developed by: <a href="https://www.facebook.com/webtecbd/" target="_new">Web Tech BD</a></p>
+            </div>
+            <div class="col-md-3"></div>
+        </div>
 
 <script>
 $(document).ready(function(){
