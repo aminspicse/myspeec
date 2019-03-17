@@ -1,0 +1,22 @@
+.margin{
+	margin-top:0px;
+	margin-bottom:0px;
+}
+.tumb-set{
+	background:#dff0d8;
+	margin-top:-16px;
+}
+.display-none{
+	display:none;
+}
+.responsive-school{
+	font-size: 3vw;
+}
+.responsive-dash{
+	font-size:1.5vw;
+}
+
+
+* {
+    box-sizing: border-box;
+}

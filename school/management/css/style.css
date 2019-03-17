@@ -1,0 +1,34 @@
+.footer-bottom{
+    padding:1.5em 0px;
+    background: #999999;
+    
+}
+.footer-class{
+    text-align: right;
+}
+
+.footer-top{
+     padding:1.5em 0px;
+     background: #ccccff;
+    
+}
+.footer-top ul li{
+     list-style: none;
+    
+}
+.img-responsive{
+    width:100%;
+    height: auto;
+    border-radius: 8px;
+}
+.questions h5 {
+    color:#0c83e7;
+    font-size: 1.3em;
+    font-family:fantasy;
+    line-height: 1.5em;
+    
+}
+/*pra means passed reffard and all_result*/
+.pra{ 
+	margin: 0px;
+}
