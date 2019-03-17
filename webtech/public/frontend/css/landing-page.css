@@ -1,0 +1,447 @@
+/* ================================================== */
+/* Landing Page Styles
+/* ================================================== */
+.landing .navbar-light .navbar-nav .nav-link:focus,
+.landing .navbar-light .navbar-nav .nav-link:hover {
+	color: #fff;
+}
+/*-----------------------------------
+     Landing banner
+------------------------------------*/
+.landing-banner {
+	min-height: 750px;
+	background: url(../images/abc.png) no-repeat top center;
+	background-size: cover;
+	padding: 250px 0 0;
+	position: relative;
+}
+
+.landing-banner .contents {
+	padding-top: 0;
+}
+.landing-banner h1 {
+	font-size: 54px;
+	font-weight: 300;
+	line-height: 66px;
+	color: #fff;
+	margin-bottom: 20px;
+}
+.landing-banner p {
+	font-size: 18px;
+	line-height: 30px;
+	color: #fff;
+	opacity: 0.7;
+}
+.landing-banner .scroll-down-mouse {
+	width: 180px;
+	height: 180px;
+	position: absolute;
+	bottom: -10%;
+	transform: translateX(-50%) scale(1);
+	left: 50%;
+	background: rgba(99,193,227,0.3);
+	border-radius: 100%;
+	padding: 40px;
+	z-index: 1;
+}
+.landing-banner .scroll-down-mouse:hover {
+	background: rgba(99,193,227,0.6);
+	transition: all 0.3s ease 0s;
+}
+.landing-banner .scroll-down-mouse .icon {
+	width: 100px;
+	height: 100px;
+	margin: 0 auto;
+	background: #fff;
+	border-radius: 100%;
+	text-align: center;
+	padding: 13px;
+	transition: all 0.3s ease 0s;
+}
+.landing-banner .scroll-down-mouse .icon a {
+	display: block;
+}
+.landing-banner .scroll-down-mouse .icon:hover {
+	box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.3);
+}
+.landing-banner .scroll-down-mouse .icon img {
+	max-width: 100%;
+	position: relative;
+	z-index: 700;
+}
+.landing-banner .get-started {
+	max-width: 230px;
+	background: #f29a32;
+	border-radius: 30px;
+	display: block;
+	font-size: 18px;
+	font-weight: 500;
+	color: #fff;
+	line-height: 52px;
+	margin: 40px 0 0;
+	padding: 0 20px;
+	text-align: center;
+	text-transform: capitalize;
+}
+.landing-banner .get-started:hover {
+	background: #173139;
+}
+/*-----------------------------------
+     Header Variety
+------------------------------------*/
+.banner-variety {
+	padding-bottom: 0 !important;
+	background: url(../images/landing-element-1.png) no-repeat top left, url(../images/landing-element-2.png) bottom right 5% no-repeat;
+}
+.banner-variety h2 {
+	padding-bottom: 15px;
+}
+.banner-variety p {
+	font-size: 16px;
+	line-height: 26px;
+}
+.banner-variety .nav-tabs {
+	padding-top: 50px;
+}
+.banner-variety img {
+	max-width: 100%;
+}
+/*-----------------------
+	What Included
+-----------------------*/
+.what-included-wrapper {
+	min-height: 715px;
+	background: #f8f8f8 url(../images/wt-included-bg.png) no-repeat center bottom;
+	background-size: cover;
+	position: relative;
+}
+.what-included-wrapper .what-included-img {
+	width: 100%;
+	position: absolute;
+	bottom: -15%;
+	left: 0;
+	text-align: center;
+}
+.what-included-wrapper .what-included-img img {
+	max-width: 100%;
+}
+.what-included-wrapper h2 {
+	padding: 0 0 15px;
+}
+.what-included-wrapper p {
+	font-size: 16px;
+}
+.what-included-wrapper ul.counter-listing {
+	max-width: 800px;
+	margin: 0 auto 40px;
+	padding-top: 70px;
+}
+/*-----------------------
+	Why Protech
+-----------------------*/
+.why-protech-outer {
+	margin-top: 90px;
+}
+.why-protech-outer h2 {
+	padding: 0 0 15px;
+}
+.why-protech-outer ul.features-listing {
+	padding-top: 40px;
+}
+.why-protech-outer ul.features-listing li h3 {
+	font-size: 20px;
+	font-weight: 500;
+	line-height: 1.1;
+	padding: 20px 0 15px 0;
+}
+.why-protech-outer ul.features-listing li .inner {
+	max-width: 320px;
+	margin: 0;
+}
+.why-protech-outer ul.features-listing li p {
+	color: #687377;
+	line-height: 22px;
+}
+.why-protech-outer ul.features-listing li .icon {
+	width: auto;
+	height: auto;
+	box-shadow: none;
+	line-height: 1;
+}
+/*-----------------------
+	Technologies and Plugins
+-----------------------*/
+.technology-plugins-wrapper {
+	background: #f8f8f8;
+}
+.technology-plugins-wrapper h2 {
+	padding: 0 0 15px;
+}
+.technology-plugins-wrapper p {
+	font-size: 16px;
+}
+.tech-plugins-listing {
+	padding-top: 20px;
+}
+.tech-plugins-listing li {
+	list-style: none;
+}
+.tech-plugins-listing li .inner {
+	max-width: 240px;
+	background: #fff;
+	padding: 40px 10px;
+	margin: 30px auto;
+	box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+	border-radius: 5px;
+	transition: all 0.3s ease 0s;
+}
+.tech-plugins-listing li .inner a {
+	display: block;
+}
+.tech-plugins-listing li .inner img {
+	max-width: 100%;
+}
+.tech-plugins-listing li:hover .inner {
+	box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+}
+/*-----------------------
+	   Get It Now
+-----------------------*/
+.get-it-now-wrapper {
+	min-height: 400px;
+	background: #2b2b2b url(../images/get-it-now-bg.png) no-repeat center;
+	background-size: cover;
+	padding-top: 90px;
+}
+.get-it-now-wrapper h2 {
+	font-size: 50px;
+	color: #fff;
+	padding: 0 0 35px;
+}
+.get-it-now-wrapper p {
+	font-size: 16px;
+	line-height: 26px;
+	color: #fff;
+}
+.btn.purchase {
+	max-width: 230px;
+	background: #0087d8;
+	border-radius: 30px;
+	padding: 0 20px;
+	display: block;
+	margin: 40px auto 0;
+	font-size: 18px;
+	line-height: 58px;
+	text-transform: capitalize;
+}
+/*-----------------------
+	     Footer
+-----------------------*/
+.landing-footer {
+	background: #fff;
+	padding: 30px 0;
+}
+.landing-footer .foot-logo {
+	width: 142px;
+	display: block;
+	float: left;
+}
+.landing-footer .right {
+	padding-top: 6px;
+	float: right;
+}
+.landing-footer .copyright {
+	display: inline-block;
+	font-size: 12px;
+	color: #a4adb3;
+}
+.landing-footer ul.social {
+	display: inline-block;
+}
+.landing-footer ul.social li {
+	display: inline-block;
+	padding: 0 0 0 15px;
+	font-size: 12px;
+	color: #a4adb3;
+}
+.landing-footer ul.social li a {
+	font-size: 18px;
+	color: #838d93;
+}
+.landing-footer ul.social li a:hover {
+	color: #57bce2;
+}
+ 
+@media (max-width: 1600px) {
+	
+	.banner-variety {
+		background-size: 29%, 15%;
+	}
+}
+
+@media (max-width: 1400px) {
+
+	.what-included-wrapper .what-included-img img {
+		max-width: 90%;
+	}
+}
+
+@media (max-width: 1200px) {
+
+	.landing-banner .scroll-down-mouse {
+		transform: translateX(-50%) scale(0.8);
+	}
+	.landing-banner h1 {
+		font-size: 50px;
+		line-height: 64px;
+	}
+	.what-included-wrapper {
+		min-height: 600px;
+	}
+	.what-included-wrapper .what-included-img {
+		bottom: -10%;
+	}
+	.banner-variety {
+		background-size: 22%, 12%;
+	}
+	.why-protech-outer {
+		margin-top: 40px;
+	}
+}
+	
+@media (max-width: 991px) {
+
+	.landing-banner .get-started {
+		max-width: 200px;
+		font-size: 16px;
+		line-height: 48px;
+	}
+	.landing-banner .scroll-down-mouse {
+		transform: translateX(-50%) scale(0.7);
+		bottom: -12%;
+	}
+	.landing-banner h1 {
+		font-size: 38px;
+		line-height: 54px;
+	}
+	.landing-banner p {
+		font-size: 16px;
+		line-height: 28px;
+	}
+	.what-included-wrapper {
+		min-height: 500px;
+	}
+	.get-it-now-wrapper h2 {
+		font-size: 40px;
+	}
+	.btn.purchase {
+		font-size: 16px;
+		line-height: 50px;
+	}
+}
+
+@media (max-width: 767px) {
+
+	.landing .navbar-light .navbar-nav .nav-link:focus,
+	 .landing .navbar-light .navbar-nav .nav-link:hover {
+		color: #57bce2;
+	}
+	.landing-banner {
+		min-height: inherit;
+		background: url(../images/landing-banner-mobile.png) no-repeat center top;
+		padding: 120px 0 80px 0;
+	}
+	.landing-banner h1 {
+		font-size: 36px;
+		line-height: 44px;
+		margin-bottom: 10px;
+	}
+	.landing-banner .get-started {
+		max-width: 180px;
+		font-size: 14px;
+		line-height: 40px;
+	}
+	.landing-banner .scroll-down-mouse {
+		transform: translateX(-50%) scale(0.6);
+		bottom: -19%;
+	}
+	.why-protech-outer ul.features-listing li .inner {
+		margin: 0 auto;
+		text-align: center;
+	}
+	.banner-variety #myTab .nav-link {
+		padding: 3px 10px;
+	}
+	.what-included-wrapper .what-included-img {
+		position: relative;
+		bottom: -40px;
+	}
+	.what-included-wrapper {
+		min-height: inherit;
+		padding-bottom: 0px !important;
+	}
+	.what-included-wrapper .generate-forms ul.counter-listing li span {
+		font-size: 40px;
+	}
+	.what-included-wrapper .generate-forms ul.counter-listing li span.sub-title {
+		font-size: 12px;
+	}
+	.tech-plugins-listing li .inner {
+		margin: 15px auto;
+	}
+	.get-it-now-wrapper h2 {
+		font-size: 34px;
+	}
+	a.ovelay-icon {
+		transform: scale(0.8);
+	}
+}
+
+@media (max-width: 575px) {
+
+	.what-included-wrapper .generate-forms ul.counter-listing li span {
+		font-size: 34px;
+	}
+	.what-included-wrapper .generate-forms ul.counter-listing li span.sub-title {
+		font-size: 10px;
+	}
+	.tech-plugins-listing .inner {
+		margin: 15px auto;
+	}
+	.get-it-now-wrapper {
+		min-height: inherit;
+		padding: 40px 0;
+	}
+	.landing-footer {
+		padding: 20px 0;
+	}
+	.landing-footer .foot-logo {
+		display: none;
+	}
+	.landing-footer .right {
+		float: none;
+		text-align: center;
+	}
+	.landing-footer ul.social li {
+		padding: 0 5px;
+	}
+	.landing-footer .copyright {
+		display: block;
+		padding-bottom: 4px;
+	}
+}
+
+@media (max-width: 414px) {
+
+	.landing-banner .scroll-down-mouse {
+		transform: translateX(-50%) scale(0.5);
+	}
+	.landing-banner h1 {
+		font-size: 32px;
+		line-height: 40px;
+	}
+}
+.bg-my{
+	background:url('../images/abc.png');
+	background-size:covered;
+}
