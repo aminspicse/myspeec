@@ -4,7 +4,7 @@
 			<div class="row justify-content-center h-100">
 				<div class="col-md-4 col-xl-3 chat">
                     <div class="card mb-sm-4 mb-md-0 contacts_card">
-                        <div class="card-header">
+                        <div class="card-header"> 
                             <div class="input-group">
                                 <input type="text" placeholder="Search..." name="" class="form-control search">
                                 <div class="input-group-prepend">
@@ -138,3 +138,5 @@
 	});
 </script>
 </html>
+
+

@@ -56,8 +56,8 @@
                             'country'   => $_POST['country']
                         );
 
-                        $this->Profile_Model->UpdateInfo($updates);
-                            redirect(base_url().'Login/');
+                            $this->Profile_Model->UpdateInfo($updates);
+                            redirect(base_url().'Login/logout'); 
                         
                     }
 

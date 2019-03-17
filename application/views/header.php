@@ -59,12 +59,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 </head>
 <body class="">
     <header class="cd-main-header">
-            <a href="<?= base_url() ?>Home/" class="cd-logo"><img src="<?= base_url() ?>assets/headandnav/img/cd-logo.svg" alt=""></a>
+            <a href="<?= base_url() ?>" class="cd-logo"><img src="<?= base_url() ?>assets/headandnav/img/cd-logo.svg" alt=""></a>
             
             <div class="cd-search ">
-                <form action="">
+                <form action="<?= base_url('Search/posts/')?>" method="POST">
                     <input type="search" placeholder="Search...">
-                   
+                    <input type="submit" name="keyword" value="keyword" style="display:none">
                 </form>
             </div> <!-- cd-search -->
 

@@ -5,6 +5,9 @@
 					<a href="<?= base_url() ?>Profile" class="card-link"> <i class="fa fa-user"></i> Profile</a>
 					
 				</li>
+				<li>
+					<a href="<?= base_url()?>profile/profilepic.asp" class="card-link">  <i class="fa fa-image"></i> Profile Picture</a>
+				</li>
 				<li class="">
 					<a href="<?= base_url() ?>Profile/update_personal_info" class="card-link" target=""> <i class="fas fa-edit"></i> Update Info</a>
 					<!--

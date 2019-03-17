@@ -47,7 +47,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
         function logout(){
             $this->session->sess_destroy();
-            redirect(base_url().'Home');
+            redirect(base_url().'login');
         }
 
         public function Date(){
