@@ -6,14 +6,18 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         function __construct(){
             parent::__construct();
             $this->load->model('Login_Model');
+            
             //date_default_timezone_set("Asia/Dhaka");
             //date_default_timezone_get();
         }
  
         public function index(){
-            
-            $this->load->view('header');
-            $this->load->view('login/login', array('error' => ''));
+            if($this->session->userdata('user_id') == true){
+                redirect('Home');
+            }else{
+                $this->load->view('header');
+                $this->load->view('login/login', array('error' => ''));
+            }
         }
 
         function Check_Validation(){
@@ -47,7 +51,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
         function logout(){
             $this->session->sess_destroy();
-            redirect(base_url().'login');
+            redirect(base_url('Landing_page'));
         }
 
         public function Date(){
