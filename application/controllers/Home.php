@@ -31,14 +31,21 @@ class Home extends CI_Controller {
         $this->load->view('leftnav');
         $this->load->view('home/index'); 
 
-    } 
-
+    }  
+ 
     function ReadFullNews($news_id){
+        if(isset($_POST['update_comment'])){
+            $update['comment_id'] = $_POST['comment_id'];
+            $update['comment_news'] = $_POST['comment'];
+            $update['comment_update'] = date("l jS \of F Y h:i:s A");
+            $this->Home_Model->update_comment($update, $news_id);
+        }
         $data['query']=$this->Home_Model->ReadFull_News($news_id);
         $data['commentquery']=$this->Home_Model->Comment_query($news_id);
         $data['likes'] = $this->Home_Model->Likes($news_id);
         $data['dislikes'] = $this->Home_Model->DisLikes($news_id);
-        $data['likevalidation'] = $this->Home_Model->Like_Validation($news_id); 
+        $data['likevalidation'] = $this->Home_Model->Like_Validation($news_id);
+        $data['dislikevalidation'] = $this->Home_Model->Dislike_Validation($news_id); 
         $this->load->view('header',$data);
         $this->load->view('leftnav');
         $this->load->view('home/readfullnews',$data);
@@ -46,6 +53,7 @@ class Home extends CI_Controller {
 
     }
 
+    // comment 
     function Comment_news(){
         if($this->session->userdata('user_id') == true){
             if(isset($_GET['post_comment'])){
@@ -53,8 +61,7 @@ class Home extends CI_Controller {
                     'user_id'   => $this->session->userdata('user_id'),
                     'news_id'   => $_GET['news_id'],
                     'comment_news'  => $_GET['comment'],
-                    'comment_date'  => Date('d-m-y'),
-                    'comment_time'  => Date('h:i:s am')
+                    'comment_date'  => date("l jS \of F Y h:i:s A"),
                 );
 
                 $this->Home_Model->Comment_news($data_comment);
@@ -66,6 +73,18 @@ class Home extends CI_Controller {
             redirect(base_url().'Login/', $this->session->set_flashdata('msg', 'You Need To SignIn. if you have no account <a href="'.base_url('SignUp').'">Click to SignUp</a>'));
             
         }
+    }
+
+    public function delete_comment($news_id, $comment_id){
+        //echo $news_id.' '.$comment_id;
+        $check = $this->Home_Model->Delete_comment($news_id, $comment_id);
+        if($check){
+            redirect(base_url('Home/ReadFullNews/'.$news_id));
+        }
+    }
+
+    public function update_comment(){
+
     }
 
     function Like_Dislike(){
@@ -96,6 +115,11 @@ class Home extends CI_Controller {
             redirect(base_url().'Login/', $this->session->set_flashdata('msg', 'You Need To SignIn. if you have no account <a href="'.base_url('SignUp').'">Click to SignUp</a>'));
             
         }
+    }
+
+    function date(){
+        $this->load->helper('date');
+        echo date("l jS \of F Y h:i:s A");
     }
 }
 

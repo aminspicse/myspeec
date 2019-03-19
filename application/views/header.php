@@ -47,7 +47,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     <title>MySpeec</title>
     <link href="<?= base_url('assets/css/bootstrap.min.css'); ?>" rel="stylesheet" type="text/css">
     <link rel="stylesheet" href="<?php echo base_url() ?>assets/css/font-awesome.min.css">
-    <script src="<?= base_url() ?>assets/js/bootstrap.min.js"></script>
+    <script src="<?= base_url('assets/css/bootstrap.min.js') ?>"></script>
+    
+
     <link rel="stylesheet" href="<?= base_url() ?>assets/headandnav/css/reset.css">
     <link rel="stylesheet" href="<?= base_url() ?>assets/headandnav/css/style.css">
     <script src="<?= base_url() ?>assets/headandnav/js/modernizr.js"></script>
@@ -56,6 +58,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     <script src="<?= base_url() ?>assets/headandnav/js/main.js"></script>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
     
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 </head>
 <body class="">
     <header class="cd-main-header">

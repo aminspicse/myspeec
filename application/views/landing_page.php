@@ -35,19 +35,28 @@
                         <input type="password" name="password" value="<?= set_value('password') ?>" required class="username" placeholder="Password">
                         <input type="password" name="repassword" value="<?= set_value('repassword') ?>" required class="username" placeholder="Re-Enter Password">
                         <h4 style="width:100%"><strong>Date of Birth</strong></h4> <br>
-                        <select name="" id="" class="birthdate">
+                        <select name="date" id="" class="birthdate">
                             <option value="">Day</option>
+                            <?php for($i = 1; $i<=31; $i++){ 
+                                echo "<option value='$i'>$i</option>";
+                            }?>
                         </select>
-                        <select name="" id="" class="birthdate">
+                        <select name="month" id="" class="birthdate">
                             <option value="">Month</option>
+                            <?php for($i = 1; $i<=12; $i++){ 
+                                echo "<option value='$i'>$i</option>";
+                            }?>
                         </select>
-                        <select name="" id="" class="birthdate">
+                        <select name="year" id="" class="birthdate">
                             <option value="">Year</option>
+                            <?php for($i = 2019; $i>=1920; $i--){ 
+                                echo "<option value='$i'>$i</option>";
+                            }?> 
                         </select>
                         <h5 class=""><a href="">Why Date of birth is importen?</a></h5>
                         <br>
-                        <input type="radio" name="gender" class="gender">Mail
-                        <input type="radio" name="gender" class="gender">Femail
+                        <label class="radio-inline"><input type="radio" name="optradio"> Mail </label>
+                        <label class="radio-inline"><input type="radio" name="optradio"> Femail</label>
                         <p> 
                             You may receive SMS notifications from us and can opt out at any time.
                             I Agree all the terms and condition of myspeec.

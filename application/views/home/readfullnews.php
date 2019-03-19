@@ -29,16 +29,24 @@
                         <hr>
                         <form action="<?= base_url() ?>Home/Like_Dislike" method="get">
                             <p>
+                                <!-- start like and like count -->
                                 <?php if($likevalidation->num_rows()>0){ ?>
                                     <input type="submit" name="" disabled class="btn btn-link card-link" class="fa fa-thumbs-up" value="Liked" />
-                                    <span class="badge"><?= $likes->num_rows(); ?> People Likes</span>
                                 <?php }else{ ?>
-                                <input type="submit" name="likenews" class="btn btn-link card-link" class="fa fa-thumbs-up" value="Like" />
-                                <input type="text" name="news_id" style="display:none" value="<?= $row->news_id ?>">
+                                    <input type="submit" name="likenews" class="btn btn-link card-link" class="fa fa-thumbs-up" value="Like" />
+                                <?php } ?>
                                 <span class="badge"><?= $likes->num_rows(); ?> People Likes</span>
+                                <!-- end link and like count -->
+
+                                <!-- start dislike and count dislike -->
+                                <?php if($dislikevalidation->num_rows() >0){?>
+                                    <input type="submit" name="dislikenews" disabled class="btn btn-link card-link" value="DisLiked" />
+                                <?php }else{?>
+                                    <input type="submit" name="dislikenews" class="btn btn-link card-link" value="DisLike" />
                                 <?php }?>
-                                <input type="submit" name="dislikenews" class="btn btn-link card-link" value="DisLike" />
                                 <span class="badge"> <?= $dislikes->num_rows() ?> People DisLikes</span>
+                                <!-- end dislike and count dislike --> 
+
                                 <input type="button" value="Comments" class="btn btn-link card-link"> <span class="badge"> <?php echo $commentquery->num_rows();?> People Comments</span>
                                 
                                 <!-- Start FB Share Button -->
@@ -70,15 +78,66 @@
             <?php }; ?>
                         <br><br>
                         <div class="img-thumbnail">
-            <?php foreach($commentquery->result() as $com){ ?>
-                            <p class="img-thumbnail"> 
-                                <a href="<?= base_url('Public_Profile/index/').$com->user_id ?>" class="card-link"><img src="<?= $com->photo ?>" class="rounded-circle" width="20px" height="" alt=""><strong><?= $com->fname.''.$com->lname; ?></strong></a>
-                                <?php echo $com->comment_news; ?>
-                            </p>
-            <?php }?>
+                    <?php foreach($commentquery->result() as $com){ ?>
+                        <div class="media img-thumbnail">
+                            <div class="media-left">
+                                <img src="<?= $com->photo ?>" class=" rounded-circle" style="width:30px">
+                            </div>
+                            <!-- start comment body -->
+                            <div class="media-body">
+                                <h4 class="media-heading">
+                                    <a href="<?= base_url('Public_Profile/index/').$com->user_id ?>"><strong><?= $com->fname.''.$com->lname; ?> </strong> </a> 
+                                    <small style="font-size: 10px"><i><?= $com->comment_date?></i></small>
+                                    <!--Start comment edit-->
+                                    <?php if($com->user_id == $this->session->userdata('user_id')){?>
+                                        <span  data-toggle="modal" class="fas fa-pen-alt" data-target="#myModal"></span>
+                                        <span><a href="<?= base_url('Home/delete_comment/').$row->news_id.'/'.$com->comment_id?>" class="fas fa-trash-alt card-link"></a></span>
+                                    <?php }?>
+                                    <!--end comment edit-->
+                                </h4>
+                                <p><?php echo nl2br($com->comment_news); ?></p> 
+                                <?php if($com->comment_update != null){
+                                    echo "<p class='text-info' style='font-size:10px'>Edited: ".$com->comment_update."</p>";
+                                }?>
+                                <!-- The Modal start  -->
+                                    <div class="modal" id="myModal">
+                                        <div class="modal-dialog">
+                                        <div class="modal-content">
+                                            <!-- Modal Header -->
+                                            <div class="modal-header">
+                                            <h4 class="modal-title">Edit Comment </h4>
+                                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                            </div>
+                                            <!-- Modal body -->
+                                            <div class="modal-body">
+                                                <form action="" method="post">
+                                                    <textarea name="comment" id="" cols="30" rows="3" class="form-control"><?= nl2br($com->comment_news)?></textarea>
+                                                    <input type="text" style="display:none" name="comment_id" value="<?= $com->comment_id?>">
+                                                    <br>
+                                                    <input type="submit" name="update_comment" value="Update Comment" class="btn btn-lg btn-primary">
+                                                </form>
+                                            </div>
+                                            <!-- Modal footer -->
+                                            <div class="modal-footer">
+                                            <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                                            </div>
+                                        </div>
+                                        </div>
+                                    </div>
+                                <!--end model-->
+                            </div>
+                            <!--end comment main body -->
+                        </div>
+                    <?php }?>
                         </div>
                     </div>
                 </div>
+            
         </div>
     </body>
+
+  
+  
+  
+  
 </html>
