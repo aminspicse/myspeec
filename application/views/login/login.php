@@ -1,62 +1,50 @@
-<br><br><br>
+<br><br><br><br><br><br>
+    
+    
+        <div class=" row" style="">
+            <div class="col-md-4 offset-4 col-xs-12 col-sm-12 img-thumbnail">
+            <p class="text-center text-danger error"><b><?= $error ?></b></p>
+            <p class="text-center text-danger error"><b><?= $this->session->flashdata('msg')?></b></p>
 
-
-
-        <div class="container">
-            <main class="login-form">
-                <div class="cotainer">
-                    <div class="row justify-content-center">
-                        <div class="col-md-8">
-                            <div class="card">
-                                <div class="card-header">SignIn</div>
-                                <div class="card-body">
-                                    <div class="row">
-                                        <div class="col-md-10 offset-2">
-                                            <p class="text-center text-danger"><?= $error ?></p>
-                                            <p class="text-center text-danger"><?= $this->session->flashdata('msg')?></p>
-                                        </div>
-                                    <br>
-                                    </div>
-                                    <form action="<?= base_url() ?>Login/Check_Validation" method="GET" class="">
-                                        <div class="form-group row">
-                                            <label for="email_address" class="col-md-4 col-form-label text-md-right">E-Mail Address</label>
-                                            <div class="col-md-6">
-                                                <input type="text" id="email_address" class="form-control" name="username" required autofocus>
-                                            </div>
-                                        </div>
-
-                                        <div class="form-group row">
-                                            <label for="password" class="col-md-4 col-form-label text-md-right">Password</label>
-                                            <div class="col-md-6">
-                                                <input type="password" id="password" class="form-control" name="password" required>
-                                            </div>
-                                        </div>
-
-                                        <div class="form-group row">
-                                            <div class="col-md-6 offset-md-4">
-                                                <div class="checkbox">
-                                                    <label>
-                                                        <input type="checkbox" name="remember"> Remember Me
-                                                    </label>
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        <div class="col-md-6 offset-md-4">
-                                            <button type="submit" name="login" class="btn btn-primary">SignIn </button>
-                                            <a href="#" class="btn btn-link">
-                                                Forgot Your Password?
-                                            </a>
-                                        </div>
-                                </div>
-                                </form>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                </div>
-
-            </main>
+                <form action="<?= base_url() ?>Login/Check_Validation" method="GET" class="">
+                    <input type="text" name="username" class="username" placeholder="Email Address">
+                    <input type="password" name="password" class="password" placeholder="Password">
+                    <button type="submit" name="login" class="login btn-success">Log In</button>
+                    <br>
+                    <a href="<?= base_url('forgot')?>" class="btn btn-block">Forgot Password</a>
+                </form>
+            </div>
         </div>
+
     </body>
+
+    <style>
+        .username{
+            width: 100%;
+            height: 40px;
+            border: 2px solid green;
+            font-size: 20px;
+            font-family: arial;
+        }
+        .password{
+            margin-top: 5px;
+            width: 100%;
+            height: 40px;
+            border: 2px solid black;
+            font-size: 20px;
+            font-family: arial;
+        }
+        .login{
+            margin-top: 5px;
+            width: 100%;
+            height: 40px;
+            font-size: 20px;
+            font-family: arial;
+        }
+        .error{
+            margin-top: 2px;
+            margin-bottom: 2px;
+            font-size: 16px;
+        }
+    </style>
 </html>

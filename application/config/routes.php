@@ -55,3 +55,7 @@ $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
 
 $route['home'] = 'Home/index';
+
+// forgot password start
+$route['forgot'] = 'Forgot_Password/forgot';
+//forgot password end

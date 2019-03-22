@@ -37,6 +37,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                         'username'  => $_POST['username'],
                         'phone'     => $_POST['phone'],
                         'password'  => sha1($_POST['password']),
+                        'temp_password' => rand(1000,1000000),
                         'agreement' => $_POST['agreement'],
                         'birth_date'=> $_POST['date'],
                         'birth_month' => $_POST['month'],
