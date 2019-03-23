@@ -11,7 +11,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
         public function forgot(){
             
-            $this->load->view('header');
+            $this->load->view('navbarland');
             $this->load->view('forgot_password/forgot_password',array('error' => '')); 
         }
 
@@ -22,11 +22,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             $data['check'] = $this->Forgot_Password_Model->Forgot($data['username']);
             $data['error'] = '';
             if($data['check'] == true){
-                $this->load->view('header');
+                $this->load->view('navbarland');
                 $this->load->view('forgot_password/verify_password', $data); 
             }else{
                 $err['error'] = "This Email Is Not Registered";
-                $this->load->view('header');
+                $this->load->view('navbarland');
                 $this->load->view('forgot_password/forgot_password',$err); 
             }  
         }
@@ -41,11 +41,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
            $data['check'] = $this->Forgot_Password_Model->Forgot($username);
            if($temp_password == $code){
                $data['error'] = '';
-               $this->load->view('header');
+               $this->load->view('navbarland');
                $this->load->view('forgot_password/change_password',$data);
            }else{
                 $data['error'] = "Temporary password dose't match";
-                $this->load->view('header');
+                $this->load->view('navbarland');
                 $this->load->view('forgot_password/verify_password', $data); 
            }
         }
@@ -69,7 +69,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 redirect(base_url('login'), $this->session->set_flashdata('msg','Your Password Change Successfully'));
             }else{
                 $data['error'] = "Password and Re-Password dose't match";
-                $this->load->view('header');
+                $this->load->view('navbarland');
                 $this->load->view('forgot_password/change_password', $data);
             }
         }

@@ -1,4 +1,4 @@
-<br><br><br><br><br><br>
+<br><br>
 
 <?php 
     ///foreach ($check->result() as $row) {
@@ -6,14 +6,15 @@
     //}
 ?>
 <div class="row">
-    <div class="col-md-4 offset-4 img-thumbnail">
+    <div class="col-md-4 offset-md-4 col-xs-12 col-sm-12 img-thumbnail">
         <p class="text-center"><img src="<?= $check['photo'] ?>" class="rounded-circle img" alt="" srcset=""></p>
         <h3 class="name text-center"><b><?= $check['fname'].' '. $check['lname']?></b></h3>
         <p class="text-center"><?= $check['username'] ?></p>
         <p class="text-success text-center">You Receved a 6 digit Temporary Password. Please check your email.</p>
         <h4 class="text-danger text-center"><?= $error ?></h4>
         <form action="<?= base_url('Forgot_Password/temp_password_val')?>" method="get">
-            <input type="text" name="code" value="<?= $check['temp_password']?>">
+            <h4><?= $check['temp_password']?></h4>
+            <input type="text" name="code" style="display:none" value="<?= $check['temp_password']?>">
             <input type="text" name="username" style="display:none" value="<?= $check['username']?>">
             <input type="text" name="temp_password" class="temp_password" required placeholder="Enter Your Temporary Password">
             <button type="submit" name="verify_temp_password" class="send_email btn-info">Process Next</button>

@@ -15,7 +15,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             if($this->session->userdata('user_id') == true){
                 redirect('Home');
             }else{
-                $this->load->view('header');
+                $this->load->view('navbarland');
                 $this->load->view('login/login', array('error' => ''));
             }
         }
@@ -43,7 +43,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
                 redirect(base_url().'Home');
             }else{
-                $this->load->view('header');
+                $this->load->view('navbarland');
                 $error['error'] = "Email or Password Invalide";
                 $this->load->view('login/login', $error);
             }

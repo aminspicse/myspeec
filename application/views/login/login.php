@@ -1,8 +1,8 @@
-<br><br><br><br><br><br>
+<br><br>
     
     
         <div class=" row" style="">
-            <div class="col-md-4 offset-4 col-xs-12 col-sm-12 img-thumbnail">
+            <div class="col-md-4 offset-md-4 col-xs-12 col-sm-12 img-thumbnail">
             <p class="text-center text-danger error"><b><?= $error ?></b></p>
             <p class="text-center text-danger error"><b><?= $this->session->flashdata('msg')?></b></p>
 

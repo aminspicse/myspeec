@@ -18,8 +18,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
             if($this->form_validation->run() == FALSE){
 
-                $this->load->view("header.php");
-                $this->load->view('leftnav');
+                $this->load->view("navbarland");
+                //$this->load->view('leftnav');
                 $this->load->view("singup/signup.php");
                 
             }else{
@@ -27,16 +27,17 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 if(isset($_POST['signup'])){
                 
                     $data = array(
-                        'fname'         => $_POST['fname'],
-                        'lname'         => $_POST['lname'],
-                        'username'      => $_POST['username'],
-                        'phone'         => $_POST['phone'],
-                        'password'      => sha1($_POST['password']),
+                        'fname'     => $_POST['fname'],
+                        'lname'     => $_POST['lname'],
+                        'gender'    => $_POST['gender'],
+                        'username'  => $_POST['username'],
+                        'phone'     => $_POST['phone'],
+                        'password'  => sha1($_POST['password']),
                         'temp_password' => rand(1000,1000000),
-                        'agreement'     => $_POST['agreement'],
-                        'birth_date'    => $_POST['date'],
-                        'birth_month'   => $_POST['month'],
-                        'birth_year'    => $_POST['year']
+                        'agreement' => $_POST['agreement'],
+                        'birth_date'=> $_POST['date'],
+                        'birth_month' => $_POST['month'],
+                        'birth_year' => $_POST['year']
                     );
 
                 }

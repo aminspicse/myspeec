@@ -55,8 +55,8 @@
                         </select>
                         <h5 class=""><a href="">Why Date of birth is importen?</a></h5>
                         <br>
-                        <label class="radio-inline"><input type="radio" name="optradio"> Mail </label>
-                        <label class="radio-inline"><input type="radio" name="optradio"> Femail</label>
+                        <b><label class="radio-inline"><input type="radio" name="gender" value="Mail"> Mail </label></b>
+                        <b><label class="radio-inline"><input type="radio" name="gender" value="Femail"> Femail</label></b>
                         <p> 
                             You may receive SMS notifications from us and can opt out at any time.
                             I Agree all the terms and condition of myspeec.

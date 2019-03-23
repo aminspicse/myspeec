@@ -34,6 +34,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     $data = array(
                         'fname'     => $_POST['fname'],
                         'lname'     => $_POST['lname'],
+                        'gender'    => $_POST['gender'],
                         'username'  => $_POST['username'],
                         'phone'     => $_POST['phone'],
                         'password'  => sha1($_POST['password']),
