@@ -4,6 +4,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         function __construct(){
             parent::__construct();
             date_default_timezone_set('Asia/Dhaka');
+            if($this->session->userdata('user_id') == true){
+                redirect('Home');
+            }
         }
 
         public function index(){

@@ -50,7 +50,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     <script src="<?= base_url('assets/css/bootstrap.min.js') ?>"></script>
     
 
-    <link rel="stylesheet" href="<?= base_url() ?>assets/headandnav/css/reset.css">
     <link rel="stylesheet" href="<?= base_url() ?>assets/headandnav/css/style.css">
     <script src="<?= base_url() ?>assets/headandnav/js/modernizr.js"></script>
 
@@ -60,7 +59,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 </head>
-<body class="">
+<body class="bg-light">
     <header class="cd-main-header">
             <a href="<?= base_url() ?>" class="cd-logo"><img src="<?= base_url() ?>assets/headandnav/img/cd-logo.svg" alt=""></a>
             
@@ -77,8 +76,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 <ul class="cd-top-nav">
                     <li><a href="<?= base_url() ?>" class="card-link"> <i class="fa fa-home"></i> Home</a></li>
                     <li><a href="<?= base_url() ?>" class="card-link"> <i class="fa fa-bell"></i> Notification</a></li>
-                    <li><a href="<?= base_url() ?>SignUp/" class="card-link">SignUp</a></li>
-                    <li><a href="<?= base_url() ?>Login/" class="card-link">SignIn</a></li>
+                    
                     <li class="has-children account">
                         <?php if($this->session->userdata('user_id') == true){ ?>
                             

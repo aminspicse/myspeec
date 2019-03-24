@@ -1,15 +1,15 @@
 <main class="cd-main-content">
 		<nav class="cd-side-nav">
 			<ul>
-				<li class="">
+				<li class="" style="margin-top: -10px">
 					<a href="<?= base_url() ?>Home" class="card-link"> <i class="fa fa-home"></i> Home</a>
 					
 				</li>
-				<li class="">
+				<li class="" style="margin-top: -10px">
 					<a href="<?= base_url() ?>Home/video" class="card-link" target="_new"> <i class="fa fas fa-play"></i> Videos</a>
 					
 				</li>
-				<li class="">
+				<li class="" style="margin-top: -10px">
 					<a href="<?= base_url() ?>NewSpeec/" class="card-link" target="_new"> <i class="fa fa-newspaper"></i> New Speek</a>
 					
 				</li>

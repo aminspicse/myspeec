@@ -9,11 +9,9 @@ Primary style
 }
 */
 html {
-  font-size: 62.5%;
 }
 
 body {
-  font-size: 1.7rem;
   font-family: "verdana", "";
   color: #000203;
   /*background-color: #ffffff; */
@@ -54,7 +52,6 @@ Main Page Content
 .cd-main-content .content-wrapper h1 {
   text-align: left;
   padding: 3em 0;
-  font-size: 2rem;
 }
 .cd-main-content::before {
   /* never visible - used to check MQ in jQuery */
@@ -68,7 +65,6 @@ Main Page Content
   }
   .cd-main-content .content-wrapper h1 {
     padding: 4em 0;
-    font-size: 3.2rem;
     font-weight: 300;
   }
   .cd-main-content::before {
@@ -341,7 +337,6 @@ Top Navigation
   }
   .cd-top-nav a {
     display: block;
-    font-size: 1.4rem;
     color: green;
   }
   .cd-top-nav > li {
@@ -377,7 +372,7 @@ Sidebar
   top: 0;
   width: 100%;
   padding: 45px 0 0;
-  background-color: #ddd4d4;
+ /* background-color: #ddd4d4;*/
   visibility: hidden;
   opacity: 0;
   max-height: 100vh;
@@ -407,26 +402,22 @@ Sidebar
 }
 .cd-side-nav .cd-label, .cd-side-nav a {
   display: block;
-  padding: 1em 5%;
 }
 .cd-side-nav .cd-label {
   text-transform: uppercase;
   font-weight: bold;
-  color: black;
-  font-size: 1rem;
+  /*color: black;*/
   letter-spacing: .1em;
 }
 .cd-side-nav a {
   position: relative;
   color: black;
-  font-size: 1.4rem;
 }
 .cd-side-nav ul.cd-top-nav > li:last-of-type > a {
   border-bottom: none;
 }
 .cd-side-nav > ul > li > a {
   padding-left: calc(5% + 24px);
-  border-bottom: 1px solid green;
 }
 .cd-side-nav > ul > li > a::before {
   /* icon before item name */
@@ -440,9 +431,7 @@ Sidebar
   -ms-transform: translateY(-50%);
   -o-transform: translateY(-50%);
   transform: translateY(-50%);
-  height: 16px;
-  width: 16px;
-  background: ;
+ 
 }
 .cd-side-nav > ul > li.overview > a::before {
   background-position: -64px 0;
@@ -478,7 +467,6 @@ Sidebar
   border-radius: .25em;
   color: #ffffff;
   font-weight: bold;
-  font-size: 1.2rem;
   text-align: center;
 }
 .cd-side-nav .action-btn a {
@@ -525,7 +513,6 @@ Sidebar
     display: none;
   }
   .cd-side-nav a {
-    font-size: 1.2rem;
     text-align: center;
   }
   .cd-side-nav > ul > li > a {
@@ -543,17 +530,11 @@ Sidebar
   }
   .cd-side-nav .active > a {
     /* current page */
-    box-shadow: inset 3px 0 0 #1784c7;
-    background-color: #33383e;
   }
   .cd-side-nav .action-btn a {
-    margin: 1em 10% 0;
   }
   .cd-side-nav .count {
-    height: 8px;
-    width: 8px;
     border-radius: 50%;
-    box-shadow: 0 0 6px rgba(0, 0, 0, 0.2);
     padding: 0;
     top: 2em;
     -webkit-transform: translateX(-50%);
@@ -574,7 +555,7 @@ Sidebar
     padding: 0.6em 0;
   }
   .cd-side-nav > ul > li:not(.action-btn):hover > a {
-    background-color: #33383e;
+    background-color: #d4e5f5;
   }
   .cd-side-nav > ul > li > a {
     padding: 1em 1em 1em 42px;

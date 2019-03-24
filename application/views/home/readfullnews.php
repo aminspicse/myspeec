@@ -1,5 +1,5 @@
 
-        <div class="content-wrapper container">
+        <div class="content-wrapper container" style="background-color: white">
             <?php foreach($query->result() as $row){ ?>
                 <div class="row">
                     <div class="col-12">
@@ -24,8 +24,8 @@
                         echo nl2br($row->news_post_2);
                         ?>
                         
-                        <h4 class="text-center"><b>End of The Speec </b></h4>
-                        <h4>Posted By: <a href="<?= base_url('Public_Profile/index/').$row->user_id;?>" class="card-link"><?= $row->fname.' '.$row->lname;?></a> On <?= $row->news_insert_time;?></h4>
+                        <h6 class="text-center"><b>End of The Speec </b></h6>
+                        <p>Posted By: <a href="<?= base_url('Public_Profile/index/').$row->user_id;?>" class="card-link"><?= $row->fname.' '.$row->lname;?></a> On <?= $row->news_insert_time;?></p>
                         <hr>
                         <form action="<?= base_url() ?>Home/Like_Dislike" method="get">
                             <p>
@@ -70,12 +70,12 @@
                         </form> 
                         <form action="<?= base_url() ?>Home/Comment_news" method="get">
                             <label for=""><strong>Write Your Comment</strong></label>
-                            <textarea name="comment" id="" cols="30" rows="3" class="form-control"></textarea>
+                            <textarea name="comment" id="" cols="30" rows="3" class="form-control" style="font-size: 16px"></textarea>
                             <br>
-                            <input type="submit" name="post_comment" value="Comment" class="btn btn-info pull-right">
+                            <input type="submit" name="post_comment" style="margin-top: -20px" value="Comment" class="float-right btn btn-info pull-right">
                             <input type="text" name="news_id" style="display:none" value="<?= $row->news_id; ?>">
                         </form>
-            <?php }; ?>
+            <?php }; ?> 
                         <br><br>
                         <div class="img-thumbnail">
                     <?php foreach($commentquery->result() as $com){ ?>
@@ -85,19 +85,20 @@
                             </div>
                             <!-- start comment body -->
                             <div class="media-body">
-                                <h4 class="media-heading">
-                                    <a href="<?= base_url('Public_Profile/index/').$com->user_id ?>"><strong><?= $com->fname.''.$com->lname; ?> </strong> </a> 
+                                <h5 class="media-heading">
+                                    <a href="<?= base_url('Public_Profile/index/').$com->user_id ?>"><?= $com->fname.''.$com->lname; ?> </a> 
                                     <small style="font-size: 10px"><i><?= $com->comment_date?></i></small>
                                     <!--Start comment edit-->
                                     <?php if($com->user_id == $this->session->userdata('user_id')){?>
-                                        <span  data-toggle="modal" class="fas fa-pen-alt" data-target="#myModal"></span>
+                                        <small><span  data-toggle="modal" class="fas fa-pen-alt" data-target="#myModal"></span>
                                         <span><a href="<?= base_url('Home/delete_comment/').$row->news_id.'/'.$com->comment_id?>" class="fas fa-trash-alt card-link"></a></span>
-                                    <?php }?>
+                                        </small>
+                                        <?php }?>
                                     <!--end comment edit-->
-                                </h4>
+                                </h5>
                                 <p><?php echo nl2br($com->comment_news); ?></p> 
                                 <?php if($com->comment_update != null){
-                                    echo "<p class='text-info' style='font-size:10px'>Edited: ".$com->comment_update."</p>";
+                                    echo "<p class='' style='font-size:10px'>Edited: <b>".$com->comment_update."</b></p>";
                                 }?>
                                 <!-- The Modal start  -->
                                     <div class="modal" id="myModal">
@@ -111,10 +112,10 @@
                                             <!-- Modal body -->
                                             <div class="modal-body">
                                                 <form action="" method="post">
-                                                    <textarea name="comment" id="" cols="30" rows="3" class="form-control"><?= nl2br($com->comment_news)?></textarea>
+                                                    <textarea name="comment" id="" cols="30" rows="3" class="form-control"><?= $com->comment_news?></textarea>
                                                     <input type="text" style="display:none" name="comment_id" value="<?= $com->comment_id?>">
-                                                    <br>
-                                                    <input type="submit" name="update_comment" value="Update Comment" class="btn btn-lg btn-primary">
+                                                    
+                                                    <input type="submit" name="update_comment" value="Update Comment" class="btn  btn-primary">
                                                 </form>
                                             </div>
                                             <!-- Modal footer -->
@@ -136,8 +137,4 @@
         </div>
     </body>
 
-  
-  
-  
-  
 </html>

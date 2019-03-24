@@ -6,7 +6,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             parent::__construct();
             $this->load->model('Forgot_Password_Model');
             $this->load->library('form_validation');
-            //public error;
+            if($this->session->userdata('user_id') == true){
+                redirect('Home');
+            }
         }
 
         public function forgot(){
