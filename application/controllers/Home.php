@@ -18,7 +18,7 @@ class Home extends CI_Controller {
         
         $data['query']=$this->Home_Model->Home();
 
-        $this->load->view("header");
+        $this->load->view("header",array('search' => ''));
         $this->load->view('leftnav');
         $this->load->view('home/news',$data);
        // echo $read;
@@ -26,7 +26,7 @@ class Home extends CI_Controller {
 
     public function video(){
 
-        $this->load->view("header");
+        $this->load->view("header",array('search' => ''));
        // $this->load->view('leftnav');
         $this->load->view('leftnav');
         $this->load->view('home/index'); 
@@ -46,6 +46,7 @@ class Home extends CI_Controller {
         $data['dislikes'] = $this->Home_Model->DisLikes($news_id);
         $data['likevalidation'] = $this->Home_Model->Like_Validation($news_id);
         $data['dislikevalidation'] = $this->Home_Model->Dislike_Validation($news_id); 
+        $data['search'] = '';
         $this->load->view('header',$data);
         $this->load->view('leftnav');
         $this->load->view('home/readfullnews',$data);

@@ -17,7 +17,7 @@
             $this->form_validation->set_rules('re_newpassword','New Password','required|matches[newpassword]',array('required' => 'Please Enter a New Password Password', 'matches' => 'Password Dose\'nt Matches'));
             //$this->form_validation->set_rules('pass')
             if($this->form_validation->run()==false){
-                $this->load->view('header');
+                $this->load->view('header', array('search' => ''));
                 $this->load->view('profile/profile_leftnav');
                 $this->load->view('changepass/changepassword');
             }else{

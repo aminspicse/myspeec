@@ -8,7 +8,7 @@
 
         function index(){
             $data['recever'] = $this->Messages_Model->recever_id(6);
-            $this->load->view('header');
+            $this->load->view('header',array('search' => ''));
             $this->load->view('messages/index.php');
             
         }

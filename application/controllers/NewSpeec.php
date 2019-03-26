@@ -9,7 +9,7 @@
 
         function index(){
             if($this->session->userdata('user_id') == true){
-                $this->load->view('header');
+                $this->load->view('header',array('search' => ''));
                 $this->load->view('leftnav');
                 $this->load->view('newspeec/new_speech');
             }else{
@@ -52,7 +52,7 @@
                             redirect(base_url().'Home');
                         }
                     }else{
-                        $this->load->view('header');
+                        $this->load->view('header',array('search' => ''));
                         $this->load->view('leftnav');
                         $this->load->view('newspeec/error');
                         $this->load->view('newspeec/new_speech');
@@ -61,7 +61,7 @@
                     
                 }
             }else{
-                $this->load->view('header');
+                $this->load->view('header',array('search' => ''));
                 $this->load->view('leftnav');
                 $this->load->view('newspeec/new_speech');
             }

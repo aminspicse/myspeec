@@ -17,7 +17,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             //     $datas['sub_id'] = $rw->user_id;
             // }
             //$data['filter'] = $this->MakeFriend_Model->friend_filter($datas['parent_id'], $datas['sub_id']);
-            $this->load->view('header');
+            $this->load->view('header',array('search' => ''));
             $this->load->view('leftnav');
             $this->load->view('allspeaker/allspeaker_list.php', $data);
 

@@ -11,7 +11,7 @@
         }
 
         function index(){
-            $this->load->view('header');
+            $this->load->view('header',array('search' => ''));
             $this->load->view('profile/profile_leftnav');
             $query['query'] = $this->MySpeec_Model->myspeec();
             $this->load->view('myspeech/index', $query); 
@@ -19,7 +19,7 @@
 
         function edit_post($news_id){
 
-                $this->load->view('header');
+                $this->load->view('header',array('search' => ''));
                 $this->load->view('profile/profile_leftnav');
                 $this->load->view('myspeech/edit_post.php', array('query' => $this->MySpeec_Model->Edit_post($news_id), 'error' => '' ));
           
@@ -46,7 +46,7 @@
 
                 // $query['query'] = $this->MySpeec_Model->Edit_post($news_id);
                     $this->session->set_flashdata('msg', 'Your Post Updated Successfully');
-                    $this->load->view('header');
+                    $this->load->view('header',array('search' => ''));
                     $this->load->view('profile/profile_leftnav');
                     $this->load->view('myspeech/edit_post.php', array('query' => $this->MySpeec_Model->Edit_post($news['id']), 'error' => '' ));
 

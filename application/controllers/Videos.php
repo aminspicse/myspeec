@@ -7,7 +7,7 @@
         }
 
         function index(){
-            $this->load->view('header');
+            $this->load->view('header',array('search' = '');
             $this->load->view('leftnav');
             $this->load->view('videos/index.php');
         }

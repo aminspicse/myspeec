@@ -19,7 +19,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             $data['sub_id'] = $user_id;// check for friend request filtering 
             $data['queryindex'] = $this->Public_Profile_Model->Profile($user_id);
             $data['filter_request'] = $this->MakeFriend_Model->friend_filter($data['parent_id'], $data['sub_id']);
-            $this->load->view('header');
+            $this->load->view('header',array('search' => ''));
             $this->load->view('leftnav');
             $this->load->view('public_profile/index',$data);
             $this->load->view('public_profile/about.php', $data);
