@@ -28,7 +28,7 @@
                         'upload_path'   => './uploads/',
                         'allowed_types' => 'jpg|png|gif|bmp',
                         'max_size'      => 100,
-                        'max_width'     => 1000,
+                        'max_width'     => 1000, 
                         'max_height'    => 1000,
                         'encrype_name'  => true
                     );
@@ -42,7 +42,7 @@
                             'video_link'    	=> $_POST['video_link'],
                             'image_link'    	=> base_url('uploads/').$this->upload->data('file_name'),
                             'user_privacy'  	=> $_POST['user_privacy'],
-                            'news_insert_time'  => Date('d-m-y h:i:s')
+                            'news_insert_time'  => date("l jS \of F Y h:i:s A")
                         );
                         
                         $check = $this->NewSpeec_Model->insert_speec($data);

@@ -1,6 +1,6 @@
 <br><br>
 <div class="row">
-    <div class="col-md-4 offset-md-4 col-xs-12 col-sm-12 img-thumbnail">
+    <div class="col-md-4 offset-md-4 col-xs-12 col-sm-12 img-thumbnail bg-light">
         <p class="text-danger text-center"><b><?php echo $error ?></b></p>
         <form action="<?= base_url('Forgot_Password/forgot_val')?>" method="get">
             <input type="email" name="username" class="username" required placeholder="Enter Your Email">

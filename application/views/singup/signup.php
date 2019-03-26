@@ -63,8 +63,8 @@
                 </div>
                 <div class="row">
                     <div class="form-group">
-                        <b><label class="radio-inline"><input type="radio" name="gender" value="Mail"> Mail </label></b>
-                        <b><label class="radio-inline"><input type="radio" name="gender" value="Femail"> Femail</label></b>
+                        <b><label class="radio-inline"><input type="radio" name="gender" value="Male"> Male </label></b>
+                        <b><label class="radio-inline"><input type="radio" name="gender" value="Female"> Female</label></b>
                     </div>
                 </div>
                 <div class="row">

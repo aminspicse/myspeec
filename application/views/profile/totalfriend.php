@@ -1,12 +1,4 @@
                 <table class="table ">
-                    <tr>
-                        <th>SL</th>
-                        <th>Name</th>
-                        <th>Phone</th>
-                        <th>Country</th>
-                        <th>Profile photo</th>
-                        <th>Remove</th>
-                    </tr>
                 <?php $i = 1; foreach($total_friend->result() as $row):?>
                     <tr>
                         <?php 

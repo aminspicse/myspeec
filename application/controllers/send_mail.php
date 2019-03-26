@@ -3,9 +3,9 @@
     class send_mail extends CI_Controller{
 
         public function mail(){
-            $this->load->helper('email');
+           // $this->load->helper('email');
             $this->load->library('email');
-            $this->load->library('session');
+            //$this->load->library('session');
             $config = Array(
                 'protocol' => 'gmail',
                 'smtp_host' => 'ssl://googlemail.com',

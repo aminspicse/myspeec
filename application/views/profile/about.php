@@ -14,7 +14,7 @@
                     </tr>
                     <tr>
                         <td>Agreement: </td>
-                        <td class="text-success"><?= $row->agreement; ?></td>
+                        <td class="text-success"><?php // $row->agreement; ?></td>
                         <td>Country: </td>
                         <td><b class="text-success"><?= $row->country; ?></b><a href="<?= base_url('Profile/update_personal_info')?>" class="card-link">  Edit</a></td>
                     </tr>

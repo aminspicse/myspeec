@@ -6,7 +6,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             parent::__construct();
             $this->load->model('AllSpeaker_Model');
             $this->load->model('MakeFriend_Model');
-            $this->session->userdata('user_id');
+            //$this->session->userdata('user_id');
         }
 
         function index(){

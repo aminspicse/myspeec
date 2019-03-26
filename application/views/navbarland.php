@@ -11,7 +11,7 @@
     <nav class="navbar navbar-expand-sm navbar-fixed" style="background-color: #e7eff7">
         <div class="container">
             <a href="" class="navbar-brand">myspeec</a>
-            <a href="<?= base_url('SignUp')?>" class="btn ">Create and account</a>
+            <a href="<?= base_url('SignUp')?>" class="btn ">Create</a>
             <a href="<?= base_url('login')?>" class="btn ">Login</a>
         </div>
     </nav>

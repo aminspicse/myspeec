@@ -6,7 +6,7 @@
     //}
 ?>
 <div class="row">
-    <div class="col-md-4 offset-md-4 col-xs-12 col-sm-12 img-thumbnail">
+    <div class="col-md-4 offset-md-4 col-xs-12 col-sm-12 img-thumbnail bg-light">
         <p class="text-center"><img src="<?= $check['photo'] ?>" class="rounded-circle img" alt="" srcset=""></p>
         <h3 class="name text-center"><b><?= $check['fname'].' '. $check['lname']?></b></h3>
         <p class="text-center"><?= $check['username'] ?></p>
