@@ -30,7 +30,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         }
 
         public function friends(){
-            if(isset($_GET['keywords'])){
+            if(isset($_GET['keyword'])){
                 $data['search'] = $_GET['search'];
                 
             } 
@@ -41,6 +41,33 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             $this->load->view('search_main/friend',$data);
         }
 
+        public function videos(){  
+
+            if(isset($_GET['keyword'])){
+                $data['search'] = $_GET['search'];
+                
+            } 
+            $data['search_posts'] = $this->Search_Nav_Model->Search_Video($data['search']); 
+            $this->load->view('header',$data);
+            $this->load->view('leftnav');
+            $this->load->view('search_main/index',$data);
+            $this->load->view('search_main/videos',$data);
+            //echo $data["search"];
+        }
+
+        public function images(){  
+
+            if(isset($_GET['keyword'])){
+                $data['search'] = $_GET['search'];
+                
+            } 
+            $data['search_posts'] = $this->Search_Nav_Model->Search_Video($data['search']); 
+            $this->load->view('header',$data);
+            $this->load->view('leftnav');
+            $this->load->view('search_main/index',$data);
+            $this->load->view('search_main/videos',$data);
+            //echo $data["search"];
+        }
         
     }
 

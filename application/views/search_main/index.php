@@ -1,5 +1,5 @@
 <div class="content-wrapper">
-    <div class="row">
+    <div class="row bg-white">
         <div class="col-md-1">
             <form action="<?= base_url('Search/posts/')?>">
                 <input type="text" name="search" style="display:none" value="<?= $_GET['search'] ?>">
@@ -9,14 +9,20 @@
         <div class="col-md-1">
             <form action="<?= base_url('Search/friends/')?>">
                 <input type="text" name="search" style="display:none" value="<?= $_GET['search'] ?>">
-                <input type="submit" name="keywords" value="Friends" class="btn btn-link card-link">
+                <input type="submit" name="keyword" value="Friends" class="btn btn-link card-link">
             </form>
         </div>
         <div class="col-md-1">
-            <a href="">Video</a>
+            <form action="<?= base_url('Search/videos/')?>">
+                <input type="text" name="search" style="display:none" value="<?= $_GET['search'] ?>">
+                <input type="submit" name="keyword" value="Videos" class="btn btn-link card-link">
+            </form>
         </div>
         <div class="col-md-1">
-            <a href="">Image</a>
+            <form action="<?= base_url('Search/images/')?>">
+                <input type="text" name="search" style="display:none" value="<?= $_GET['search'] ?>">
+                <input type="submit" name="keyword" value="Images" class="btn btn-link card-link">
+            </form>
         </div>
         
     </div>

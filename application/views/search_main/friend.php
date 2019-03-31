@@ -12,6 +12,9 @@
                 <div class="col-md-2">
                     <a href="<?= base_url('SMS/chating/'.$row->user_id) ?>"><h6>Send Message</h6></a>
                 </div>
+                <div class="col-md-2">
+                    <a href="<?php ?>"><h6>Friends <?php $count = $this->Search_Nav_Model->total_friend($row->user_id); echo $count->num_rows();?></h6></a>
+                </div>
             </div>
         <?php }} else{?>
             <div class="row">
@@ -19,8 +22,6 @@
             </div>
     <?php }?>
     
-
-
 </div>
 
 </main>
