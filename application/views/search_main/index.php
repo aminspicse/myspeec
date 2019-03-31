@@ -1,15 +1,15 @@
 <div class="content-wrapper">
-    <div class="row bg-danger">
+    <div class="row">
         <div class="col-md-1">
             <form action="<?= base_url('Search/posts/')?>">
                 <input type="text" name="search" style="display:none" value="<?= $_GET['search'] ?>">
-                <a><button type="submit" name="keyword">Posts</button></a>
+                    <input type="submit" name="keyword" class="btn btn-link card-link" value="Posts" />
             </form>
         </div>
         <div class="col-md-1">
             <form action="<?= base_url('Search/friends/')?>">
                 <input type="text" name="search" style="display:none" value="<?= $_GET['search'] ?>">
-                <button type="submit" name="keywords">Friends</button>
+                <input type="submit" name="keywords" value="Friends" class="btn btn-link card-link">
             </form>
         </div>
         <div class="col-md-1">
