@@ -14,8 +14,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             $this->load->view('search_main/index');
 
         } 
-
-        public function posts(){  
+/* 
+        public function count($news_id){
+            $qry = $this->Search_Nav_Model->like_count($news_id);
+            echo $qry->num_rows();
+        }
+ */
+        public function posts(){   
 
             if(isset($_GET['keyword'])){
                 $data['search'] = $_GET['search'];

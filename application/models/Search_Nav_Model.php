@@ -6,7 +6,20 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         function __construct(){
             parent::__construct();
         }
- 
+        
+        /* public function like_count($news_id){
+            $this->db->select('likes');
+            $this->db->from('news_like_dislike');
+            $this->db->where('news_id',  $news_id);
+            $this->db->where('likes',1);
+            return $this->db->get();
+        }
+        public function Search_All($search){
+            $this->db->select('*');
+            $this->db->from('posts');
+            $this->db->order_by($this->like_count(32), 'desc');
+        }  */
+         
         public function Search_Post($search){
             $this->db->select('*');  
             $this->db->from('news_post');
