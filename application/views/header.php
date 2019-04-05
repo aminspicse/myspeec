@@ -1,115 +1,88 @@
 <?php 
 defined('BASEPATH') OR exit('No direct script access allowed');
-
+//new header
 ?>
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+    <meta name="generator" content="Jekyll v3.8.5">
+    <title>Jumbotron Template · Bootstrap</title>
 
-<!DOCTYPE html>
-<html lang="en" class="">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-    <meta name="robots" content="noindex" />
-    <meta name="HandheldFriendly" content="true" />
-    <meta name="keywords" content="myspeec, myspeech, speeker"/>
-    <meta name="description" content="MySpeec is a digital free social media. We believe in freedom of speech. We believe open journalism. Use MySpace and highlight all the events that happen around you and express your opinion. এটি একটি ডিজিটাল মুক্তবাক সামাজিক মাধ্যম । আমরা বাক স্বাধীনতায় বিশ্বাস করি। আমরা ওপেন সাংবাদিকতায় বিশ্বাস করি। মাইস্পিস ব্যাবহার করুন আর আপনার আশেপাশে ঘটে যাওয়া সকল ঘটনা তুলে ধরুন এবং আপনার মতামত ব্যক্ত করুন। "/>
-    <meta name="subject" content="MySpeec Is a Digital Social Media">
-    <meta name="copyright" content="MySpeec">
-    <meta name="owner" content="MD. AL AMIN">
-    <meta name="url" content="http://myspeec.com/">
-    <meta name="identifier-URL" content="http://myspeec.com/">
-    <meta name="coverage" content="Worldwide">
-    <meta name="distribution" content="Global">
-    <meta name="rating" content="General">
-    <meta name="revisit-after" content="1 days">
-    <meta http-equiv="Expires" content="0">
-    <meta http-equiv="Pragma" content="no-cache">
-    <meta http-equiv="Cache-Control" content="no-cache">
-<!-- facebook share-->
-    <meta property="og:url"           content="http://www.myspeec.com/" />
-    <meta property="og:type"          content="website" />
-    <meta property="og:title"         content="MySpeec" />
-    <meta property="og:description"   content="MySpeec is a digital free social media. We believe in freedom of speech. We believe open journalism. Use MySpace and highlight all the events that happen around you and express your opinion. এটি একটি ডিজিটাল মুক্তবাক সামাজিক মাধ্যম । আমরা বাক স্বাধীনতায় বিশ্বাস করি। আমরা ওপেন সাংবাদিকতায় বিশ্বাস করি। মাইস্পিস ব্যাবহার করুন আর আপনার আশেপাশে ঘটে যাওয়া সকল ঘটনা তুলে ধরুন এবং আপনার মতামত ব্যক্ত করুন। " />
-    <meta property="og:image"         content="http://www.myspeec.com/uploads/nomination-awamilig.jpg" />
-    <!-- START META FOR APPLE PHONE-->
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta content="yes" name="apple-touch-fullscreen" />
-    <meta name="apple-mobile-web-app-status-bar-style" content="black">
-    <meta name="format-detection" content="telephone=no">
-    <!-- END -->
-    <!-- this tag use for bing search engine (start) -->
-    <META NAME="geo.position" CONTENT="latitude; longitude">
-    <META NAME="geo.placename" CONTENT="Place Name">
-    <META NAME="geo.region" CONTENT="Country Subdivision Code">
-    <!--end-->
-    <title>MySpeec</title>
-    <link href="<?= base_url('assets/css/bootstrap.min.css'); ?>" rel="stylesheet" type="text/css">
-    <link rel="stylesheet" href="<?php echo base_url() ?>assets/css/font-awesome.min.css">
-    <script src="<?= base_url('assets/css/bootstrap.min.js') ?>"></script>
-    
-
-    <link rel="stylesheet" href="<?= base_url() ?>assets/headandnav/css/style.css">
-    <script src="<?= base_url() ?>assets/headandnav/js/modernizr.js"></script>
-
-    <script src="<?= base_url() ?>assets/js/jquery-3.3.1.min.js"></script> 
-    <script src="<?= base_url() ?>assets/headandnav/js/main.js"></script>
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="<?= base_url('assets/bootstrap/css/bootstrap.min.css')?>">
+    <link href="https://getbootstrap.com/docs/4.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+   <!-- Bootstrap core CSS -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
     
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <!-- jquery slim -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script>window.jQuery || document.write('<script src="assets/jquery/jquery-3.3.1.slim.min.js"><\/script>')</script>
+    <!-- jquery slim -->
 
-<!-- search live -->
+    <!-- jquery popper -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script>window.jQuery || document.write('<script src="assets/jquery/popper.js"><\/script>')</script>
+     <!-- jquery popper -->
+
+    <!--bootstrap js -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script>window.jQuery || document.write('<script src="assets/bootstrap/js/bootstrap.min.js"><\/script>')</script>
+    <!--bootstrap js -->
+
+    <link rel="stylesheet" href="<?= base_url() ?>assets/headandnav/css/style.css">
+    <script src="<?= base_url() ?>assets/headandnav/js/main.js"></script>
 
 
-<!--search live -->
-    
-</head>
-<body class="bg-light">
+  </head>
+  <body class="container-fluid bg-light">
     <header class="cd-main-header">
-            <a href="<?= base_url() ?>" class="cd-logo"><img src="<?= base_url() ?>assets/headandnav/img/cd-logo.svg" alt=""></a>
+        <nav class="navbar navbar-expand-md navbar-light  bg-light fixed-top ">
+            <a class="navbar-brand" href="<?= base_url('Home') ?>">MySpeec</a>
             
-            <div class="">
-                <form action="<?= base_url('Search/posts/')?>" method="GET">
-                    <input type="search" name="search" value="<?= $search ?>" placeholder="Search...">
-                    <button type="submit" name="keyword"><i class="fa fa-search"></i></button>
+            <div class="col-sm-5 col-xs-12 col-md-5">
+                <form action="<?= base_url('Search/posts/')?>" method="GET" class="navbar-form" role="search">
+                    <div class="input-group">
+                        <input type="search" class="form-control"  name="search" value="<?= $search ?>" placeholder="Search...">
+                        <button type="submit" name="keyword"><i class="fa fa-search"></i></button>
+                        
+                    </div>
                 </form>
-            </div> <!-- cd-search -->
+            </div>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
 
-            <a href="#0" class="cd-nav-trigger"><span></span></a>
-
-            <nav class="cd-nav">
-                <ul class="cd-top-nav">
-                    <li><a href="<?= base_url() ?>" class="card-link"> <i class="fa fa-home"></i> Home</a></li>
-                    <li><a href="<?= base_url() ?>" class="card-link"> <i class="fa fa-bell"></i> Notification</a></li>
+            <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" style="display:none" href="#">Home <span class="sr-only">(current)</span></a>
+                    </li>
                     
-                    <li class="has-children account">
-                        <?php if($this->session->userdata('user_id') == true){ ?>
-                            
-                        <?php }?> 
-                        <a href="<?= base_url() ?>Login/" class="card-link">
-                        <img src="<?= $this->session->userdata("photo")?>" alt="">
-                            <?php if($this->session->userdata('user_id') == true){
-                                
-                                echo $this->session->userdata('fname');
-                            }else{
-                                echo "Need SignIn";
-                            }
+                </ul>
+                
+                <ul class="nav navbar-nav navbar-right">
+                    
+                    <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img width="20px" class="rounded-circle" src="<?= $this->session->userdata("photo")?>" alt=""><?= $this->session->userdata("fname")?></a>
+                        <div class="dropdown-menu" aria-labelledby="dropdown01">
+                        <a class="dropdown-item" href="<?= base_url('Profile') ?>">Profile</a>
+                        <a class="dropdown-item" href="<?= base_url('Login/logout')?>">Logout</a>
+                        </div>
+                    </li>
 
-                            ?>
-                        </a>
-                        <?php if($this->session->userdata('user_id') == true){?>
-                        <ul>
-                           
-                            <li><a href="<?= base_url() ?>Profile" class="card-link">Profile</a></li>
-                            <li><a href="#0" class="card-link">Edit Account</a></li>
-                            <li><a href="<?= base_url()?>Login/logout" class="card-link">Logout</a></li>
-
-                        </ul>
-                        <?php } ?>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#"><i class="fas fa-sms"><span class="badge">6</span></i></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#"><i class="fas fa-bell"><span class="badge">6</span></i></a>
                     </li>
                 </ul>
-            </nav>
-        </header> <!-- .cd-main-header -->
+            </div>
+        </nav>
+    </header>
 
-   
+

@@ -1,6 +1,6 @@
 
       
-        <div class="content-wrapper container">
+        <div class="content-wrapper" style="">
                 <div class="row">
                 <?php foreach ($query->result() as $row) { ?>
                 <div class="col-md-12 col-xs-12 img-thumbnail" style="height: 50%; width: 100%">

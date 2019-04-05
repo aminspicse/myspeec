@@ -18,8 +18,8 @@ class Home extends CI_Controller {
         
         $data['query']=$this->Home_Model->Home();
 
-        $this->load->view("headeralt",array('search' => ''));
-        //$this->load->view('leftnav');
+        $this->load->view("header",array('search' => ''));
+        $this->load->view('leftnav');
         $this->load->view('home/news',$data);
        // echo $read;
     }

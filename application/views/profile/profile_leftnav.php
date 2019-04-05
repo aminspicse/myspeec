@@ -1,6 +1,6 @@
 <main class="cd-main-content">
 		<nav class="cd-side-nav">
-			<ul>
+			<ul class="navbar-nav mr-auto">
 				<li class="">
 					<a href="<?= base_url() ?>Profile" class="card-link"> <i class="fa fa-user"></i> Profile</a>
 					
@@ -76,7 +76,7 @@
 				</li>
 			</ul>
 -->
-			<ul>
+			<ul class="navbar-nav mr-auto">
 				<li class="cd-label">&copy;myspeec-<?= date('y')?></li>
 				<li class="action-btn"><a href="" class="card-link">Refresh</a></li>
 			</ul>

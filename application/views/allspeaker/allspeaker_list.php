@@ -5,7 +5,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         <div class="content-wrapper">
             <table class="table">
                 <?php foreach($allspeaker->result() as $row){?>
-                    <tr>
+                    <tr class="img-thumbnail">
                         <td><a href="<?= base_url('Public_Profile/index/').$row->user_id ?>"><img src="<?= $row->photo; ?>" width="40px" alt=""></a></td>
                         <td><a href="<?= base_url('Public_Profile/index/').$row->user_id ?>"><?= $row->fname.' '.$row->lname; ?></a>
                         <p><?= $row->phone?></p>
