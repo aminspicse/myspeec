@@ -35,7 +35,7 @@
         </div>
 
         <h1><?php ///echo $this->session->userdata('username') ?></h1>
-        </nav>
+      
 
 
     </body>

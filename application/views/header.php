@@ -58,15 +58,21 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
     
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+<!-- search live -->
+
+
+<!--search live -->
+    
 </head>
 <body class="bg-light">
     <header class="cd-main-header">
             <a href="<?= base_url() ?>" class="cd-logo"><img src="<?= base_url() ?>assets/headandnav/img/cd-logo.svg" alt=""></a>
             
-            <div class="cd-search ">
+            <div class="">
                 <form action="<?= base_url('Search/posts/')?>" method="GET">
                     <input type="search" name="search" value="<?= $search ?>" placeholder="Search...">
-                    <button type="submit" name="keyword" style="display:none"></button>
+                    <button type="submit" name="keyword"><i class="fa fa-search"></i></button>
                 </form>
             </div> <!-- cd-search -->
 
