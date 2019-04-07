@@ -1,5 +1,5 @@
 <div class="content-wrapper">
-    <div class="row bg-white">
+    <div class="row bg-white margin">
         <div class="col-md-1">
             <form action="<?= base_url('Search/posts/')?>">
                 <input type="text" name="search" style="display:none" value="<?= $_GET['search'] ?>">
@@ -26,5 +26,6 @@
         </div>
         
     </div>
+
     
     

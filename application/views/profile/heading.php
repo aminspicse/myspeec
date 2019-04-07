@@ -1,5 +1,5 @@
 
-        <div class="content-wrapper">
+        <div class="content-wrapper img-thumbnail">
             
                 <?php foreach($query->result() as $row):?>
                 <div class="row" style="bg-color: red">

@@ -8,7 +8,7 @@
                     
                     <div class="row">
                         <div class="col-md-2 col-xs-12">
-                            <a href="<?= base_url() ?>Home/ReadFullNews/<?= $row->news_id; ?>"><img src="<?= $row->image_link ?>" style="width:100%; height: 100px" class="img-responsive" alt=""></a>
+                            <a href="<?= base_url() ?>Home/ReadFullNews/<?= $row->news_id; ?>"><img src="<?= $row->image_link ?>" style="width:100%; height: 150px" class="img-responsive" alt=""></a>
                         </div>
                         <div class="col-md-10 col-xs-12">
                         <h2 class="text-center" style="font-size: 25px" margin="0px"><a href="<?= base_url() ?>Home/ReadFullNews/<?= $row->news_id; ?>" class="card-link"><?= $row->news_title; ?></a></h2>

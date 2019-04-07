@@ -49,7 +49,7 @@ Main Page Content
 .cd-main-content .content-wrapper {
   padding: 45px 1% 3em;
 }
-.cd-main-content .content-wrapper h1 {
+.cd-main-content .content-wrapper {
   text-align: left;
   padding: 3em 0;
 }
@@ -63,7 +63,7 @@ Main Page Content
     margin-left: 110px;
     padding-top: 55px;
   }
-  .cd-main-content .content-wrapper h1 {
+  .cd-main-content .content-wrapper {
     padding: 4em 0;
     font-weight: 300;
   }
@@ -109,14 +109,8 @@ Header
   }
 }
 
-.cd-logo {
-  float: left;
-  display: block;
-  margin: 11px 0 0 5%;
-}
-.cd-logo img {
-  display: block;
-}
+
+
 @media only screen and (min-width: 768px) {
   .cd-logo {
     margin: 16px 0 0 36px;
@@ -395,7 +389,7 @@ Sidebar
   box-shadow: 0 2px 10px white;
 }
 .cd-side-nav > ul {
-  padding: 0.6em 0;
+  padding: ;
 }
 .cd-side-nav > ul:last-of-type {
   padding-bottom: 0;
@@ -407,7 +401,7 @@ Sidebar
   text-transform: uppercase;
   font-weight: bold;
   /*color: black;*/
-  letter-spacing: .1em;
+  letter-spacing: ;
 }
 .cd-side-nav a {
   position: relative;
@@ -417,7 +411,7 @@ Sidebar
   border-bottom: none;
 }
 .cd-side-nav > ul > li > a {
-  padding-left: calc(5% + 24px);
+  padding-left: ;
 }
 .cd-side-nav > ul > li > a::before {
   /* icon before item name */
@@ -467,7 +461,7 @@ Sidebar
   border-radius: .25em;
   color: #ffffff;
   font-weight: bold;
-  text-align: center;
+  text-align: left;
 }
 .cd-side-nav .action-btn a {
   display: block;
@@ -655,7 +649,7 @@ Sidebar
     padding: 1em;
   }
   .no-touch .has-children ul a:hover {
-    color: #1784c7;
+    color: white;
   }
   .has-children > a::after {
     display: none;

@@ -18,7 +18,7 @@
             </div>
         <?php }} else{?>
             <div class="row">
-                <h2>Data not found</h2>
+                <h2 class="text-center text-danger">No Found Any Friends in this Name</h2>
             </div>
     <?php }?>
     

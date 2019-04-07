@@ -3,7 +3,7 @@
 			<ul class="navbar-nav mr-auto">
 				<li class="nav-item">
 					<a href="<?= base_url() ?>Home" class="card-link"> <i class="fa fa-home"></i> Home</a>
-					
+					 
 				</li>
 				<li class="">
 					<a href="<?= base_url() ?>Home/video" class="card-link" target="_new"> <i class="fa fas fa-play"></i> Videos</a>

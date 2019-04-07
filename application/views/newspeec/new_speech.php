@@ -1,10 +1,9 @@
-    <div class="content-wrapper ">
+    <div class="content-wrapper img-thumbnail">
   
         <form action="<?= base_url()?>NewSpeec/Post_Speec" method="POST" enctype= "multipart/form-data" class="container">
         <div><?php //echo validation_errors(); ?></div>
             <div class="row">
-                <label for="" class="font-justify"><strong>Speek Titel</strong></label>
-                <input type="text" name="post_title" class="form-control" value="<?php //echo form_error('news_title') ?>" placeholder="Speek Your Title">
+                <input type="text" name="post_title" class="form-control" value="<?php //echo form_error('news_title') ?>" placeholder="Speek Your Title" style="font-size:20px;">
                 <span class="text-danger"><?php //echo form_error('news_title') ?></span>
             </div>
             <hr>
@@ -51,9 +50,9 @@
                 </div>
                 
             </div>
-            <br>
+           <hr>
             <div class="row">
-                <textarea name="news_post_1" id="" cols="140" rows="20" class="form-control"></textarea>
+                <textarea name="news_post_1" id="" cols="50" rows="10" class="form-control"></textarea>
 
             </div>
             <div class="row" style="display:none">

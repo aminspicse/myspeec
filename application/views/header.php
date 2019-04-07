@@ -80,7 +80,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 <span class="navbar-toggler-icon"></span>
             </button>
 
-            <div class="col-sm-5 col-xs-12 col-md-5">
+            <div class="col-sm-5 col-xs-12 col-md-5 mrg">
                 <form action="<?= base_url('Search/posts/')?>" method="GET" class="navbar-form" role="search">
                     <div class="input-group">
                         <input type="search" class="form-control"  name="search" value="<?= $search ?>" placeholder="Search...">
@@ -120,3 +120,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     </header>
 
 
+<style>
+    @media only screen and (min-width: 768px) {
+	  .mrg{
+		margin-left: 51px
+		}
+	}
+</style>

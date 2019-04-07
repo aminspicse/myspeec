@@ -2,7 +2,7 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 ?>
   
-  <div class="content-wrapper">
+  <div class="content-wrapper img-thumbnail">
         
             <div class="col-8 offset-3">
                 <form action="<?= base_url() ?>ChangePassword/index" method="post" class="">

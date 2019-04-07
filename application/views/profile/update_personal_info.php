@@ -1,5 +1,5 @@
 
-       <div class="content-wrapper">
+       <div class="content-wrapper img-thumbnail">
             
             <form action="" method="post">
             <div class="row ">
