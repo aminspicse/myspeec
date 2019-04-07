@@ -5,6 +5,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         public function __construct(){
             parent::__construct();
             $this->load->model('Search_Nav_Model');
+            
         }
 
         public function search_all(){
@@ -21,7 +22,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         }
  */
         public function posts(){   
-
             if(isset($_GET['keyword'])){
                 $data['search'] = $_GET['search'];
                 

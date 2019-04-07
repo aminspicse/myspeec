@@ -7,6 +7,8 @@ class Home extends CI_Controller {
         $this->load->model('Home_Model');
         date_default_timezone_set('asia/dhaka');
         $this->load->library('pagination');
+        $this->output->enable_profiler(TRUE);
+        //$this->output->cache($n);
     }
 	public function index(){
 

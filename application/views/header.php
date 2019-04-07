@@ -5,12 +5,45 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <!doctype html>
 <html lang="en">
   <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
-    <meta name="generator" content="Jekyll v3.8.5">
-    <title>Jumbotron Template · Bootstrap</title>
+  <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+    <meta name="robots" content="noindex" />
+    <meta name="HandheldFriendly" content="true" />
+    <meta name="keywords" content="myspeec, myspeech, speeker"/>
+    <meta name="description" content="MySpeec is a digital free social media. We believe in freedom of speech. We believe open journalism. Use MySpace and highlight all the events that happen around you and express your opinion. এটি একটি ডিজিটাল মুক্তবাক সামাজিক মাধ্যম । আমরা বাক স্বাধীনতায় বিশ্বাস করি। আমরা ওপেন সাংবাদিকতায় বিশ্বাস করি। মাইস্পিস ব্যাবহার করুন আর আপনার আশেপাশে ঘটে যাওয়া সকল ঘটনা তুলে ধরুন এবং আপনার মতামত ব্যক্ত করুন। "/>
+    <meta name="subject" content="MySpeec Is a Digital Social Media">
+    <meta name="copyright" content="MySpeec">
+    <meta name="owner" content="MD. AL AMIN">
+    <meta name="url" content="http://myspeec.com/">
+    <meta name="identifier-URL" content="http://myspeec.com/">
+    <meta name="coverage" content="Worldwide">
+    <meta name="distribution" content="Global">
+    <meta name="rating" content="General">
+    <meta name="revisit-after" content="1 days">
+    <meta http-equiv="Expires" content="0">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Cache-Control" content="no-cache">
+<!-- facebook share-->
+    <meta property="og:url"           content="http://www.myspeec.com/" />
+    <meta property="og:type"          content="website" />
+    <meta property="og:title"         content="MySpeec" />
+    <meta property="og:description"   content="MySpeec is a digital free social media. We believe in freedom of speech. We believe open journalism. Use MySpace and highlight all the events that happen around you and express your opinion. এটি একটি ডিজিটাল মুক্তবাক সামাজিক মাধ্যম । আমরা বাক স্বাধীনতায় বিশ্বাস করি। আমরা ওপেন সাংবাদিকতায় বিশ্বাস করি। মাইস্পিস ব্যাবহার করুন আর আপনার আশেপাশে ঘটে যাওয়া সকল ঘটনা তুলে ধরুন এবং আপনার মতামত ব্যক্ত করুন। " />
+    <meta property="og:image"         content="http://www.myspeec.com/uploads/nomination-awamilig.jpg" />
+    <!-- START META FOR APPLE PHONE-->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta content="yes" name="apple-touch-fullscreen" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no">
+    <!-- END -->
+    <!-- this tag use for bing search engine (start) -->
+    <META NAME="geo.position" CONTENT="latitude; longitude">
+    <META NAME="geo.placename" CONTENT="Place Name">
+    <META NAME="geo.region" CONTENT="Country Subdivision Code">
+    <!--end-->
+    <title>MySpeec</title>
 
     <!-- Bootstrap core CSS -->
     <link rel="stylesheet" href="<?= base_url('assets/bootstrap/css/bootstrap.min.css')?>">
@@ -38,11 +71,15 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 
   </head>
-  <body class="container-fluid bg-light">
+  <body class=" bg-light">
     <header class="cd-main-header">
         <nav class="navbar navbar-expand-md navbar-light  bg-light fixed-top ">
             <a class="navbar-brand" href="<?= base_url('Home') ?>">MySpeec</a>
             
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
             <div class="col-sm-5 col-xs-12 col-md-5">
                 <form action="<?= base_url('Search/posts/')?>" method="GET" class="navbar-form" role="search">
                     <div class="input-group">
@@ -52,10 +89,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     </div>
                 </form>
             </div>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-
+            
             <div class="collapse navbar-collapse" id="navbarsExampleDefault">
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item active">
