@@ -8,7 +8,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             $this->load->model('MakeFriend_Model');
             //$this->session->userdata('user_id');
         }
-
+ 
         function index(){
 
             $data['allspeaker'] = $this->AllSpeaker_Model->allspeaker();
@@ -24,5 +24,3 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             
         }
     }
-
-?> 

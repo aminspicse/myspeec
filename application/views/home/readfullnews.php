@@ -31,20 +31,24 @@
                             <p>
                                 <!-- start like and like count -->
                                 <?php if($likevalidation->num_rows()>0){ ?>
-                                    <input type="submit" name="" disabled class="btn btn-link card-link" class="fa fa-thumbs-up" value="Liked" />
+                                    <button type="submit" disabled name="likenews" class="btn btn-link card-link" class="fa fa-thumbs-up"><span class="fas fa-thumbs-up"></span></button>
+                                    <span class="badge">You and <?= $likes->num_rows()-1 ?> People Likes</span>
                                 <?php }else{ ?>
-                                    <input type="submit" name="likenews" class="btn btn-link card-link" class="fa fa-thumbs-up" value="Like" />
+                                    <button type="submit" name="likenews" class="btn btn-link card-link" class="fa fa-thumbs-up"><span class="fas fa-thumbs-up"></span></button>
+                                    <span class="badge"><?= $likes->num_rows(); ?> People Likes</span>
                                 <?php } ?>
-                                <span class="badge"><?= $likes->num_rows(); ?> People Likes</span>
+                                
                                 <!-- end link and like count -->
 
                                 <!-- start dislike and count dislike -->
                                 <?php if($dislikevalidation->num_rows() >0){?>
-                                    <input type="submit" name="dislikenews" disabled class="btn btn-link card-link" value="DisLiked" />
+                                    <button type="submit" name="dislikenews" disabled class="btn btn-link card-link"><span class="fas fa-thumbs-down"></span></button>
+                                    <span class="badge">You and <?= $dislikes->num_rows()-1 ?> People DisLikes</span>
                                 <?php }else{?>
-                                    <input type="submit" name="dislikenews" class="btn btn-link card-link" value="DisLike" />
+                                    <button type="submit" name="dislikenews" class="btn btn-link card-link"><span class="fas fa-thumbs-down"></span></button>
+                                    <span class="badge"> <?= $dislikes->num_rows() ?> People DisLikes</span>
                                 <?php }?>
-                                <span class="badge"> <?= $dislikes->num_rows() ?> People DisLikes</span>
+                                
                                 <!-- end dislike and count dislike --> 
 
                                 <input type="button" value="Comments" class="btn btn-link card-link"> <span class="badge"> <?php echo $commentquery->num_rows();?> People Comments</span>
