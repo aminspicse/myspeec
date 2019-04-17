@@ -2,6 +2,19 @@
 
     class send_mail extends CI_Controller{
 
+        public function user_agent(){
+            $this->load->library('user_agent');
+            echo $this->agent->browser();
+            echo $this->agent->version();
+            echo $this->agent->platform();
+            echo $this->input->ip_address();
+
+
+
+            $ip = $_SERVER['REMOTE_ADDR'];
+            $details = json_decode(file_get_contents("http://ipinfo.io/{$ip}/json"));
+            echo $details->city;
+        }
         public function mail(){
            // $this->load->helper('email');
             $this->load->library('email');

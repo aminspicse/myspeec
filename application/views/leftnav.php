@@ -1,4 +1,4 @@
-<main class="cd-main-content">
+
 		<nav class="cd-side-nav">
 			<ul class="navbar-nav mr-auto">
 				<li class="nav-item">

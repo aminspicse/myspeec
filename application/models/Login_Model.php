@@ -16,10 +16,9 @@
  
         }
 
-        function login_activities($datalog){
-            $this->db->insert('loginactivities',$datalog);
+        function login_activities($agent){
+            $this->db->insert('loginactivities',$agent);
         }
 
        
     } 
-?>

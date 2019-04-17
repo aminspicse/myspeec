@@ -3,9 +3,22 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 //new header
 ?>
 <!doctype html>
-<html lang="en">
+<html lang="en" >
   <head>
-  <meta charset="UTF-8">
+    
+  <SCRIPT language=JavaScript>
+
+        var message = "Right Button is Disabled";
+
+        function rtclickcheck(keyp){ if (navigator.appName == "Netscape" && keyp.which == 3){ alert(message); return false; }
+
+        if (navigator.appVersion.indexOf("MSIE") != -1 && event.button == 2) { alert(message); return false; } }
+
+        document.onmousedown = rtclickcheck;
+
+    </SCRIPT>
+    
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -44,7 +57,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     <META NAME="geo.region" CONTENT="Country Subdivision Code">
     <!--end-->
     <title>MySpeec</title>
-
+    <link rel="icon" href="<?= base_url('assets/myspeec.png')?>" type="image/png" sizes="16x16"> 
     <!-- Bootstrap core CSS -->
     <link rel="stylesheet" href="<?= base_url('assets/bootstrap/css/bootstrap.min.css')?>">
     <link href="https://getbootstrap.com/docs/4.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">

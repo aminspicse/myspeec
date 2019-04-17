@@ -9,4 +9,3 @@ class SignUp_Model extends CI_Model{
 }
 
 
-?>

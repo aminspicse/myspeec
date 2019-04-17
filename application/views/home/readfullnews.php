@@ -31,7 +31,7 @@
                             <p>
                                 <!-- start like and like count -->
                                 <?php if($likevalidation->num_rows()>0){ ?>
-                                    <button type="submit" disabled name="likenews" class="btn btn-link card-link" class="fa fa-thumbs-up"><span class="fas fa-thumbs-up"></span></button>
+                                    <button type="submit" disabled name="likenews" class="btn btn-link card-link" class="fa fa-thumbs-up"><span title="Liked"><i class="fas fa-thumbs-up"></i></span></button>
                                     <span class="badge">You and <?= $likes->num_rows()-1 ?> People Likes</span>
                                 <?php }else{ ?>
                                     <button type="submit" name="likenews" class="btn btn-link card-link" class="fa fa-thumbs-up"><span class="fas fa-thumbs-up"></span></button>

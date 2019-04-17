@@ -6,9 +6,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         function __construct(){
             parent::__construct();
             $this->load->model('Login_Model');
-            
+            $this->load->library('user_agent');
             //date_default_timezone_set("Asia/Dhaka");
             //date_default_timezone_get();
+            
         }
  
         public function index(){
@@ -31,7 +32,16 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
             $check = $this->Login_Model->check_data($data['username'], $data['password']);
 
+            // detect user agent start
+                $agent['browser'] = $this->agent->browser().' '.$this->agent->version();
+                $agent['os'] = $this->agent->platform();
+                $agent['ip_address'] = $this->input->ip_address();
+                $agent['username'] = $_GET['username']; 
+            //detect user agent end
             if($check){
+                $agent['accuracy'] = 1;
+                $this->Login_Model->login_activities($agent);
+
                 $id = $this->session->set_userdata('user_id', $check['user_id']);
                 $this->session->set_userdata('fname', $check['fname']);
                 $this->session->set_userdata('lname', $check['lname']);

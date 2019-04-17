@@ -418,7 +418,7 @@ Sidebar
   position: absolute;
   content: '';
   left: 5%;
-  top: 50%;
+  top: 0%;
   bottom: auto;
   -webkit-transform: translateY(-50%);
   -moz-transform: translateY(-50%);

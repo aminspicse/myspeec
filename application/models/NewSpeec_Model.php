@@ -5,4 +5,3 @@
             $this->db->insert('news_post',$data);
         }
     }
-?>

@@ -15,4 +15,3 @@
             $this->db->update('users',$data);
         }
     }
-?>
