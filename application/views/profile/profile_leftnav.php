@@ -45,37 +45,7 @@
 				</li>
 				-->
 			</ul>
-<!--
-			<ul>
-				<li class="has-children bookmarks">
-					<a href="">All Speeker</a>
-					
-					<ul>
-						<li><a href="">All Bookmarks</a></li>
-						<li><a href="">Edit Bookmark</a></li>
-						<li><a href="">Import Bookmark</a></li>
-					</ul>
-				</li>
-				<li class="has-children images">
-					<a href="#0">Images</a>
-					
-					<ul>
-						<li><a href="#0">All Images</a></li>
-						<li><a href="#0">Edit Image</a></li>
-					</ul>
-				</li>
 
-				<li class="has-children users">
-					<a href="#0">Users</a>
-					
-					<ul>
-						<li><a href="#0">All Users</a></li>
-						<li><a href="#0">Edit User</a></li>
-						<li><a href="#0">Add User</a></li>
-					</ul>
-				</li>
-			</ul>
--->
 			<ul class="navbar-nav mr-auto">
 				<li class="cd-label">&copy;myspeec-<?= date('y')?></li>
 				<li class="action-btn"><a href="" class="card-link">Refresh</a></li>

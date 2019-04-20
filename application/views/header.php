@@ -117,6 +117,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     <a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img width="20px" class="rounded-circle" src="<?= $this->session->userdata("photo")?>" alt=""><?= $this->session->userdata("fname")?></a>
                         <div class="dropdown-menu" aria-labelledby="dropdown01">
                         <a class="dropdown-item" href="<?= base_url('Profile') ?>">Profile</a>
+                        <a class="dropdown-item" href="<?= base_url('loginactivities') ?>">Log Activities</a>
                         <a class="dropdown-item" href="<?= base_url('Login/logout')?>">Logout</a>
                         </div>
                     </li>

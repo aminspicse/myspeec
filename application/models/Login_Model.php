@@ -17,7 +17,7 @@
         }
 
         function login_activities($agent){
-            $this->db->insert('loginactivities',$agent);
+            $this->db->insert('log_activities',$agent);
         }
 
        

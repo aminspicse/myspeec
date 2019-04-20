@@ -59,3 +59,7 @@ $route['home'] = 'Home/index';
 // forgot password start
 $route['forgot'] = 'Forgot_Password/forgot';
 //forgot password end
+
+// Activities monitoring start 
+$route['loginactivities'] = 'Activities/loginactivities';
+// Activities monitorin end

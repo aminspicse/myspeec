@@ -4,13 +4,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     class MakeFriend extends CI_Controller{
 
         public function __construct(){
-             parent::__construct();
-             $this->load->model('Public_Profile_Model');
-             $this->load->model('MakeFriend_Model');
+            parent::__construct();
+            $this->load->model('Public_Profile_Model');
+            $this->load->model('MakeFriend_Model');
 
-             if($this->session->userdata('user_id') == false){
+            if($this->session->userdata('user_id') == false){
                 redirect(base_url('Login/'), $this->session->set_flashdata('msg', 'You Need To SignIn. if you have no account <a href="'.base_url('SignUp').'">Click to SignUp</a>'));
-             }
+            }
         } 
 
         public function friend_request($user_id){
