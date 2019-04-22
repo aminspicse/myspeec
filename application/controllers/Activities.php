@@ -18,7 +18,7 @@ class Activities extends CI_Controller{
         $this->load->view('loginactivities/login',$qry);
     }
 
-    private function log_query(){
+    private function log_query(){ 
 
     }
 }

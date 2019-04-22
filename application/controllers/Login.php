@@ -84,25 +84,22 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             redirect(base_url('Landing_page'));
         }
 
-        public function Date(){
-            //$this->load->helper('date');
-            
-            //$datestring = 'Year: %Y Month: %m Day: %d - %h:%i %a';
-          // echo $time =  Date('d-m-y h:i:s');
+        private function loginmail(){
+            $this->load->library('email');
+            $config = Array(
+                'protocol' => 'smtp',
+                'smtp_host' => 'ssl://mail.myspeec.com',
+                'smtp_port' =>  465,
+                'smtp_user' => 'info@myspeec.com',
+                'smtp_pass' => 'Amin766855@gmail.com',
+                'mailtype'  => 'html'
+            );
+            $this->email->initilize($config);
+            $this->email->set_mailtype('html');
+            $this->email->set_newline('\n\r');
 
-          //date_default_timezone_set($this->session->userdata('timezone'));
-           $data1 = array(
-                'log_date' => Date('d-m-y'),
-                'log_time' => Date('h:i:s: am'),
-           );
-           echo $data1['log_date'];
-           echo $data1['log_time'];
-           echo timezone_menu('UM8');
-
-           echo sha1('12345678');
-
-           
-
+            $sms  = '<h1>Login New Device </h2>';
+            $sms  .= '';
         }
     }
 

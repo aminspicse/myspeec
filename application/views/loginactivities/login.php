@@ -5,7 +5,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <div class="content-wrapper bg-white">
     <div class="row ">
         <div class="col-12">
-        <h1 class="text-center text-success">Login Activities</h1>
+        <h2 class="text-center text-success">Login Activities</h2>
         </div>
     </div>
     <?php foreach($login_query->result() as $row){ ?>
