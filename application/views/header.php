@@ -82,6 +82,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     <link rel="stylesheet" href="<?= base_url() ?>assets/headandnav/css/style.css">
     <script src="<?= base_url() ?>assets/headandnav/js/main.js"></script>
 
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+
 
   </head>
   <body class=" bg-light">

@@ -1,43 +1,135 @@
+<style>
+        @-webkit-keyframes placeHolderShimmer {
+          0% {
+            background-position: -468px 0;
+          }
+          100% {
+            background-position: 468px 0;
+          }
+        }
 
+        @keyframes placeHolderShimmer {
+          0% {
+            background-position: -468px 0;
+          }
+          100% {
+            background-position: 468px 0;
+          }
+        }
+
+        .content-placeholder {
+          display: inline-block;
+          -webkit-animation-duration: 1s;
+          animation-duration: 1s;
+          -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
+          -webkit-animation-iteration-count: infinite;
+          animation-iteration-count: infinite;
+          -webkit-animation-name: placeHolderShimmer;
+          animation-name: placeHolderShimmer;
+          -webkit-animation-timing-function: linear;
+          animation-timing-function: linear;
+          background: #f6f7f8;
+          background: -webkit-gradient(linear, left top, right top, color-stop(8%, #eeeeee), color-stop(18%, #dddddd), color-stop(33%, #eeeeee));
+          background: -webkit-linear-gradient(left, #eeeeee 8%, #dddddd 18%, #eeeeee 33%);
+          background: linear-gradient(to right, #eeeeee 8%, #dddddd 18%, #eeeeee 33%);
+          -webkit-background-size: 800px 104px;
+          background-size: 800px 104px;
+          height: inherit;
+          position: relative;
+        }
+
+        .post_data
+        {
+          padding:0px;
+          border:1px solid #f9f9f9;
+          border-radius: 5px;
+          margin-bottom: 10px;
+          box-shadow: 10px 10px 5px #eeeeee;
+        }
+        </style>
       
         <div class="content-wrapper" style="">
-                <div class="row">
-                <?php foreach ($query->result() as $row) { ?>
-                <div class="col-md-12 col-xs-12 img-thumbnail" style="height: 50%; width: 100%">
-                    
-                    
-                    <div class="row">
-                        <div class="col-md-2 col-xs-12">
-                            <a href="<?= base_url() ?>Home/ReadFullNews/<?= $row->news_id; ?>"><img src="<?= $row->image_link ?>" style="width:100%; height: 150px" class="img-responsive" alt=""></a>
-                        </div>
-                        <div class="col-md-10 col-xs-12">
-                        <h2 class="text-center" style="font-size: 25px" margin="0px"><a href="<?= base_url() ?>Home/ReadFullNews/<?= $row->news_id; ?>" class="card-link"><?= $row->news_title; ?></a></h2>
-                            <p style="font-size: "> <?= trim(substr($row->news_post_1,0,400)) ?> 
-                            <a style="font-size: 18px" href="<?= base_url() ?>Home/ReadFullNews/<?= $row->news_id; ?>" class="btn"><strong>more</strong></a>
-                        </p>
-                           <i> <p class="text-center">Posted by: <a href="<?= base_url('Public_Profile/index/'.$row->user_id) ?>" class="card-link"><?= $row->fname.' '.$row->lname ?></a> On: <?= $row->news_insert_time?></p></i>
+           
+          <div id="load_data"></div>
+          <div id="load_data_message"></div>
 
-                        </div>
-                    </div>
-                </div>
-                <?php }?>
-                </div>
-                <br> 
-                <ul class="pagination justify-content-center">
-                    <li class="page-item "><a class="page-link" href="#">Previous</a></li>
-                    <li class="page-item"><a class="page-link" href="#">1</a></li>
-                    <li class="page-item"><a class="page-link" href="#">2</a></li>
-                    <li class="page-item"><a class="page-link" href="#">3</a></li>
-                    <li class="page-item"><a class="page-link" href="#">Next</a></li>
-                </ul>
-            </div>
-            
         </div>
 
-        <h1><?php ///echo $this->session->userdata('username') ?></h1>
+        
       
 
 
     </body>
-</html>
+	</html>
+	
+	
+    
+
+<script>
+  $(document).ready(function(){
+
+    var limit = 5;
+    var start = 0;
+    var action = 'inactive';
+
+    function lazzy_loader(limit)
+    {
+      var output = '';
+      for(var count=0; count<limit; count++)
+      {
+        output += '<div class="post_data">';
+        output += '<p><span class="content-placeholder" style="width:100%; height: 30px;">&nbsp;</span></p>';
+        output += '<p><span class="content-placeholder" style="width:100%; height: 100px;">&nbsp;</span></p>';
+        output += '</div>';
+      }
+      $('#load_data_message').html(output);
+    }
+
+    lazzy_loader(limit);
+
+    function load_data(limit, start)
+    {
+      $.ajax({
+        url:"<?php echo base_url('Home/fetch'); ?>",
+        method:"POST",
+        data:{limit:limit, start:start},
+        cache: false,
+        success:function(data)
+        {
+          if(data == '')
+          {
+            $('#load_data_message').html('<h3 class="text-center">No More Result Found</h3>');
+            action = 'active';
+          }
+          else
+          { 
+            $('#load_data').append(data);
+            $('#load_data_message').html("");
+            action = 'inactive';
+          }
+        }
+      })
+    }
+
+    if(action == 'inactive')
+    {
+      action = 'active';
+      load_data(limit, start);
+    }
+
+    $(window).scroll(function(){
+      if($(window).scrollTop() + $(window).height() > $("#load_data").height() && action == 'inactive')
+      {
+        lazzy_loader(limit);
+        action = 'active';
+        start = start + limit;
+        setTimeout(function(){
+          load_data(limit, start);
+        }, 10);
+      }
+    });
+
+  });
+</script>
 

@@ -11,20 +11,37 @@ class Home extends CI_Controller {
         //$this->output->cache($n);
     }
 	public function index(){
-
-        $config = array(
-            'base_url' => base_url('Home/index'),
-            'per_page' => 2,
-            'total_tows' => 5
-        );
         
-        $data['query']=$this->Home_Model->Home();
+        //$data['query']=$this->Home_Model->Home();
 
         $this->load->view("header",array('search' => ''));
         $this->load->view('leftnav');
-        $this->load->view('home/news',$data);
+        $this->load->view('home/news');
        // echo $read;
     }
+	// just load data 
+	function fetch() 
+	{
+		$output = '';
+		//$this->load->model('scroll_pagination_model');
+		$data = $this->Home_Model->fetch_data($this->input->post('limit'), $this->input->post('start'));
+		if($data->num_rows() > 0)
+		{
+			foreach($data->result() as $row)
+			{
+				$output .= '
+				<div class="post_data bg-white">
+					<h2 class="text-danger text-center"> <a href='.base_url('Home/ReadFullNews/'.$row->news_id).'>'.$row->news_title.'</a></h2>
+                    <a></a>
+                    <p>'.trim(substr($row->news_post_1,0,500)).'...</p>
+					<p class="text-center"> <i> Posted By: <a href='.base_url("Public_Profile/index/".$row->user_id).'>'.$row->fname.' '.$row->lname.' </a> on: '.$row->news_insert_time.'</i></p>
+				</div>
+				';
+			}
+		}
+		echo $output;
+	}
+	//end
 
     public function video(){
 
