@@ -15,7 +15,7 @@
           100% {
             background-position: 468px 0;
           }
-        }
+        } 
 
         .content-placeholder {
           display: inline-block;
@@ -99,7 +99,7 @@
         {
           if(data == '')
           {
-            $('#load_data_message').html('<h3 class="text-center">No More Result Found</h3>');
+            $('#load_data_message').html('<h3 class="text-center">No More Data Found</h3>');
             action = 'active';
           }
           else

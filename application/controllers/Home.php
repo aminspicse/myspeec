@@ -33,7 +33,7 @@ class Home extends CI_Controller {
 				<div class="post_data bg-white">
 					<h2 class="text-danger text-center"> <a href='.base_url('Home/ReadFullNews/'.$row->news_id).'>'.$row->news_title.'</a></h2>
                     <a></a>
-                    <p>'.trim(substr($row->news_post_1,0,500)).'...</p>
+                    <p style="text-align: justify">'.trim(substr($row->news_post_1,0,500)).'...<a href='.base_url('Home/ReadFullNews/'.$row->news_id).'>See More</a></p>
 					<p class="text-center"> <i> Posted By: <a href='.base_url("Public_Profile/index/".$row->user_id).'>'.$row->fname.' '.$row->lname.' </a> on: '.$row->news_insert_time.'</i></p>
 				</div>
 				';

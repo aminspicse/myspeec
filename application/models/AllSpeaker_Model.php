@@ -11,5 +11,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             $this->db->from('users');
             return $this->db->get();
         }
+
+        public function allspeaker_fetch($limit,$start){ 
+            $this->db->select('*');
+            $this->db->from('users');
+            $this->db->limit($limit, $start);
+            $query = $this->db->get();
+            return $query;
+        }
     } 
 

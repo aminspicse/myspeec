@@ -1,29 +1,130 @@
-<?php
-defined('BASEPATH') OR exit('No direct script access allowed');
-?> 
+<style>
+        @-webkit-keyframes placeHolderShimmer {
+          0% {
+            background-position: -468px 0;
+          }
+          100% {
+            background-position: 468px 0;
+          }
+        }
 
-        <div class="content-wrapper">
-            <table class="table">
-                <?php foreach($allspeaker->result() as $row){?>
-                    <tr class="img-thumbnail">
-                        <td><a href="<?= base_url('Public_Profile/index/').$row->user_id ?>"><img src="<?= $row->photo; ?>" width="40px" alt=""></a></td>
-                        <td><a href="<?= base_url('Public_Profile/index/').$row->user_id ?>"><?= $row->fname.' '.$row->lname; ?></a>
-                        <p><?= $row->phone?></p>
-                        </td>
-                        <td><a href="<?= base_url('SMS/chating/').$row->user_id ?>">Send Message</a></td>
-                        <td><a href="<?= base_url('MakeFriend/friend_request/').$row->user_id ?>"><?php 
-                            $qry = $this->MakeFriend_Model->friend_filter($this->session->userdata('user_id'), $row->user_id);
-                            if($qry->num_rows()>0){
-                                echo "Connected";
-                            }else{
-                                echo "Connect";
-                            }
-                        ?></a></td>
-                    </tr>
-                <?php }?>
-            </table>
+        @keyframes placeHolderShimmer {
+          0% {
+            background-position: -468px 0;
+          }
+          100% {
+            background-position: 468px 0;
+          }
+        } 
+
+        .content-placeholder {
+          display: inline-block;
+          -webkit-animation-duration: 1s;
+          animation-duration: 1s;
+          -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
+          -webkit-animation-iteration-count: infinite;
+          animation-iteration-count: infinite;
+          -webkit-animation-name: placeHolderShimmer;
+          animation-name: placeHolderShimmer;
+          -webkit-animation-timing-function: linear;
+          animation-timing-function: linear;
+          background: #f6f7f8;
+          background: -webkit-gradient(linear, left top, right top, color-stop(8%, #eeeeee), color-stop(18%, #dddddd), color-stop(33%, #eeeeee));
+          background: -webkit-linear-gradient(left, #eeeeee 8%, #dddddd 18%, #eeeeee 33%);
+          background: linear-gradient(to right, #eeeeee 8%, #dddddd 18%, #eeeeee 33%);
+          -webkit-background-size: 800px 104px;
+          background-size: 800px 104px;
+          height: inherit;
+          position: relative;
+        }
+
+        .post_data
+        {
+          padding:0px;
+          border:1px solid #f9f9f9;
+          border-radius: 5px;
+          margin-bottom: 10px;
+          box-shadow: 10px 10px 5px #eeeeee;
+        }
+        </style>
+      
+        <div class="content-wrapper" style="">
+           
+          <div id="load_data"></div>
+          <div id="load_data_message"></div>
 
         </div>
-
     </body>
-</html>
+	</html>
+	
+	
+     
+
+<script>
+  $(document).ready(function(){
+
+    var limit = 10;
+    var start = 0;
+    var action = 'inactive';
+
+    function lazzy_loader(limit)
+    {
+      var output = '';
+      for(var count=0; count<limit; count++)
+      {
+        output += '<div class="post_data">';
+        output += '<p><span class="content-placeholder" style="width:100%; height: 30px;">&nbsp;</span></p>';
+        output += '<p><span class="content-placeholder" style="width:100%; height: 100px;">&nbsp;</span></p>';
+        output += '</div>';
+      }
+      $('#load_data_message').html(output);
+    }
+
+    lazzy_loader(limit);
+
+    function load_data(limit, start)
+    {
+      $.ajax({
+        url:"<?php echo base_url('All_Speaker/fetch_friend'); ?>",
+        method:"POST",
+        data:{limit:limit, start:start},
+        cache: false,
+        success:function(data)
+        {
+          if(data == '')
+          {
+            $('#load_data_message').html('<h3 class="text-center">No More Friend Found</h3>');
+            action = 'active';
+          }
+          else
+          { 
+            $('#load_data').append(data);
+            $('#load_data_message').html("");
+            action = 'inactive';
+          }
+        }
+      })
+    }
+
+    if(action == 'inactive')
+    {
+      action = 'active';
+      load_data(limit, start);
+    }
+
+    $(window).scroll(function(){
+      if($(window).scrollTop() + $(window).height() > $("#load_data").height() && action == 'inactive')
+      {
+        lazzy_loader(limit);
+        action = 'active';
+        start = start + limit;
+        setTimeout(function(){
+          load_data(limit, start);
+        }, 10);
+      }
+    });
+
+  });
+</script>
+
