@@ -1,14 +1,14 @@
     <div class="content-wrapper img-thumbnail">
   
-        <form action="<?= base_url()?>NewSpeec/Post_Speec" method="POST" enctype= "multipart/form-data" class="container">
+        <form action="<?= base_url()?>NewSpeec/index" method="POST" enctype= "multipart/form-data" class="container">
         <div><?php //echo validation_errors(); ?></div>
             <div class="row">
-                <input type="text" name="post_title" class="form-control" value="<?php //echo form_error('news_title') ?>" placeholder="Speek Your Title" style="font-size:20px;">
-                <span class="text-danger"><?php //echo form_error('news_title') ?></span>
+                <input type="text" name="post_title" class="form-control" value="<?= set_value('post_title') ?>" placeholder="Speek Your Title" style="font-size:20px;">
+                <span class="text-danger"><?= form_error('post_title') ?></span>
             </div>
             <hr>
-            <div class="row">
-                <div>
+            <div class="row"> 
+                <div class="col-md-10">
                     <i class="fas fa-align-center"></i>
                     <i class="fas fa-align-justify"></i>
                     <i class="fas fa-align-left"></i>
@@ -42,17 +42,23 @@
                     <i class="fas fa-trash-alt"></i>
                     <i class="fas fa-underline"></i>
                     <i class="fas fa-wrench"></i>
+                    
+                    
                   <!--
                       all icon 
                       https://www.w3schools.com/icons/fontawesome_icons_webapp.asp
                   -->
 
                 </div>
+                <div class="col-md-2">
+                <input type="submit" name="submit_speec" class="btn btn-success pull-right" value="Publish Speec">
+                </div>
+                
                 
             </div>
            <hr>
             <div class="row">
-                <textarea name="news_post_1" id="" cols="50" rows="10" class="form-control"></textarea>
+                <textarea name="news_post_1" id="" cols="50" rows="10" class="form-control"><?= set_value('news_post_1') ?></textarea>
 
             </div>
             <div class="row" style="display:none">
@@ -61,13 +67,23 @@
             </div>
 
             <div class="row">
-                <div class="col-md-2">
-                    <label for="">Choice a Image: </label>
-                    <input type="file" name="image_link" accept="image/*" class="form-control">
+                <div class="col-md-4">
+                    <label for="">you must select a image >= 1000 kb</label>
+                    <div class="input-group ">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text">Upload</span>
+                    </div>
+                    <div class="custom-file">
+                        <input type="file" name="image_link" accept="image/*" class="custom-file-input" id="inputGroupFile01">
+                        <label class="custom-file-label" for="inputGroupFile01">Choose file</label>
+                    </div>
+                    </div>
+
                 </div>
                 <div class="col-md-6">
                     <label for="">Provide a Embeded Youtube video URL</label>
-                    <input type="url" name="video_link" class="form-control">
+                    <input type="url" name="video_link" value="<?= set_value('video_link') ?>" class="form-control">
+                    <span><?= form_error('video_link') ?></span>
                 </div>
                 <div class="col-md-2 checkbox">
                     <label for="">Privacy </label>
@@ -76,10 +92,7 @@
                         <option value="0">Private</option>
                     </select>
                 </div> 
-                <div class="col-md-2">
-                    <br>
-                    <input type="submit" name="submit_speec" class="btn btn-success pull-right" value="Published Speec">
-                </div> 
+
             </div>
         </form>
     </div>
