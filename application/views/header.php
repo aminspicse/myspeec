@@ -95,44 +95,55 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 <span class="navbar-toggler-icon"></span>
             </button>
 
-            <div class="col-sm-5 col-xs-12 col-md-5 mrg">
-                <form action="<?= base_url('Search/posts/')?>" method="GET" class="navbar-form" role="search">
-                    <div class="input-group">
-                        <input type="search" class="form-control"  name="search" value="<?= $search ?>" placeholder="Search...">
-                        <button type="submit" name="keyword"><i class="fa fa-search"></i></button>
-                        
-                    </div>
-                </form>
-            </div>
-            
             <div class="collapse navbar-collapse" id="navbarsExampleDefault">
-                <ul class="navbar-nav mr-auto">
-                    <li class="nav-item active">
-                        <a class="nav-link" style="display:none" href="#">Home <span class="sr-only">(current)</span></a>
-                    </li>
-                    
+                <div class="col-sm-5 col-xs-12 col-md-5 mrg">
+                    <form action="<?= base_url('Search/posts/')?>" method="GET" class="navbar-form" role="search">
+                        <div class="input-group">
+                            <input type="search" class="form-control"  name="search" value="<?= $search ?>" placeholder="Search...">
+                            <button type="submit" name="keyword"><i class="fa fa-search"></i></button> 
+                        </div>
+                    </form>
+                </div>
+                <ul class="navbar-nav mr-auto navbar-right">
+                    <li class="nav-item">
+                        <a href="<?= base_url('All_Speaker/')?>" title="All Speaker"><i class="fas fa-users"></i></a> |
+                        <a href="<?= base_url('NewSpeec/')?>" title="New Post"><i class="fas fa-plus-circle"></i></a> | 
+                        <a href="<?= base_url('SMS/')?>" title="SMS"><i class="fas fa-sms"><span class="badge badge-light">4</span></i></a> | 
+                        <a href="<?= base_url('MySpeech/')?>" title="MySpeec"><i class="fas fa-hashtag"></i></a> | 
+                        <a href="#" title="Live"><i class="fas fa-video"></i></a>
+                    </li>  
                 </ul>
                 
                 <ul class="nav navbar-nav navbar-right">
                     
                     <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img width="20px" class="rounded-circle" src="<?= $this->session->userdata("photo")?>" alt=""><?= $this->session->userdata("fname")?></a>
+                    <a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img width="20px" class="rounded-circle" src="<?= $this->session->userdata("photo")?>" alt=""><?= $this->session->userdata("fname").' '.$this->session->userdata("lname")?></a>
                         <div class="dropdown-menu" aria-labelledby="dropdown01">
                         <a class="dropdown-item" href="<?= base_url('Profile') ?>">Profile</a>
                         <a class="dropdown-item" href="<?= base_url('loginactivities') ?>">Log Activities</a>
+                        <a class="dropdown-item" href="<?= base_url('ChangePassword/') ?>">Change Password</a>
+                        <a class="dropdown-item" href="<?= base_url('Profile/update_personal_info/') ?>">Edit Profile</a>
                         <a class="dropdown-item" href="<?= base_url('Login/logout')?>">Logout</a>
                         </div>
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link" href="#"><i class="fas fa-sms"><span class="badge">6</span></i></a>
+                        <a class="nav-link" href="#">Message<span class="badge">6</span></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#"><i class="fas fa-bell"><span class="badge">6</span></i></a>
+                        <a class="nav-link" href="#">Notification<span class="badge">6</span></a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="#"></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#"></a>
                     </li>
                 </ul>
             </div>
         </nav>
+        <br>
     </header>
 
 

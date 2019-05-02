@@ -104,3 +104,11 @@
 				padding: 3px;
 			}
 		</style>
+
+<script type="text/javascript">
+		function calculator(a,b){
+			total = a+b;
+			
+			return total;
+		}
+	</script>

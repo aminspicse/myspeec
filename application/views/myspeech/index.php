@@ -1,4 +1,4 @@
-        <div class="content-wrapper">
+        <div class="content-wrapper bg-white">
             <table class="table">
                 
                 <tr>
