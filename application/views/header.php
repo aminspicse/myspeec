@@ -110,7 +110,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                         <a href="<?= base_url('NewSpeec/')?>" title="New Post"><i class="fas fa-plus-circle"></i></a> | 
                         <a href="<?= base_url('SMS/')?>" title="SMS"><i class="fas fa-sms"><span class="badge badge-light">4</span></i></a> | 
                         <a href="<?= base_url('MySpeech/')?>" title="MySpeec"><i class="fas fa-hashtag"></i></a> | 
-                        <a href="#" title="Live"><i class="fas fa-video"></i></a>
+                        <a href="<?= base_url("Live")?>" onclick='live() + chat()' title='Live'><i class='fas fa-video'></i></a>
                     </li>  
                 </ul>
                 
