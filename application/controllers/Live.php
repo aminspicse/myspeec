@@ -5,7 +5,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
         public function index(){
             if($this->session->userdata('fname') == true){
-                $this->load->view("header",array('search' => ''));
+                $this->load->view("header",array('search' => '', 'score' => '','others' =>''));
                 $this->load->view('leftnav');
                 $this->load->view("live/live");
             }else{

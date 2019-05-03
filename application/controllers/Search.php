@@ -10,7 +10,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
         public function search_all(){
  
-            $this->load->view('header',array('search' => ''));
+            $this->load->view('header',array('search' => '', 'score' => '','others' =>''));
             $this->load->view('leftnav');
             $this->load->view('search_main/index');
 
@@ -26,6 +26,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 $data['search'] = $_GET['search'];
                 
             } 
+            $data['score'] = '';//just passing variable 
             $data['search_posts'] = $this->Search_Nav_Model->Search_Post($data['search']); 
             $this->load->view('header',$data);
             $this->load->view('leftnav');
@@ -39,6 +40,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 $data['search'] = $_GET['search'];
                 
             } 
+            $data['score'] = '';//just passing variable 
             $data['search_friends'] = $this->Search_Nav_Model->Search_Friends($data['search']); 
             $this->load->view('header',$data);
             $this->load->view('leftnav');
@@ -52,6 +54,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 $data['search'] = $_GET['search'];
                 
             } 
+            $data['score'] = '';//just passing variable
             $data['search_posts'] = $this->Search_Nav_Model->Search_Video($data['search']); 
             $this->load->view('header',$data);
             $this->load->view('leftnav');
@@ -66,6 +69,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 $data['search'] = $_GET['search'];
                 
             } 
+            $data['score'] = '';
             $data['search_posts'] = $this->Search_Nav_Model->Search_Video($data['search']); 
             $this->load->view('header',$data);
             $this->load->view('leftnav');

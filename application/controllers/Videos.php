@@ -1,15 +1,12 @@
 <?php
 
     class Videos extends CI_Controller{
-        public function __construct(){
-            parent::__construct();
 
-        }
 
         function index(){
-            $this->load->view('header',array('search' = '');
+            $this->load->view('header',array('search' => '', 'score' => '','others' =>'');
             $this->load->view('leftnav');
-            $this->load->view('videos/index.php');
+           // $this->load->view('videos/index.php');
         }
 
         public function count(){

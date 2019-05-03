@@ -17,7 +17,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
             $data['user_id'] = $user_id;
             $data['queryindex'] = $this->Public_Profile_Model->Profile($user_id);
-            $this->load->view('header',array('search' => ''));
+            $this->load->view('header',array('search' => '', 'score' => '','others' =>''));
             $this->load->view('leftnav');
             $this->load->view('public_profile/index.php', $data);
             $this->load->view('public_profile/about.php', $data);
@@ -33,7 +33,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             $data['user_id'] = $user_id;
             $data['queryindex'] = $this->Public_Profile_Model->Profile($user_id);
             $data['querypost'] = $this->Public_Profile_Model->Posts($user_id);
-            $this->load->view('header',array('search' => ''));
+            $this->load->view('header',array('search' => '', 'score' => '','others' =>''));
             $this->load->view('leftnav');
             $this->load->view('public_profile/index.php', $data);
             $this->load->view('public_profile/post.php', $data);

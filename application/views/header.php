@@ -128,15 +128,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Message<span class="badge">6</span></a>
+                        <a class="nav-link" href="<?= base_url('Score/')?>" title="10 point = 1 Bangladeshi Taka">Your Scoure<span class="badge"><?= $score ?></span></a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Notification<span class="badge">6</span></a>
-                    </li>
+                    
 
-                    <li class="nav-item">
-                        <a class="nav-link" href="#"></a>
-                    </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#"></a>
                     </li>

@@ -69,7 +69,7 @@
 <script>
   $(document).ready(function(){
 
-    var limit = 5;
+    var limit = 10;
     var start = 0;
     var action = 'inactive';
 

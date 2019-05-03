@@ -15,7 +15,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         public function index(){
             $data['count_friend'] = $this->Profile_Model->total_friend();
             //$data['active_friend'] = $this->SMS_Model->active_friend(6,10); //another way used index.php page
-            $this->load->view('header',array('search' => ''));
+            $this->load->view('header',array('search' => '', 'score' => '','others' =>''));
             $this->load->view('leftnav');
             $this->load->view('messages/index', $data);
         }
@@ -38,7 +38,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             $data['count_friend'] = $this->Profile_Model->total_friend();
             $data['friendinfo'] = $this->SMS_Model->friend_info($sub_id); //This function used for known friend information 
             $data['message'] = $this->SMS_Model->conversation($sub_id);
-            $this->load->view('header',array('search' => ''));
+            $this->load->view('header',array('search' => '', 'score' => '','others' =>''));
             $this->load->view('leftnav');
             $this->load->view('messages/activefriend',$data);
         }

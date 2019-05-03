@@ -9,7 +9,7 @@
 
         function index(){
             if($this->session->userdata('user_id') == true){
-                $this->load->view('header',array('search' => ''));
+                $this->load->view('header',array('search' => '', 'score' => '','others' =>''));
                 $this->load->view('leftnav');
                 $this->Post_Speec();
                 $this->load->view('newspeec/new_speech');

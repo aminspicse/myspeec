@@ -14,7 +14,7 @@
         function index(){
             $data['query'] = $this->Profile_Model->profile();
             $data['total_friend'] = $this->Profile_Model->total_friend();
-            $this->load->view('header',array('search' => ''));
+            $this->load->view('header',array('search' => '', 'score' => '','others' =>''));
             $this->load->view('profile/profile_leftnav');
             $this->load->view('profile/heading',$data);
             $this->load->view('profile/about',$data);
@@ -23,7 +23,7 @@
         function total_friends(){
             $data['query'] = $this->Profile_Model->profile();
             $data['total_friend'] = $this->Profile_Model->total_friend();
-            $this->load->view('header',array('search' => ''));
+            $this->load->view('header',array('search' => '', 'score' => '','others' =>''));
             $this->load->view('profile/profile_leftnav');
             $this->load->view('profile/heading',$data);
             $this->load->view('profile/totalfriend',$data);
@@ -42,7 +42,7 @@
                 $this->form_validation->set_rules('phone','Phone Number', 'required');
                 $this->form_validation->set_rules('country','Country Name', 'required');
                 if($this->form_validation->run() == false){
-                    $this->load->view('header',array('search' => ''));
+                    $this->load->view('header',array('search' => '', 'score' => '','others' =>''));
                     $this->load->view('profile/profile_leftnav');
                     $this->load->view('profile/update_personal_info');
                 }else{
@@ -91,20 +91,20 @@
                     $this->Profile_Model->Update_profilephoto($data);
 
                     $this->session->set_flashdata('msg', 'Successfully Uploaded Your photo');
-                    $this->load->view('header',array('search' => ''));
+                    $this->load->view('header',array('search' => '', 'score' => '','others' =>''));
                     $this->load->view('profile/profile_leftnav');
                     $this->load->view('profile/upload_profile_pic', array('error' => ''));
                     //echo $this->session->userdata('user_id');
                     //echo "<h1>".base_url('uploads/profilephotos/').$this->upload->data('file_name')."</h1>";
                 }else{
-                    $this->load->view('header',array('search' => ''));
+                    $this->load->view('header',array('search' => '', 'score' => '','others' =>''));
                     $this->load->view('profile/profile_leftnav');
                     $error = array('error' => $this->upload->display_errors());
                     $this->load->view('profile/upload_profile_pic', $error);
                 }
 
             }else{
-                $this->load->view('header',array('search' => ''));
+                $this->load->view('header',array('search' => '', 'score' => '','others' =>''));
                 $this->load->view('profile/profile_leftnav');
                 $this->load->view('profile/upload_profile_pic', array('error' => ''));
             }

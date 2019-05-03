@@ -1,33 +1,130 @@
-<?php
-defined('BASEPATH') OR exit('No direct script access allowed');
+<style>
+        @-webkit-keyframes placeHolderShimmer {
+          0% {
+            background-position: -468px 0;
+          }
+          100% {
+            background-position: 468px 0;
+          }
+        }
 
-?>
-<div class="content-wrapper bg-white">
-    <div class="row ">
-        <div class="col-12">
-        <h2 class="text-center text-success">Login Activities</h2>
-        </div>
-    </div>
-    <?php foreach($login_query->result() as $row){ ?>
-        <div class="row  ">
-            <div class="col-12">
-                <p>
-                    <?= $row->mobile.', '. $row->os.', '. $row->browser. ', '.$row->agent_string.',<b> '.$row->try_time.'</b>,'.$row->country.', '.$row->city ?>
-                    <?php 
-                    if($row->accuracy == 1){
-                        echo "<a class='text-success'> Correct Password</a>";
-                    }else{
-                        echo "<a href=".base_url('ChangePassword')." class='text-danger'> Someone try to Biolate your Password</a>";
-                    }
-                    ?>
-                </p>
-                <strong>Referreral Link:</strong> <a href="<?=$row->referrer?>"><?= $row->referrer?></a>
-                
-            </div>
-        </div>
-        <hr>
-    <?php } ?>
-</div>
+        @keyframes placeHolderShimmer {
+          0% {
+            background-position: -468px 0;
+          }
+          100% {
+            background-position: 468px 0;
+          }
+        } 
 
-</body>
-</html>
+        .content-placeholder {
+          display: inline-block;
+          -webkit-animation-duration: 1s;
+          animation-duration: 1s;
+          -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
+          -webkit-animation-iteration-count: infinite;
+          animation-iteration-count: infinite;
+          -webkit-animation-name: placeHolderShimmer;
+          animation-name: placeHolderShimmer;
+          -webkit-animation-timing-function: linear;
+          animation-timing-function: linear;
+          background: #f6f7f8;
+          background: -webkit-gradient(linear, left top, right top, color-stop(8%, #eeeeee), color-stop(18%, #dddddd), color-stop(33%, #eeeeee));
+          background: -webkit-linear-gradient(left, #eeeeee 8%, #dddddd 18%, #eeeeee 33%);
+          background: linear-gradient(to right, #eeeeee 8%, #dddddd 18%, #eeeeee 33%);
+          -webkit-background-size: 800px 104px;
+          background-size: 800px 104px;
+          height: inherit;
+          position: relative;
+        }
+
+        .post_data
+        {
+          padding:0px;
+          border:1px solid #f9f9f9;
+          border-radius: 5px;
+          margin-bottom: 10px;
+          box-shadow: 10px 10px 5px #eeeeee;
+        }
+        </style>
+      
+        <div class="content-wrapper" style="">
+           
+          <div id="load_data"></div>
+          <div id="load_data_message"></div>
+
+        </div>
+    </body>
+	</html>
+	
+	
+    
+
+<script>
+  $(document).ready(function(){
+
+    var limit = 10;
+    var start = 0;
+    var action = 'inactive';
+
+    function lazzy_loader(limit)
+    {
+      var output = '';
+      for(var count=0; count<limit; count++)
+      {
+        output += '<div class="post_data">';
+        output += '<p><span class="content-placeholder" style="width:100%; height: 30px;">&nbsp;</span></p>';
+        output += '<p><span class="content-placeholder" style="width:100%; height: 100px;">&nbsp;</span></p>';
+        output += '</div>';
+      }
+      $('#load_data_message').html(output);
+    }
+
+    lazzy_loader(limit);
+
+    function load_data(limit, start)
+    {
+      $.ajax({
+        url:"<?php echo base_url('Activities/fetch_loginactivities'); ?>",
+        method:"POST",
+        data:{limit:limit, start:start},
+        cache: false,
+        success:function(data)
+        {
+          if(data == '')
+          {
+            $('#load_data_message').html('<h3 class="text-center">No More Data Found</h3>');
+            action = 'active';
+          }
+          else
+          { 
+            $('#load_data').append(data);
+            $('#load_data_message').html("");
+            action = 'inactive';
+          }
+        }
+      })
+    }
+
+    if(action == 'inactive')
+    {
+      action = 'active';
+      load_data(limit, start);
+    }
+
+    $(window).scroll(function(){
+      if($(window).scrollTop() + $(window).height() > $("#load_data").height() && action == 'inactive')
+      {
+        lazzy_loader(limit);
+        action = 'active';
+        start = start + limit;
+        setTimeout(function(){
+          load_data(limit, start);
+        }, 10);
+      }
+    });
+
+  });
+</script>
+
