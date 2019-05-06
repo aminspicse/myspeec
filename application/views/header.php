@@ -84,7 +84,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
 
-
+    <!--Infinit pagination css-->
+    <link rel="stylesheet" href="<?= base_url('assets/infinitpagination.css')?>">
   </head>
   <body class=" bg-light">
     <header class="cd-main-header">
@@ -99,7 +100,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 <div class="col-sm-5 col-xs-12 col-md-5 mrg">
                     <form action="<?= base_url('Search/posts/')?>" method="GET" class="navbar-form" role="search">
                         <div class="input-group">
-                            <input type="search" class="form-control"  name="search" value="<?= $search ?>" placeholder="Search...">
+                            <input type="search" class="form-control"  name="search" id="search_main" value="<?= $search ?>" placeholder="Search...">
                             <button type="submit" name="keyword"><i class="fa fa-search"></i></button> 
                         </div>
                     </form>
@@ -119,11 +120,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img width="20px" class="rounded-circle" src="<?= $this->session->userdata("photo")?>" alt=""><?= $this->session->userdata("fname").' '.$this->session->userdata("lname")?></a>
                         <div class="dropdown-menu" aria-labelledby="dropdown01">
-                        <a class="dropdown-item" href="<?= base_url('Profile') ?>">Profile</a>
-                        <a class="dropdown-item" href="<?= base_url('loginactivities') ?>">Log Activities</a>
-                        <a class="dropdown-item" href="<?= base_url('ChangePassword/') ?>">Change Password</a>
-                        <a class="dropdown-item" href="<?= base_url('Profile/update_personal_info/') ?>">Edit Profile</a>
-                        <a class="dropdown-item" href="<?= base_url('Login/logout')?>">Logout</a>
+                            <a class="dropdown-item" href="<?= base_url('Profile') ?>">Profile</a>
+                            <a class="dropdown-item" href="<?= base_url('loginactivities') ?>">Log Activities</a>
+                            <a class="dropdown-item" href="<?= base_url('ChangePassword/') ?>">Change Password</a>
+                            <a class="dropdown-item" href="<?= base_url('Profile/update_personal_info/') ?>">Edit Profile</a>
+                            <a class="dropdown-item" href="<?= base_url('Login/logout')?>">Logout</a>
                         </div>
                     </li>
 

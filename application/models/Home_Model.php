@@ -15,13 +15,14 @@
            // $row = $query->result();
         }
 		
-	// just load data in ajax
+	// just load data in ajaxn
 		function fetch_data($limit, $start){
 
             $this->db->select('*');
             $this->db->from('news_post');
             $this->db->join('users','news_post.user_id = users.user_id');
             $this->db->where('news_post.delete_status', 0);
+            $this->db->where('post_privacy',1);
             $this->db->limit($limit, $start);
             $this->db->order_by('news_id','desc');
 			$query = $this->db->get();

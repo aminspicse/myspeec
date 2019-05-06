@@ -20,31 +20,46 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             $this->db->order_by($this->like_count(32), 'desc');
         }  */
          
-        public function Search_Post($search){
+        public function Search_Post($search,$limit,$start){
             $this->db->select('*');  
             $this->db->from('news_post');
             $this->db->or_like('news_title', $search, 'both');
             $this->db->or_like('news_post_1', $search,'both');
             $this->db->or_like('news_post_2', $search,'both');
             $this->db->order_by('news_insert_time', 'desc');
+            $this->db->limit($limit,$start);
             return $this->db->get();
                 
-        }
+        } 
 
-        public function Search_Friends($search){
+        public function Search_Friends($search,$limit,$start){
             $this->db->select('*');
             $this->db->from('users');
             $this->db->or_like('fname',$search, 'both');
             $this->db->or_like('lname',$search, 'both');
             //$this->db->or_like('fname'.'lname',$search, 'both');
+            $this->db->limit($limit,$start);
             return $this->db->get();
                 
         }
-        public function total_friend($parend_id){
+        // count following 
+        public function total_following($parent_id){
             $this->db->select('*');
             $this->db->from('make_friends');
-            $this->db->where('parent_id', $parend_id);
-            return $this->db->get();
+            $this->db->where('parent_id', $parent_id);
+            $this->db->where('delete_status',0);
+            $qry = $this->db->get();
+            return $qry->num_rows();
+        }
+        //count followers 
+        public function total_followers($sub_id){
+            $this->db->select('*');
+            $this->db->from('make_friends');
+            $this->db->where('sub_id',$sub_id);
+            $this->db->where('delete_status',0);
+            $this->db->order_by('friend_id','desc');
+            $qry = $this->db->get();
+            return $qry->num_rows();
         }
 
         public function Search_Video($search){

@@ -1,17 +1,81 @@
 
-    <?php foreach ($search_posts->result() as $row) { ?>
-        <div class="row img-thumbnail">
-            <div class="col-md-2"> 
-                <img src="<?= $row->image_link ?>" width="100%" height="100px" alt=" ">
-            </div>
-            <div class="col-md-10">
-                <h4><a href="<?= base_url('Home/ReadFullNews/').$row->news_id?>"><?= $row->news_title?></a></h4>
-                <p><?php  echo trim(substr($row->news_post_1,0,100))?></p>
-            </div>
-        </div>
-    <?php }?>
- 
-</div>
-</main>
-</body>
-</html>
+      <div id="load_data"></div>
+      <div id="load_data_message"></div>
+
+        
+    </div><!-- main content -->
+    </main>
+    </body>
+	</html>
+	
+	
+     
+
+<script>
+  $(document).ready(function(){
+
+    var limit = 10;
+    var start = 0;
+    var action = 'inactive';
+    var search = document.getElementById('search_main').value;
+    //alert(search);
+    function lazzy_loader(limit)
+    {
+      var output = '';
+      for(var count=0; count<limit; count++)
+      {
+        output += '<div class="post_data">';
+        output += '<p><span class="content-placeholder" style="width:100%; height: 30px;">&nbsp;</span></p>';
+        output += '<p><span class="content-placeholder" style="width:100%; height: 100px;">&nbsp;</span></p>';
+        output += '</div>';
+      }
+      $('#load_data_message').html(output);
+    }
+
+    lazzy_loader(limit);
+
+    function load_data(limit, start)
+    {
+      $.ajax({
+        url:"<?php echo base_url('Search/post_fetch'); ?>",
+        method:"POST",
+        data:{search:search, limit:limit, start:start},
+        cache: false,
+        success:function(data)
+        {
+          if(data == '')
+          {
+            $('#load_data_message').html('<h3 class="text-center">No More Post Found</h3>');
+            action = 'active';
+          }
+          else
+          { 
+            $('#load_data').append(data);
+            $('#load_data_message').html("");
+            action = 'inactive';
+          }
+        }
+      })
+    }
+
+    if(action == 'inactive')
+    {
+      action = 'active';
+      load_data(limit, start);
+    }
+
+    $(window).scroll(function(){
+      if($(window).scrollTop() + $(window).height() > $("#load_data").height() && action == 'inactive')
+      {
+        lazzy_loader(limit);
+        action = 'active';
+        start = start + limit;
+        setTimeout(function(){
+          load_data(limit, start);
+        }, 10);
+      }
+    });
+
+  });
+</script>
+

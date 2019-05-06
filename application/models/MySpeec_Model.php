@@ -1,16 +1,16 @@
 <?php
     class MySpeec_Model extends CI_Model{
-         function myspeec(){
+         function myspeec($limit, $start){
              $this->db->select('*');
              $this->db->from('news_post');
-             //$this->db->join('users', )
              $this->db->where('user_id', $this->session->userdata('user_id'));
              $this->db->where('delete_status', 0);
+             $this->db->limit($limit,$start);
              $this->db->order_by('news_id', 'desc');
              return $this->db->get();
          }
 
-         function Edit_post($news_id){
+         function Edit_post($news_id){ 
             $this->db->select('*');
             $this->db->from('news_post');
             $this->db->where('news_id', $news_id);

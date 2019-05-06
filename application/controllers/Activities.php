@@ -30,8 +30,8 @@ class Activities extends CI_Controller{
                 }
                 $output .= '
                     <div class="post_data bg-white">
-                      <p>'.$row->mobile.', '. $row->os.', '. $row->browser. ', '.$row->agent_string.',<b> '.$row->try_time.'</b>,'.$row->country.', '.$row->city.'</p>  
-                      '.$pass_status.'
+                      <p>'.$row->mobile.', '. $row->os.', '. $row->browser. ', '.$row->agent_string.',<b> '.$row->try_time.'</b>,'.$row->country.', '.$row->city. $pass_status.'</p>  
+                      
                     </div>
                 ';
             }

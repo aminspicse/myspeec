@@ -3,18 +3,71 @@
         function __construct(){
             parent::__construct();
             $this->load->model('MySpeec_Model');
+            $this->load->model('Score_Model');
             $this->load->library('form_validation');
             date_default_timezone_set('asia/dhaka');
             if($this->session->userdata('user_id') == null){
                 redirect('Login');
             }
-        }
+        } 
 
         function index(){
             $this->load->view('header',array('search' => '', 'score' => '','others' =>''));
             $this->load->view('profile/profile_leftnav');
-            $query['query'] = $this->MySpeec_Model->myspeec();
-            $this->load->view('myspeech/index', $query); 
+            //$query['query'] = $this->MySpeec_Model->myspeec();
+            $this->load->view('myspeech/myspeec'); 
+        } 
+        public function myspeec_fetch(){
+            $output = '';
+            $like = 0;
+            $dislike = 0;
+            $comment = 0;
+            $qry = $this->MySpeec_Model->myspeec($this->input->post('limit'),$this->input->post('start'));
+            if($qry->num_rows() > 0){
+                foreach ($qry->result() as $row) {
+                    // count total like 
+                    $like_score = $this->Score_Model->count_like($row->news_id);
+                    $like +=$like_score;
+                    // count total dislike 
+                    $dislike_score = $this->Score_Model->count_dislike($row->news_id);
+                    $dislike += $dislike_score;
+                    // count total comment 
+                    $comment_score = $this->Score_Model->count_comment($row->news_id);
+                    $comment += $comment_score;
+                    //end 
+                    if($row->post_privacy == 1){
+                        $post_status = "Public";
+                    }else{
+                        $post_status = "Private";
+                    }
+                    $output .='
+                        <div class="post_data bg-white">
+                            <div class="row ">
+                                <div class="col-10">
+                                    <h4> 
+                                        <a href='.base_url("Home/ReadFullNews/").$row->news_id.'>'.$row->news_title.'</a>
+                                        <small class="budge" style="font-size: 14px">'.$row->news_insert_time.'<b> '.$post_status.'</b></small>
+                                    </h4>
+                                </div>
+                                <div class="pull-right">
+                                    <a href='.base_url("Home/ReadFullNews/".$row->news_id).'>View</a>
+                                    <a href='.base_url('MySpeech/edit_post/'.$row->news_id).'>Edit</a>
+                                    <a href='.base_url('MySpeech/delete_post/'.$row->news_id).'>Delete</a>
+                                </div>
+                            </div>
+                            <div class="row col-12">
+                                <p style="text-align: justify">'.$row->news_post_1.'</p>
+                                
+                            </div>
+                            <div class="col-12">
+                                <p class="text-center"><a href="" class="card-link">'.$like.' People Like </a> <a href="" class="card-link">'.$dislike.' People Dislike</a> <a href="" class="card-link">'.$comment.' People Comment </a></p>
+                            </div>
+                           
+                        </div>
+                    ';
+                }
+            }
+            echo $output;
         }
 
         function edit_post($news_id){
@@ -34,9 +87,9 @@
                         
                         'news_title'        => $_POST['post_title'],
                         'news_post_1'       => $_POST['news_post_1'],
-                        'news_post_2'       => $_POST['news_post_2'],
                         'video_link'        => $_POST['video_link'],
                         'user_privacy'      => $_POST['user_privacy'],
+                        'post_privacy'      => $_POST['post_privacy'],
                         'news_updatedate'   => Date('d-m-y h:i:s am')
                     );
 

@@ -11,30 +11,31 @@ class Home extends CI_Controller {
         //$this->output->cache($n);
     }
 	public function index(){
-        
-        //$data['query']=$this->Home_Model->Home();
-
+    
         $this->load->view("header",array('search' => '', 'score' => '','others' =>''));
         $this->load->view('leftnav');
         $this->load->view('home/news');
        // echo $read;
     }
 	// just load data 
-	function fetch() 
-	{
+	function fetch() {
 		$output = '';
-		//$this->load->model('scroll_pagination_model');
 		$data = $this->Home_Model->fetch_data($this->input->post('limit'), $this->input->post('start'));
 		if($data->num_rows() > 0)
 		{
 			foreach($data->result() as $row)
 			{
+                if($row->user_privacy == 1){
+                    $user_status = '<a href='.base_url("Public_Profile/index/".$row->user_id).'>'.$row->fname.' '.$row->lname.' </a>';
+                }else{
+                    $user_status = '<a>Hidden</a>';
+                }
 				$output .= '
 				<div class="post_data bg-white">
 					<h2 class="text-danger text-center"> <a href='.base_url('Home/ReadFullNews/'.$row->news_id).'>'.$row->news_title.'</a></h2>
                     <a></a>
                     <p style="text-align: justify">'.trim(substr($row->news_post_1,0,500)).'...<a href='.base_url('Home/ReadFullNews/'.$row->news_id).'>See More</a></p>
-					<p class="text-center"> <i> Posted By: <a href='.base_url("Public_Profile/index/".$row->user_id).'>'.$row->fname.' '.$row->lname.' </a> on: '.$row->news_insert_time.'</i></p>
+					<p class="text-center"> <i> Posted By: '.$user_status.' on: '.$row->news_insert_time.'</i></p>
 				</div>
 				';
 			}

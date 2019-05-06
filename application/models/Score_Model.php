@@ -1,7 +1,7 @@
 <?php 
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-    class Score_Model extends CI_Model{
+    class Score_Model extends CI_Model{ 
         public function __construct(){
             parent::__construct();
         }
@@ -9,6 +9,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             $this->db->select('*');
             $this->db->from('news_post');
             $this->db->where('user_id',$this->session->userdata('user_id'));
+            $this->db->where('delete_status',0);
             $this->db->order_by('news_id','desc');
             return $this->db->get();
         }

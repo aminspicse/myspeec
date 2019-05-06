@@ -1,9 +1,10 @@
 
-        <div id="load_data"></div>
-        <div id="load_data_message"></div>
-   
-    </div>
-    </main>
+        <div class="content-wrapper" style="">
+           
+          <div id="load_data"></div>
+          <div id="load_data_message"></div>
+
+        </div>
     </body>
 	</html>
 	
@@ -16,8 +17,7 @@
     var limit = 10;
     var start = 0;
     var action = 'inactive';
-    var search = document.getElementById('search_main').value;
-    //alert(search);
+
     function lazzy_loader(limit)
     {
       var output = '';
@@ -36,15 +36,15 @@
     function load_data(limit, start)
     {
       $.ajax({
-        url:"<?php echo base_url('Search/fetch_friends'); ?>",
+        url:"<?php echo base_url('MySpeech/myspeec_fetch'); ?>",
         method:"POST",
-        data:{search:search, limit:limit, start:start},
+        data:{limit:limit, start:start},
         cache: false,
         success:function(data)
         {
           if(data == '')
           {
-            $('#load_data_message').html('<h3 class="text-center">No More Friend Found</h3>');
+            $('#load_data_message').html('<h3 class="text-center">No More Post Found</h3>');
             action = 'active';
           }
           else
