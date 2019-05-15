@@ -1,18 +1,17 @@
 <?php 
 defined('BASEPATH') OR exit('No direct script access allowed');
-
-
-    class Landing_page extends CI_Controller{
-        public function __construct(){
+    class SignUp extends CI_Controller{
+        function __construct(){
             parent::__construct();
+            date_default_timezone_set('Asia/Dhaka');
+            $this->load->Model('users/SignUp_Model');
             if($this->session->userdata('user_id') == true){
                 redirect('home');
-                //echo "Hi";
-            } 
+            }
         }
 
         public function index(){
-            
+
             $this->load->library("form_validation");
             $this->form_validation->set_rules('fname','First Name','required',array('required' => 'Take Your First Name'));
             $this->form_validation->set_rules('lname','Last Name','required',array('required' => 'Take Your Last Name'));
@@ -23,10 +22,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
             if($this->form_validation->run() == FALSE){
 
-                //$this->load->view("header.php");
+                $this->load->view("users/navbarland");
                 //$this->load->view('leftnav');
-                //$this->load->view("singup/signup.php");
-                $this->load->view('users/landing_page.php');
+                $this->load->view("users/singup/signup.php");
                 
             }else{
             
@@ -47,13 +45,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
                 }
 
-                $this->load->Model('users/SignUp_Model');
+                
                 if($data == true){
                     $this->SignUp_Model->insert('users',$data);
-                    redirect(base_url().'users/Login');
+                    redirect(base_url().'login');
                 }
             }
-        }
-        
-    }
 
+        }
+    }
+?>

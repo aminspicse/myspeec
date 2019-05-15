@@ -49,17 +49,52 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 | Examples:	my-controller/index	-> my_controller/index
 |		my-controller/my-method	-> my_controller/my_method
 */
-$route['default_controller'] = 'Landing_page';
-
+//landign page controller
+$route['default_controller']    = 'Landing_page/';
+//Sign Up controller
+$route['signup']                = 'users/Signup';
+//Login controller
+$route['login']                 = 'users/Login';// login interface 
+$route['check_validation']      = 'users/Login/Check_Validation'; // check login validation 
+$route['logout']                = 'users/Login/logout';
+//forgot password controller
+$route['forgatpassword']        = 'users/Forgot_Password/forgot'; //forgat password interface
+$route['check_email']           = 'users/Forgot_Password/forgot_val'; // check email registered or not if registered then send a temporary password
+$route['check_code']            = 'users/Forgot_Password/temp_password_val'; //check code valide or invalide
+$route['set_new_password']      = 'users/Forgot_Password/change_password'; // for change password
+//Search navbar controller
+$route['posts']                 = 'users/Search/posts';//search for post
+$route['friends']               = 'users/Search/friends';//search for friend
+$route['video']                 = 'users/Search/videos';//search for video
+$route['image']                 = 'users/Search/images';//search for image
+//All sepaker
+$route['allspeaker']            = 'users/All_Speaker/index';
+//New Post
+$route['new_speec']             = 'users/NewSpeec/index'; //for new posts
+$route['publish_speec']         = 'users/NewSpeec/index';
+//MySpeec 
+$route['mypost']                = 'users/MySpeech/index';
+$route['editpost/(:any)/(:any)']    = 'users/MySpeech/edit_post/$1/$title';//edit retrive post
+$route['updatepost']     = 'users/MySpeech/update_post';
+//home controller
+$route['home']                  = 'users/Home';
+$route['details/(:any)/(:any)'] = 'users/Home/ReadFullNews/$1/title_$2';
+//public_profile
+$route['view/(:any)/(:any)'] = 'users/Public_Profile/view_profile/$1/user_$2'; //for vewing public profile
+$route['view/(:any)/(:any)/(:any)'] = 'users/Public_Profile/posts/$1/user_$2/$posts'; //for vewing public post
+//Profile controller
+$route['profile']           = 'users/Profile/index';
+$route['friendlist']        = 'users/Profile/total_friends';
+$route['removefriend/(:any)']     = 'users/Profile/remove_friend/nm_$1';
+$route['editinfo']                = 'users/Profile/update_personal_info';
+$route['changeimage']             = 'users/Profile/Profilepic';
+//Activities controller
+$route['loginactivities']   = 'users/Activities/loginactivities';
+//ChangePassword controller
+$route['changepassword']            = 'users/ChangePassword';
+//Score controller
+$route['score']                     = 'users/Score/index';
+//SMS Controller
+$route['sms']                       = 'users/SMS/index';
 $route['404_override'] = '';
-$route['translate_uri_dashes'] = FALSE;
-
-$route['home'] = 'Home/index';
-
-// forgot password start
-$route['forgot'] = 'Forgot_Password/forgot';
-//forgot password end
-
-// Activities monitoring start 
-$route['loginactivities'] = 'Activities/loginactivities';
-// Activities monitorin end
+$route['translate_uri_dashes'] = true;
