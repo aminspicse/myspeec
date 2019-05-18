@@ -1,4 +1,4 @@
-<link rel="stylesheet" href="<?= base_url('assets/messages/style.css')?>">
+<link rel="stylesheet" href="<?= base_url('assets/users/messages/style.css')?>">
     <div class="content-wrapper">
         <div class="h-100">
 			<div class="row justify-content-center h-100">
@@ -24,7 +24,7 @@
                                             <span class="online_icon"></span>
                                         </div>
                                         <div class="user_info">
-                                            <span> <a href="<?= base_url('SMS/chating/').$active_friend['user_id'] ?>"><?= $active_friend['fname'].' '.$active_friend['lname'] ?></a> </span>
+                                            <span> <a href="<?= base_url('users/SMS/chating/').$active_friend['user_id'] ?>"><?= $active_friend['fname'].' '.$active_friend['lname'] ?></a> </span>
                                             <p><?= $active_friend['fname']?> is online</p>
                                         </div>
                                     </div>
@@ -99,7 +99,7 @@
 						</div>
 						
 						<div class="card-footer">
-							<form action="<?= base_url('SMS/chating/').$frinfo->user_id?>" method="post">
+							<form action="<?= base_url('users/SMS/chating/').$frinfo->user_id?>" method="post">
 							<div class="input-group">
 								<div class="input-group-append">
 									<span class="input-group-text attach_btn"><i class="fas fa-paperclip"></i></span>

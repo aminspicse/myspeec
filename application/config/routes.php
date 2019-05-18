@@ -88,6 +88,7 @@ $route['friendlist']        = 'users/Profile/total_friends';
 $route['removefriend/(:any)']     = 'users/Profile/remove_friend/nm_$1';
 $route['editinfo']                = 'users/Profile/update_personal_info';
 $route['changeimage']             = 'users/Profile/Profilepic';
+
 //Activities controller
 $route['loginactivities']   = 'users/Activities/loginactivities';
 //ChangePassword controller
@@ -96,5 +97,17 @@ $route['changepassword']            = 'users/ChangePassword';
 $route['score']                     = 'users/Score/index';
 //SMS Controller
 $route['sms']                       = 'users/SMS/index';
+// CV controller
+$route['addeducation']              = 'users/CV/addeducation'; // Add education
+$route['addexperience']             = 'users/CV/addexperience'; // Add Edperiece
+$route['editexperience/(:num)']     = 'users/CV/edit_experience/$1'; // Edit Experience
+$route['deleteexperience/(:num)']   = 'users/CV/delete_experience/$1'; // delete experience 
+$route['addskill']                  = 'users/CV/addskill';// add skill
+$route['editskill/(:num)']          = 'users/CV/edit_skill/$1'; // edit skill
+$route['deleteskill/(:num)']        = 'users/CV/delete_skill/$1'; // delete skill
+$route['addtraining']               = 'users/CV/addtraining'; // add traiining
+$route['edittraining/(:num)']       = 'users/CV/edit_training/$1'; // edit training 
+$route['deletetraining/(:num)']     = 'users/CV/delete_training/$1';
+$route['cv']                      = 'users/CV/cv_view';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = true;

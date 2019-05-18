@@ -54,7 +54,12 @@
                             'fname'     => $_POST['fname'],
                             'lname'     => $_POST['lname'],
                             'phone'     => $_POST['phone'],
-                            'country'   => $_POST['country']
+                            'fathers_name'  => $_POST['fathers_name'],
+                            'mothers_name'  => $_POST['mothers_name'],
+                            'country'   => $_POST['country'],
+                            'present_address'   => $_POST['present_address'],
+                            'permanent_address' => $_POST['permanent_address'],
+                            'nid'               => $_POST['nid']
                         );
 
                             $this->Profile_Model->UpdateInfo($updates);
@@ -111,7 +116,24 @@
             }
         }
 
-
+        public function cv_view(){
+            $data['query'] = $this->Profile_Model->profile();
+            $data['total_friend'] = $this->Profile_Model->total_friend();
+            $this->load->view('users/header',array('keyword' => '', 'title'=>'CV View', 'score' => '','others' =>''));
+            $this->load->view('users/profile/profile_leftnav');
+            $this->load->view('users/profile/heading',$data);
+            $this->load->view('users/cv/admin_view');  
+        }
+        public function fetch_cv_view(){
+            $output = '';
+            $output .= '
+                    <div class="row">
+                        <h2>Hello world</h2>
+                    </div>
+                </div>
+                </body>
+                </html>
+            ';
+            echo $output;
+        }
     }
-
-?>

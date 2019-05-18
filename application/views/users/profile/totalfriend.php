@@ -6,7 +6,7 @@
                             $qry = $this->Profile_Model->totalfriends($row->sub_id);
                         ?>
                         <td><?php echo $i++;?></td>
-                        <td><a href="<?= base_url('Public_Profile/index/').$qry['user_id']?>"><?= $qry['fname'].' '.$qry['lname'] ?></a></td>
+                        <td><a href="<?= base_url('view/').$qry['user_id'].'/'.url_title($qry['fname'].' '.$qry['lname'])?>"><?= $qry['fname'].' '.$qry['lname'] ?></a></td>
                         <td><?= $qry['phone'] ?></td>
                         <td><?= $qry['country']  ?></td>
                         <td><img src="<?=$qry['photo']  ?>" width="50px" alt=""></td>

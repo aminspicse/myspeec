@@ -50,7 +50,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 $this->load->Model('users/SignUp_Model');
                 if($data == true){
                     $this->SignUp_Model->insert('users',$data);
-                    redirect(base_url().'users/Login');
+                    redirect(base_url('login'));
                 }
             }
         }

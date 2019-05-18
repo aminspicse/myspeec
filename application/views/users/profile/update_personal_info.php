@@ -20,6 +20,7 @@
                         <span class="text-danger"><?= form_error('lname')?></span>
                     </div>
 
+
                     <div class="col-md-4">
                         <label for="phone">Phone: </label>
                         <input type="phone" name="phone" value="<?= $this->session->userdata('phone') ?>" placeholder="Phone" class="form-control">
@@ -28,7 +29,18 @@
                 </div>
 
                  <div class="row">
-                    
+                    <div class="col-md-4">
+                        <label for="fathers_name">Father's Name: </label>
+                        <input type="text" name="fathers_name" value="<?= $this->session->userdata('fathers_name') ?>" placeholder="Fathers Name" class="form-control">
+                        <span class="text-danger"><?= form_error('fathers_name')?></span>
+                    </div>
+
+                    <div class="col-md-4">
+                        <label for="mothers_name">Mothers's Name: </label>
+                        <input type="text" name="mothers_name" value="<?= $this->session->userdata('mothers_name') ?>" placeholder="Mothers Name" class="form-control">
+                        <span class="text-danger"><?= form_error('mothers_name')?></span>
+                    </div>
+
                     <div class="col-4">
                         <label for="country">Country: </label>
                         <input type="text" name="country" value="<?= $this->session->userdata('country') ?>" placeholder="Country" class="form-control">
@@ -36,8 +48,25 @@
                     </div>
                  </div>
                  <div class="row">
-                    
+                    <div class="col-md-4">
+                        <label for="present_address">Present Address: </label>
+                        <input type="text" name="present_address" value="<?= $this->session->userdata('present_address') ?>" placeholder="Present Address" class="form-control">
+                        <span class="text-danger"><?= form_error('present_address')?></span>
+                    </div>
+
+                    <div class="col-md-4">
+                        <label for="permanent_address">Permanent Address: </label>
+                        <input type="text" name="permanent_address" value="<?= $this->session->userdata('permanent_address') ?>" placeholder="Permanent Address" class="form-control">
+                        <span class="text-danger"><?= form_error('permanent_address')?></span>
+                    </div>
+
+                    <div class="col-md-4">
+                        <label for="nid">NID Number: </label>
+                        <input type="text" name="nid" value="<?= $this->session->userdata('nid') ?>" placeholder="NID/Birth Certificate No" class="form-control">
+                        <span class="text-danger"><?= form_error('nid')?></span>
+                    </div>
                  </div>
+                
                 <br>
                 
                 <div class="row">

@@ -65,8 +65,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 $this->session->set_userdata('username', $check['username']);
                 $this->session->set_userdata('phone', $check['phone']);
                 $this->session->set_userdata('country', $check['country']);
-                $this->session->set_userdata('password', $check['password']);
+                //$this->session->set_userdata('password', $check['password']);
                 $this->session->set_userdata('photo', $check['photo']);
+                $this->session->set_userdata('fathers_name', $check['fathers_name']);
+                $this->session->set_userdata('mothers_name', $check['mothers_name']);
+                $this->session->set_userdata('present_address', $check['present_address']);
+                $this->session->set_userdata('permanent_address', $check['permanent_address']);
+                $this->session->set_userdata('nid', $check['nid']);
 
                 redirect(base_url().'home');
             }else{

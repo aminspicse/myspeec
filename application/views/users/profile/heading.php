@@ -15,7 +15,7 @@
                         <a href="<?= base_url('mypost') ?>" class="card-link">Posts</a>
                     </div>
                     <div class="col-md-1 col-xs-2">
-                        <a href="" class="card-link">CV</a>
+                        <a href="<?= base_url('cv')?>" class="card-link">CV</a>
                     </div>
                     <div class="col-md-2 col-xs-4">
                         <a href="<?= base_url('profile') ?>" class="card-link">WorkPlace</a>
