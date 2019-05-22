@@ -1,79 +1,60 @@
+    <div class="row">
+        <div class="col-6">
+            <?php foreach($profile->result() as $row){ ?>
+                <p class="margin">Full Name</p>
+                <h6><b><?= $row->fname.' '.$row->lname?></b></h6>
+                <p class="margin">Email</p>
+                <p><b><?= $row->username ?></b> <i class="fas fa-globe-europe" title="Public"></i></p>
+               
+                <?php 
+                    if($row->phone != ''){
+                        echo '
+                        <p class="margin">Phone</p>
+                        <p><b>'.$row->phone.'</b> <i class="fas fa-globe-europe" title="Public"></i></p>
+                        ';
+                    }
+                    if($row->gender != ''){
+                        echo '<p class="margin">Gender</p>';
+                        echo '<p><b>'.$row->gender .'</b> <i class="fas fa-globe-europe" title="Public"></i></p>';
+                    }
 
-           <div id="load_data"></div>
-           <div id="load_data_message"></div>
- 
-     </body>
-     </html>
-     
-     
-      
- 
- <script>
-   $(document).ready(function(){
- 
-     var limit = 10;
-     var start = 0;
-     var action = 'inactive';
-     var user_id = document.getElementById('user_id').value;
-     //alert(user_id);
-     function lazzy_loader(limit)
-     {
-       var output = '';
-       for(var count=0; count<limit; count++)
-       {
-         output += '<div class="post_data">';
-         output += '<p><span class="content-placeholder" style="width:100%; height: 30px;">&nbsp;</span></p>';
-         output += '<p><span class="content-placeholder" style="width:100%; height: 100px;">&nbsp;</span></p>';
-         output += '</div>';
-       }
-       $('#load_data_message').html(output);
-     }
- 
-     lazzy_loader(limit);
- 
-     function load_data(limit, start)
-     {
-       $.ajax({
-         url:"<?php echo base_url('users/Public_Profile/fetch_view_profile'); ?>",
-         method:"POST",
-         data:{limit:limit, start:start, user_id:user_id},
-         cache: false,
-         success:function(data)
-         {
-           if(data == '')
-           {
-             $('#load_data_message').html('<h3 class="text-center">No More Post Found</h3>');
-             action = 'active';
-           }
-           else
-           { 
-             $('#load_data').append(data);
-             $('#load_data_message').html("");
-             action = 'inactive';
-           }
-         }
-       })
-     }
- 
-     if(action == 'inactive')
-     {
-       action = 'active';
-       load_data(limit, start);
-     }
- 
-     $(window).scroll(function(){
-       if($(window).scrollTop() + $(window).height() > $("#load_data").height() && action == 'inactive')
-       {
-         lazzy_loader(limit);
-         action = 'active';
-         start = start + limit;
-         setTimeout(function(){
-           load_data(limit, start);
-         }, 10);
-       }
-     });
- 
-   });
- </script>
- 
- 
+                    if($row->birth_date != '' && $row->birth_month != '' && $row->birth_year !=''){
+                        echo '<p class="margin">Date of Birth</p>';
+                        echo '<p><b>'. $row->birth_date.' - '.$row->birth_month.' - '.$row->birth_year.'</b> <i class="fas fa-globe-europe" title="Public"></i></p>';
+                    }
+
+                    if($row->present_address != ''){
+                        echo '
+                            <p class="margin">Lives in</p>
+                            <p><b>'.$row->present_address.'</b></p>
+                        ';
+                    }
+                    
+                    if($row->permanent_address != ''){
+                        echo '
+                            <p class="margin">Home</p>
+                            <p><b>'.$row->permanent_address.'</b></p>
+                        ';
+                    }
+                ?>
+            <?php } ?>
+        </div>
+        <div class="col-6">
+            <?php foreach($education->result() as $edu){?>
+                <p><i class="fas fa-graduation-cap"></i> Gradated form <a href=""> <?= $edu->department ?></a> at <a href=""><?= $edu->institute ?></a></p>
+            <?php } ?>
+            <?php foreach($training->result() as $tra){?>
+                <p><i class="fas fa-skull-crossbones"></i> Formar Trainee <a href=""><?= $tra->training_title ?></a> at <a href=""><?= $tra->training_institute ?></a></p>
+            <?php } ?>
+        </div>
+    </div>
+
+</div>
+</body>
+</html>
+
+<style>
+    .margin{
+        margin-bottom: 0px;
+    }
+</style>

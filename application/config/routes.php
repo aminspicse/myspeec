@@ -82,6 +82,7 @@ $route['details/(:any)/(:any)'] = 'users/Home/ReadFullNews/$1/title_$2';
 //public_profile
 $route['view/(:any)/(:any)'] = 'users/Public_Profile/view_profile/$1/user_$2'; //for vewing public profile
 $route['view/(:any)/(:any)/(:any)'] = 'users/Public_Profile/posts/$1/user_$2/$posts'; //for vewing public post
+$route['workplace/(:any)/(:any)']   = 'users/Public_Profile/view_workplace/$1/$2';
 //Profile controller
 $route['profile']           = 'users/Profile/index';
 $route['friendlist']        = 'users/Profile/total_friends';
@@ -97,8 +98,11 @@ $route['changepassword']            = 'users/ChangePassword';
 $route['score']                     = 'users/Score/index';
 //SMS Controller
 $route['sms']                       = 'users/SMS/index';
+$route['chat/(:num)']               = 'users/SMS/chating/$1';
 // CV controller
 $route['addeducation']              = 'users/CV/addeducation'; // Add education
+$route['editeducation/(:num)']      = 'users/CV/edit_education/$1'; // edit education data
+$route['deleteeducation/(:num)']    = 'users/CV/delete_education/$1'; // delete educaton
 $route['addexperience']             = 'users/CV/addexperience'; // Add Edperiece
 $route['editexperience/(:num)']     = 'users/CV/edit_experience/$1'; // Edit Experience
 $route['deleteexperience/(:num)']   = 'users/CV/delete_experience/$1'; // delete experience 
@@ -107,7 +111,11 @@ $route['editskill/(:num)']          = 'users/CV/edit_skill/$1'; // edit skill
 $route['deleteskill/(:num)']        = 'users/CV/delete_skill/$1'; // delete skill
 $route['addtraining']               = 'users/CV/addtraining'; // add traiining
 $route['edittraining/(:num)']       = 'users/CV/edit_training/$1'; // edit training 
-$route['deletetraining/(:num)']     = 'users/CV/delete_training/$1';
-$route['cv']                      = 'users/CV/cv_view';
+$route['deletetraining/(:num)']     = 'users/CV/delete_training/$1';// delete training
+$route['addabout']                  = 'users/CV/add_aboutself'; // add about
+$route['editabout/(:num)']          = 'users/CV/eidt_aboutself/$1'; //edit about
+$route['deleteabout/(:num)']        = 'users/CV/delete_aboutself/$1'; // delete about
+$route['cv']                        = 'users/CV/cv_view';
+$route['live']                      = 'users/Live/index'; 
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = true;

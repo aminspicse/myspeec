@@ -32,13 +32,13 @@
                 foreach ($qry->result() as $row) {
                     // count total like 
                     $like_score = $this->Score_Model->count_like($row->news_id);
-                    $like +=$like_score;
+                    //$like +=$like_score;
                     // count total dislike 
                     $dislike_score = $this->Score_Model->count_dislike($row->news_id);
-                    $dislike += $dislike_score;
+                    //$dislike += $dislike_score;
                     // count total comment 
                     $comment_score = $this->Score_Model->count_comment($row->news_id);
-                    $comment += $comment_score;
+                    //$comment += $comment_score;
                     //end 
                     if($row->post_privacy == 1){
                         $post_status = "Public";
@@ -65,7 +65,7 @@
                                 
                             </div>
                             <div class="col-12">
-                                <p class="text-center"><a href="" class="card-link">'.$like.' People Like </a> <a href="" class="card-link">'.$dislike.' People Dislike</a> <a href="" class="card-link">'.$comment.' People Comment </a></p>
+                                <p class="text-center"><a href="" class="card-link">'.$like_score.' People Like </a> <a href="" class="card-link">'.$dislike_score.' People Dislike</a> <a href="" class="card-link">'.$comment_score.' People Comment </a></p>
                             </div>
                            
                         </div>

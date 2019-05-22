@@ -47,28 +47,28 @@ class Home extends CI_Controller {
 
     public function video(){
 
-        $this->load->view("users/header",array('search' => '', 'score' => '','others' =>''));
+        $this->load->view("users/header",array('keyword' => '', 'title'=>'', 'score' => '','others' =>''));
        // $this->load->view('leftnav');
-        $this->load->view('leftnav');
+        $this->load->view('users/leftnav');
         //$this->load->view('home/index'); 
 
     }  
  
     function ReadFullNews($news_id,$news_title){
         if(isset($_POST['update_comment'])){
-            $update['comment_id'] = $_POST['comment_id'];
-            $update['comment_news'] = $_POST['comment'];
-            $update['comment_update'] = date("l jS \of F Y h:i:s A");
+            $update['comment_id']       = $_POST['comment_id'];
+            $update['comment_news']     = $_POST['comment'];
+            $update['comment_update']   = date("l jS \of F Y h:i:s A");
             $this->Home_Model->update_comment($update, $news_id);
         }
-        $qry = $data['query']=$this->Home_Model->ReadFull_News($news_id);
-        $data['commentquery']=$this->Home_Model->Comment_query($news_id);
-        $data['likes'] = $this->Home_Model->Likes($news_id);
-        $data['dislikes'] = $this->Home_Model->DisLikes($news_id);
-        $data['likevalidation'] = $this->Home_Model->Like_Validation($news_id);
-        $data['dislikevalidation'] = $this->Home_Model->Dislike_Validation($news_id); 
-        $data['keyword'] = '';//just for passing variable 
-        $data['score'] = ''; //just for passing variable 
+        $qry = $data['query']       =$this->Home_Model->ReadFull_News($news_id);
+        $data['commentquery']       = $this->Home_Model->Comment_query($news_id);
+        $data['likes']              = $this->Home_Model->Likes($news_id);
+        $data['dislikes']           = $this->Home_Model->DisLikes($news_id);
+        $data['likevalidation']     = $this->Home_Model->Like_Validation($news_id);
+        $data['dislikevalidation']  = $this->Home_Model->Dislike_Validation($news_id); 
+        $data['keyword']            = '';//just for passing variable 
+        $data['score']              = ''; //just for passing variable 
         foreach ($qry->result() as $tit) {
             $data['title'] = $tit->news_title;
         }
@@ -97,7 +97,7 @@ class Home extends CI_Controller {
             }
             
         }else{
-            redirect(base_url().'login/', $this->session->set_flashdata('msg', 'You Need To SignIn. if you have no account <a href="'.base_url('SignUp').'">Click to SignUp</a>'));
+            redirect(base_url().'login.asp', $this->session->set_flashdata('msg', 'You Need To SignIn. if you have no account <a href="'.base_url('signup.asp').'">Click to SignUp</a>'));
             
         }
     }
@@ -140,7 +140,7 @@ class Home extends CI_Controller {
             }
 
         }else{
-            redirect(base_url().'login/', $this->session->set_flashdata('msg', 'You Need To SignIn. if you have no account <a href="'.base_url('SignUp').'">Click to SignUp</a>'));
+            redirect(base_url().'login', $this->session->set_flashdata('msg', 'You Need To SignIn. if you have no account <a href="'.base_url('signup.asp').'">Click to SignUp</a>'));
             
         }
     }

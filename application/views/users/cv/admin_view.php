@@ -12,7 +12,7 @@
                 </div>
                 <div class="row card-body">
                     <div class="col-4 bg-light">
-                        <?php foreach ($profile->result() as $row) { ?>
+                        <?php foreach ($query->result() as $row) { ?>
                             <img src="<?= $row->photo?>" alt="" srcset="" style="margin-top: 20px; width: 200px">
                             <h4><b><?= $row->fname.' '.$row->lname?></b></h4>
                             <h6><i class="fas fa-phone"></i> <?= $row->phone?></h6>
@@ -33,11 +33,21 @@
                             <h6><b><?= $row->nid?></b></h6>
                             <h6 class="personal">Permanent Address</h6>
                             <h6><b><?= $row->permanent_address?></b></h6>
-                        <?php }?>
+                        <?php }
+                        echo '<p><b>About Self</b></p>';
+                        foreach($about_self->result() as $ab){
+                            echo '
+                                <p>'.nl2br($ab->about_self).'
+                                    <a href="" title="Edit"><i class="fas fa-edit"></i></a>
+                                    <a href="" title="Delete"><i class="fas fa-minus-circle"></i></a>
+                                </p>
+                            ';
+                        }
+                        ?>
                     </div>
                     <div class="col-6 ">
                         <!-- Add experience -->
-                        <h5><i class="fas fa-briefcase"></i> Experience </h5>
+                        <h5><i class="fas fa-briefcase"></i> Experience <small><a href="<?= base_url('addexperience') ?>" class="card-link" title="Add Experience"><i class="fas fa-plus"></i></a></small></h5>
                         <?php foreach ($experience->result() as $exp) { ?>
                             <ul>
                                 <li>
@@ -60,7 +70,7 @@
                             </ul>
                         <?php }?>
                         <!-- Add skill -->
-                        <h5><i class="fas fa-book-dead"></i> Skills </h5>
+                        <h5><i class="fas fa-book-dead"></i> Skills <small><a href="<?= base_url('addskill') ?>" class="card-link" title="Add Skill"><i class="fas fa-plus"></i></a></small> </h5>
                         <?php foreach ($skill->result() as $skill) { ?>
                             <ul class="personal">
                                 <li><?= $skill->skill_name.' <b>'.$skill->skill_label.'</b>' ?><small>
@@ -77,7 +87,7 @@
                             </ul>
                         <?php }?>
                         <!-- Add Training -->
-                        <h5><i class="fas fa-skull-crossbones"></i> Training</h5>
+                        <h5><i class="fas fa-skull-crossbones"></i> Training <small><a href="<?= base_url('addtraining') ?>" class="card-link" title="Add Training"><i class="fas fa-plus"></i></a></small></h5>
                         <?php foreach ($training->result() as $tran) { ?>
                             <ul>
                                 <li>
@@ -101,11 +111,23 @@
                             </ul>
                         <?php }?>
                         <!-- Add education -->
-                        <h5><i class="fas fa-graduation-cap"></i> Education</h5>
+                        <h5><i class="fas fa-graduation-cap"></i> Education <small><a href="<?= base_url('addeducation') ?>" class="card-link" title="Add Education"> <i class="fas fa-plus"></i></a></small></h5>
                         <?php foreach ($education->result() as $edu) { ?>
                             <ul>
                                 <li>
-                                    <h6><b><?= $edu->degree ?></b></h6>
+                                    <h6><b><?= $edu->degree ?></b>
+                                        <small>
+                                            <a href="<?= base_url('editeducation/'.$edu->education_id)?>" title="Edit"><i class="fas fa-edit"></i></a>
+                                            <a href="<?= base_url('deleteeducation/'.$edu->education_id)?>" title="Delete"><i class="fas fa-minus-circle"></i></a>
+                                            <?php 
+                                                if($edu->privacy_status == 1){
+                                                    echo '<a title="Public"><i class="fas fa-globe-europe"></i></a>';
+                                                }else{
+                                                    echo '<a title="Private"><i class="fas fa-user-lock"></i></a>';
+                                                }
+                                            ?>
+                                        </small>
+                                    </h6>
                                     <p class="personal">Institute: <b><?= $edu->institute ?></b></p>
                                     <p class="personal">Department: <b><?= $edu->department?></b></p>
                                     <p class="personal">Result: <b><?= $edu->result?></b></p>

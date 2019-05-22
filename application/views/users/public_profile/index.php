@@ -2,8 +2,8 @@
     defined('BASEPATH') OR exit('No direct script access allowed');
 ?>
  
-        <div class="content-wrapper">
-            <?php foreach($queryindex->result() as $rows){?>
+        <div class="content-wrapper bg-white">
+            <?php foreach($profile->result() as $rows){?>
             <div class="row" style="bg-color: red">
                 <img src="<?= $rows->photo;?>" style="width: 100%; height: 100px" alt="">
                 <div class="col-md-2">
@@ -23,7 +23,7 @@
                     <a href="" class="card-link">CV</a>
                 </div>
                 <div class="col-md-2 col-xs-4">
-                    <a href="" class="card-link">workplace</a>
+                    <a href="<?= base_url('workplace/'.$rows->user_id.'/'.url_title($rows->fname.' '.$rows->lname))?>" class="card-link">workplace</a>
                 </div>
                 <div class="col-md-2 col-xs-4">
                     <a href="<?= base_url('users/MakeFriend/makefriend/').$user_id ?>" class="card-link">
@@ -35,7 +35,7 @@
                     </a>
                 </div>
                 <div class="col-md-2 col-xs-4">
-                    <a href="<?= base_url('SMS/chating/').$user_id ?>" class="card-link">Send Message</a>
+                    <a href="<?= base_url('chat/').$user_id ?>" class="card-link">Send Message</a>
                 </div>
                 <input type="text" id="user_id" style="display:none" value="<?= $user_id ?>">
             </div>

@@ -7,7 +7,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             $this->load->model('users/Public_Profile_Model');
             $this->load->model('users/MakeFriend_Model');
             $this->load->model('users/Score_Model');
-        }
+        } 
 
         public function view_profile($user_id, $user_name){
             // start validation for friend request 
@@ -17,8 +17,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             //end validation for friend request 
 
             $data['user_id'] = $user_id;
-            $data['queryindex'] = $this->Public_Profile_Model->Profile($user_id);
-            foreach($data['queryindex']->result() as $tit){ //just collect user name
+            $data['profile'] = $this->Public_Profile_Model->Profile($user_id);
+            $data['education'] = $this->Public_Profile_Model->user_cv_data('user_education', 'education_id',$user_id);
+            $data['training'] = $this->Public_Profile_Model->user_cv_data('user_training', 'training_id',$user_id);
+            foreach($data['profile']->result() as $tit){ //just collect user name
                 $title = $tit->fname.' '.$tit->lname;
             }
             $this->load->view('users/header',array('title' => $title, 'keyword'=>$title, 'score' => '','others' =>''));
@@ -26,16 +28,27 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             $this->load->view('users/public_profile/index.php', $data);
             $this->load->view('users/public_profile/about.php', $data);
         }
+        public function view_workplace($user_id, $user_name){
+            // start validation for friend request 
+            $data['parent_id'] = $this->session->userdata('user_id'); // check for friend filtering 
+            $data['sub_id'] = $user_id;// check for friend request filtering 
+            $data['filter_request'] = $this->MakeFriend_Model->friend_filter($data['parent_id'], $data['sub_id']);
+            //end validation for friend request 
 
-        public function fetch_view_profile(){
-            $output = '';
-
-            $output .='hello ';
-
-
-            echo $output;
+            $data['user_id'] = $user_id;
+            $data['profile'] = $this->Public_Profile_Model->Profile($user_id);
+            $data['education'] = $this->Public_Profile_Model->user_cv_data('user_education', 'education_id',$user_id);
+            $data['training'] = $this->Public_Profile_Model->user_cv_data('user_training', 'training_id',$user_id);
+            $data['experience'] = $this->Public_Profile_Model->user_cv_data('user_experience', 'experience_id', $user_id);
+            $data['skills'] = $this->Public_Profile_Model->user_cv_data('user_skill', 'skill_id', $user_id);
+            foreach($data['profile']->result() as $tit){ //just collect user name
+                $title = $tit->fname.' '.$tit->lname;
+            }
+            $this->load->view('users/header',array('title' => $title, 'keyword'=>$title, 'score' => '','others' =>''));
+            $this->load->view('users/leftnav');
+            $this->load->view('users/public_profile/index.php', $data);
+            $this->load->view('users/public_profile/workplace.php', $data);
         }
-
         public function posts($user_id,$user_name,$post){
             // start validation for friend request 
             $data['parent_id'] = $this->session->userdata('user_id'); // check for friend filtering 
@@ -44,9 +57,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             //end validation for friend request 
             
             $data['user_id'] = $user_id;
-            $data['queryindex'] = $this->Public_Profile_Model->Profile($user_id);
+            $data['profile'] = $this->Public_Profile_Model->Profile($user_id);
             //$data['querypost'] = $this->Public_Profile_Model->Posts($user_id);
-            foreach($data['queryindex']->result() as $tit){ //just collect user name
+            foreach($data['profile']->result() as $tit){ //just collect user name
                 $title = $tit->fname.' '.$tit->lname;
             }
             $this->load->view('users/header',array('title' => $title, 'keyword'=>$title, 'score' => '','others' =>''));

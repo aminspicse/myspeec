@@ -53,7 +53,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                             <p class="text-danger"><a href='.base_url('view/'.$row->user_id.'/'.url_title($row->fname.$row->lname)).'>'.$row->fname.' '.$row->lname.'</a></p>
                         </div>
                         <div class="col-3">
-                            <p class="text-danger"><a href='.base_url('SMS/chating/'.$row->user_id).'>Send Message</a></p>
+                            <p class="text-danger"><a href='.base_url('chat/'.$row->user_id).'>Send Message</a></p>
                         </div>
                         <div class="col-2">
                            <p><a href='.base_url('users/MakeFriend/friend_request/'.$row->user_id).'>'.$friend_status.'</a></p>

@@ -4,16 +4,23 @@
         function __construct(){
             parent::__construct();
             $this->load->model('users/Profile_Model');
+            $this->load->model('users/CV_Model');
+            $this->load->model('users/Public_Profile_Model');
             $this->load->library('form_validation');
             //$this->load->controller('Public_Profile');
             if($this->session->userdata('user_id') == false){
-                redirect('login');
+                redirect(base_url().'login.asp', $this->session->set_flashdata('msg', 'You Need To SignIn. if you have no account <a href="'.base_url('signup.asp').'">Click to SignUp</a>'));
             }
             
         }
         function index(){
             $data['query'] = $this->Profile_Model->profile();
             $data['total_friend'] = $this->Profile_Model->total_friend();
+            $user_id = $this->session->userdata('user_id');
+            $data['profile'] = $this->Public_Profile_Model->Profile($user_id);
+            $data['education'] = $this->CV_Model->fetch_data_for_view_admin('user_education','education_id',$this->session->userdata('user_id')); // fetch education
+            $data['training'] = $this->CV_Model->fetch_data_for_view_admin('user_training','training_id',$this->session->userdata('user_id'));
+            $data['about_self'] = $this->CV_Model->fetch_data_for_view_admin('user_about', 'about_id', $this->session->userdata('user_id'));
             $this->load->view('users/header',array('keyword' => '', 'title'=>$this->session->userdata('fname').' '.$this->session->userdata('lname'), 'score' => '','others' =>''));
             $this->load->view('users/profile/profile_leftnav');
             $this->load->view('users/profile/heading',$data);
