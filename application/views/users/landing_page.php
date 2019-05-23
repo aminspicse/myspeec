@@ -16,7 +16,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Myspeec Login or Signup</title>
-    <link rel="stylesheet" href="<?= base_url('assets/users/css/bootstrap.min.css')?>">
+    <link rel="stylesheet" href="<?= base_url('assets/users/bootstrap/css/bootstrap.min.css')?>">
+    <link rel="icon" href="<?= base_url('assets/users/image/myspeec.png')?>" type="image/png" sizes="40x40"> 
 </head>
 <body>
     <nav class="navbar navbar-expand-sm navbar-fixed" style="background-color: #e7eff7">
@@ -47,20 +48,40 @@
                         <input type="password" name="repassword" value="<?= set_value('repassword') ?>" required class="username" placeholder="Re-Enter Password">
                         <h4 style="width:100%"><strong>Date of Birth</strong></h4> <br>
                         <select name="date" id="" class="birthdate">
-                            <option value="">Day</option>
-                            <?php for($i = 1; $i<=31; $i++){ 
+                            <?php 
+                            if(set_value('date') == true){
+                                echo "<option value=".set_value('date').">".set_value('date')."</option>";
+                                echo '<option value="">Day</option>';
+                            }else{
+                                echo '<option value="">Day</option>';
+                            }
+                            
+                            for($i = 1; $i<=31; $i++){ 
                                 echo "<option value='$i'>$i</option>";
-                            }?>
+                            }
+                            ?>
                         </select>
                         <select name="month" id="" class="birthdate">
-                            <option value="">Month</option>
-                            <?php for($i = 1; $i<=12; $i++){ 
+                            <?php 
+                            if(set_value('month') == true){
+                                echo "<option value=".set_value('month').">".set_value('month')."</option>";
+                                echo '<option value="">Month</option>';
+                            }else{
+                                echo '<option value="">Month</option>';
+                            }
+                            for($i = 1; $i<=12; $i++){ 
                                 echo "<option value='$i'>$i</option>";
                             }?>
                         </select>
                         <select name="year" id="" class="birthdate">
-                            <option value="">Year</option>
-                            <?php for($i = 2019; $i>=1920; $i--){ 
+                            <?php 
+                            if(set_value('year') == true){
+                                echo "<option value=".set_value('year').">".set_value('year')."</option>";
+                                echo '<option value="">Year</option>';
+                            }else{
+                                echo '<option value="">Year</option>';
+                            }
+                            for($i = 2019; $i>=1920; $i--){ 
                                 echo "<option value='$i'>$i</option>";
                             }?> 
                         </select>
@@ -68,6 +89,7 @@
                         <br>
                         <b><label class="radio-inline"><input type="radio" name="gender" value="Male"> Male </label></b>
                         <b><label class="radio-inline"><input type="radio" name="gender" value="Female"> Female</label></b>
+                        <span class="text-danger"><?= form_error('gender') ?></span>
                         <p> 
                             You may receive SMS notifications from us and can opt out at any time.
                             I Agree all the terms and condition of myspeec.

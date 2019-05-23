@@ -52,8 +52,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 //landign page controller
 $route['default_controller']    = 'Landing_page/';
 //Sign Up controller
-$route['signup']                = 'users/Signup';
-//Login controller
+$route['signup']                = 'users/SignUp/index';
+//Login controller 
 $route['login']                 = 'users/Login';// login interface 
 $route['check_validation']      = 'users/Login/Check_Validation'; // check login validation 
 $route['logout']                = 'users/Login/logout';
@@ -84,12 +84,12 @@ $route['view/(:any)/(:any)'] = 'users/Public_Profile/view_profile/$1/user_$2'; /
 $route['view/(:any)/(:any)/(:any)'] = 'users/Public_Profile/posts/$1/user_$2/$posts'; //for vewing public post
 $route['workplace/(:any)/(:any)']   = 'users/Public_Profile/view_workplace/$1/$2';
 //Profile controller
-$route['profile']           = 'users/Profile/index';
-$route['friendlist']        = 'users/Profile/total_friends';
-$route['removefriend/(:any)']     = 'users/Profile/remove_friend/nm_$1';
+$route['profile']                 = 'users/Profile/index';
+$route['friendlist']              = 'users/Profile/total_friends';
+$route['removefriend/(:num)']     = 'users/Profile/remove_friend/$1';
 $route['editinfo']                = 'users/Profile/update_personal_info';
 $route['changeimage']             = 'users/Profile/Profilepic';
-
+$route['workplace']               = 'users/Profile/view_workplace';
 //Activities controller
 $route['loginactivities']   = 'users/Activities/loginactivities';
 //ChangePassword controller
@@ -115,7 +115,7 @@ $route['deletetraining/(:num)']     = 'users/CV/delete_training/$1';// delete tr
 $route['addabout']                  = 'users/CV/add_aboutself'; // add about
 $route['editabout/(:num)']          = 'users/CV/eidt_aboutself/$1'; //edit about
 $route['deleteabout/(:num)']        = 'users/CV/delete_aboutself/$1'; // delete about
-$route['cv']                        = 'users/CV/cv_view';
+$route['cv']                        = 'users/CV/cv_view'; // cv admin view
 $route['live']                      = 'users/Live/index'; 
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = true;

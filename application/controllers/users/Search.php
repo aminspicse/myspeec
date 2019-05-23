@@ -99,14 +99,14 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 foreach ($qry->result() as $row) {
                     $count_following =  $this->Search_Nav_Model->total_following($row->user_id);
                     $count_followers = $this->Search_Nav_Model->total_followers($row->user_id);
-                                        // check friend or not //start
-                                        $check = $this->MakeFriend_Model->friend_filter($this->session->userdata('user_id'), $row->user_id);
-                                        if($check->num_rows() > 0){
-                                            $friend_status = "Connected";
-                                        }else{
-                                            $friend_status = "Connect";
-                                        }
-                                        // end check friend of not
+                        // check friend or not //start
+                        $check = $this->MakeFriend_Model->friend_filter($this->session->userdata('user_id'), $row->user_id);
+                        if($check->num_rows() > 0){
+                            $friend_status = "Connected";
+                        }else{
+                            $friend_status = "Connect";
+                        }
+                        // end check friend of not
                     $output .='
                         <div class="post_data bg-white row">
                             <div class="col-md-1">
@@ -122,7 +122,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                             </div>
                             <div class="col-md-2">
                                 <p></p>
-                                <a href='.base_url("SMS/chating/".$row->user_id).'>Send Message</a>
+                                <a href='.base_url("chat/".$row->user_id).'>Send Message</a>
                             </div>
                             <div class="col-md-2">
                                 <p></p>

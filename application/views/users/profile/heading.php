@@ -18,7 +18,7 @@
                         <a href="<?= base_url('cv')?>" class="card-link">CV</a>
                     </div>
                     <div class="col-md-2 col-xs-4">
-                        <a href="<?= base_url('profile') ?>" class="card-link">WorkPlace</a>
+                        <a href="<?= base_url('workplace') ?>" class="card-link">WorkPlace</a>
                     </div>
                     <div class="col-md-2 col-xs-4">
                         <a href="<?= base_url('friendlist') ?>" class="card-link">Total Friend <span><?= $total_friend->num_rows() ?></span> </a>

@@ -124,7 +124,7 @@ class Home extends CI_Controller {
                     'news_id'  => $_GET['news_id'],
                     'likes' => '1'
                 );
-                $title = $_GET['news_title'];
+                //$title = $_GET['news_title'];
                 $this->Home_Model->LikeDislike($likedata);
                 redirect(base_url().'details/'.$_GET['news_id'].'/liked');
             }

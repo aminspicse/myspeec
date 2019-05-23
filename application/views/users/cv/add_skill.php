@@ -6,10 +6,10 @@
                 <h3><?= $success ?></h3>
                 <span class="text-danger"><?= form_error('skill_name') ?></span>
                 <div class="row">
-                    <div class="col-6">
-                        <input type="text" name="skill_name" id="skill_name" class="form-control" placeholder="Add a skill">
+                    <div class="col-md-6">
+                        <input type="text" name="skill_name" id="skill_name" class="form-control" placeholder="Skill Title">
                     </div>
-                    <div class="col-6 input-group">
+                    <div class="col-md-6 input-group">
                         <div class="input-group-prepend">
                             <div class="input-group-text">From Date</div>
                         </div>
@@ -18,13 +18,13 @@
                 </div>
                
                 <div class="row">
-                    <div class="col-6 input-group">
+                    <div class="col-md-6 input-group">
                         <div class="input-group-prepend">
                             <div class="input-group-text">To Date</div>
                         </div>
                         <input type="date" name="to_date" id="location" style="" class="form-control">
                     </div>
-                    <div class="col-2">
+                    <div class="col-md-2">
                         <select name="skill_label" id="" class="form-control">
                             <option value="">Select Lavel</option>
                             <option value="(Expert)">Expert</option>
@@ -33,14 +33,14 @@
                             <option value="(Advance)">Advance</option>
                         </select>
                     </div>
-                    <div class="col-2">
+                    <div class="col-md-2">
                         <select name="privacy" id="" class="form-control">
                             <option value="1">Public</option>
                             <option value="0">Private</option>
                         </select>
                     </div>
-                    <div class="col-2">
-                        <button type="submit" name="save" class="btn btn-success">Save</button>
+                    <div class="col-md-2">
+                        <button type="submit" name="save" class="btn btn-success btn-block">Save</button>
                     </div>
                 </div>
                 

@@ -16,7 +16,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             if($this->session->userdata('user_id') == true){
                 redirect('home');
             }else{
-                $this->load->view('users/navbarland',array('title'=>''));
+                $this->load->view('users/navbarland',array('title'=>'Login Myspeec'));
                 $this->load->view('users/login/login', array('error' => ''));
             }
         }

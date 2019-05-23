@@ -141,9 +141,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 </ul>
             </div>
         </nav>
-        <br>
     </header>
-
+<hr>
 
 <style>
     @media only screen and (min-width: 768px) {

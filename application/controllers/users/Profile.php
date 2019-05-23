@@ -6,6 +6,7 @@
             $this->load->model('users/Profile_Model');
             $this->load->model('users/CV_Model');
             $this->load->model('users/Public_Profile_Model');
+            $this->load->model('users/Search_Nav_Model');
             $this->load->library('form_validation');
             //$this->load->controller('Public_Profile');
             if($this->session->userdata('user_id') == false){
@@ -18,24 +19,79 @@
             $data['total_friend'] = $this->Profile_Model->total_friend();
             $user_id = $this->session->userdata('user_id');
             $data['profile'] = $this->Public_Profile_Model->Profile($user_id);
-            $data['education'] = $this->CV_Model->fetch_data_for_view_admin('user_education','education_id',$this->session->userdata('user_id')); // fetch education
-            $data['training'] = $this->CV_Model->fetch_data_for_view_admin('user_training','training_id',$this->session->userdata('user_id'));
-            $data['about_self'] = $this->CV_Model->fetch_data_for_view_admin('user_about', 'about_id', $this->session->userdata('user_id'));
-            $this->load->view('users/header',array('keyword' => '', 'title'=>$this->session->userdata('fname').' '.$this->session->userdata('lname'), 'score' => '','others' =>''));
+            $data['education'] = $this->CV_Model->fetch_data_for_view_admin('user_education','education_id',$user_id); // fetch education
+            $data['training'] = $this->CV_Model->fetch_data_for_view_admin('user_training','training_id',$user_id);
+            $data['about_self'] = $this->CV_Model->fetch_data_for_view_admin('user_about', 'about_id', $user_id);
+            $this->load->view('users/header',array('keyword' => '', 'title'=>$this->session->userdata('fname').' '.$this->session->userdata('lname'),'score' => '','others' =>''));
             $this->load->view('users/profile/profile_leftnav');
             $this->load->view('users/profile/heading',$data);
             $this->load->view('users/profile/about',$data);
         }
-
+        // workplace
+        public function view_workplace(){ 
+            $data['query'] = $this->Profile_Model->profile();
+            $data['total_friend'] = $this->Profile_Model->total_friend();
+            $user_id = $this->session->userdata('user_id');
+            $data['profile'] = $this->Public_Profile_Model->Profile($user_id);
+            $data['education'] = $this->CV_Model->fetch_data_for_view_admin('user_education', 'education_id',$user_id);
+            $data['training'] = $this->CV_Model->fetch_data_for_view_admin('user_training', 'training_id',$user_id);
+            $data['experience'] = $this->CV_Model->fetch_data_for_view_admin('user_experience', 'experience_id', $user_id);
+            $data['skills'] = $this->CV_Model->fetch_data_for_view_admin('user_skill', 'skill_id', $user_id);
+            foreach($data['profile']->result() as $tit){ //just collect user name
+                $title = $tit->fname.' '.$tit->lname.' Work Place';
+            }
+            $this->load->view('users/header',array('title' => $title, 'keyword'=>'', 'score' => '','others' =>''));
+            $this->load->view('users/profile/profile_leftnav');
+            $this->load->view('users/profile/heading', $data);
+            $this->load->view('users/profile/workplace', $data);
+        }
         function total_friends(){
             $data['query'] = $this->Profile_Model->profile();
             $data['total_friend'] = $this->Profile_Model->total_friend();
             $this->load->view('users/header',array('keyword' => '', 'title'=>'', 'score' => '','others' =>''));
             $this->load->view('users/profile/profile_leftnav');
             $this->load->view('users/profile/heading',$data);
-            $this->load->view('users/profile/totalfriend',$data);
+            $this->load->view('users/profile/totalfriend'); 
         }
+        // fetch total friend
+        public function fetch_total_friend(){
+            $output = '';
+            $friend = $this->Profile_Model->fetch_friend($this->input->post('limit'), $this->input->post('start'));
+            foreach($friend->result() as $row){
+                $qry = $this->Profile_Model->totalfriends($row->sub_id);
 
+                $count_following =  $this->Search_Nav_Model->total_following($row->sub_id);
+                $count_followers = $this->Search_Nav_Model->total_followers($row->sub_id);
+                $output .= '
+                    <div class="post_data row">
+                        <div class="col-md-1">
+                            <img class="rounded-circle" src="'.$qry['photo'].'" width="50px">
+                        </div>
+                        <div class="col-md-3">
+                            <p class="personal"><a href="'.base_url("view/").$qry["user_id"].'/'.url_title($qry["fname"].' '.$qry["lname"]).'">'.$qry["fname"].' '.$qry["lname"].'</a></p>
+                            <p>'.$qry["username"].'</p>
+                        </div>
+                        <div class="col-md-3">
+                            <p class="personal"><a href="">'.$qry['phone'].'</a></p>
+                            <p>'.$qry["country"].'</p>
+                        </div>
+                        <div class="col-md-2">
+                            <p class="personal"><a href="'.base_url('chat/'.$row->sub_id).'">Send Message</a></p>
+                            <p>0 Messages</p>
+                        </div>
+                        <div class="col-md-2">
+                            <p class="personal"><a href="#">'.$count_followers.' Follwoers</a></p>
+                            <p><a href="#">'.$count_following.' Following</a></p>
+                        </div>
+                        <div class="col-md-1">
+                            <p class="personal"><a href="" title="Edit"><i class="fas fa-edit"></i></a></p>
+                            <p><a href="'.base_url("removefriend/".$qry['user_id']).'" title="Remove From Friend List"><i class="fas fa-minus-circle"></i></a></p>
+                        </div>
+                    </div>
+                ';
+            } 
+            echo $output;
+        }
         function remove_friend($id){
             $this->Profile_Model->removefriend($id);
             //$this->total_friends();

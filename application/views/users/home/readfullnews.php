@@ -13,9 +13,10 @@
                             <img src="<?= $row->image_link ?>" alt="" width="100%" class='figure-img img-thumbnail'>
                             <figcaption class="figure-caption text-right"></figcaption>
                         </figure>
-
+                        <?php if($row->video_link != ''){?>
                         <p><strong>Related video:</strong></p>
                         <iframe src="<?= $row->video_link; ?>" allowfullscreen style=" width:100%;" frameborder="0"></iframe>
+                        <?php } ?>
                     </div>
                     <div class="col-md-8 col-xs-12">
                         <?php 

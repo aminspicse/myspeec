@@ -10,13 +10,13 @@
         function index(){
             if($this->session->userdata('user_id') == true){
                 $this->load->view('users/header',array('keyword' => '', 'title'=>'New Post - Myspeec', 'score' => '','others' =>''));
-                $this->load->view('users/leftnav');
+                $this->load->view('users/profile/profile_leftnav');
                 $this->Post_Speec();
                 $this->load->view('users/newspeec/new_speech');
 
                 
             }else{
-                redirect(base_url().'login/');
+                redirect(base_url().'login.asp', $this->session->set_flashdata('msg', 'You Need To SignIn. if you have no account <a href="'.base_url('signup.asp').'">Click to SignUp</a>'));
             }
         }
 

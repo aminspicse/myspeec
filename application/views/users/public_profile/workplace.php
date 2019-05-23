@@ -1,9 +1,15 @@
 <div class="row">
         <div class="col-6">
-            <?php foreach($experience->result() as $exp) {?>
+            <?php foreach($experience->result() as $exp) {
+                if($exp->to_date == ''){
+                    $to_date = 'Contenue';
+                }else{
+                    $to_date = $exp->to_date;
+                }
+            ?>
                 <p><i class="fas fa-briefcase"></i> Started Job as <a href=""><?= $exp->job_position ?></a>
                     at <a href=""><?= $exp->company_name.', '.$exp->company_location?></a>
-                    <?= 'From '.$exp->from_date.' To '.$exp->to_date?>
+                    <?php echo 'From '.$exp->from_date.' To '.$to_date?>
                 </p>
             <?php } foreach($skills->result() as $skill){?>
                 <p><i class="fas fa-book-dead"> </i> Skilled <a href=""><?= $skill->skill_name.$skill->skill_label?></a></p>

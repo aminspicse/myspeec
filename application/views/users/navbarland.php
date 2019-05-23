@@ -17,6 +17,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title><?= $title ?></title>
     <link href="<?= base_url('assets/users/bootstrap/css/bootstrap.min.css'); ?>" rel="stylesheet" type="text/css">
+    <link rel="icon" href="<?= base_url('assets/users/image/myspeec.png')?>" type="image/png" sizes="40x40"> 
 </head>
 <body class="bg-light">
     <nav class="navbar navbar-expand-sm navbar-fixed" style="background-color: #e7eff7">

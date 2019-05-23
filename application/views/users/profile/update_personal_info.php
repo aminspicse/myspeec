@@ -41,7 +41,7 @@
                         <span class="text-danger"><?= form_error('mothers_name')?></span>
                     </div>
 
-                    <div class="col-4">
+                    <div class="col-md-4">
                         <label for="country">Country: </label>
                         <input type="text" name="country" value="<?= $this->session->userdata('country') ?>" placeholder="Country" class="form-control">
                         <span class="text-danger"><?= form_error('country')?></span>
@@ -70,8 +70,8 @@
                 <br>
                 
                 <div class="row">
-                    <div class="col-1 offset-9">
-                        <input type="submit" name="update" value="Update" class="btn btn-info btn-lg">
+                    <div class="col-md-2 offset-md-9">
+                        <input type="submit" name="update" value="Update" class="btn btn-info btn-lg btn-block">
                     </div>
                 </div>
             </form>

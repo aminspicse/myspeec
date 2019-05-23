@@ -20,6 +20,17 @@
             $this->db->from('make_friends');
             $this->db->where('parent_id', $this->session->userdata('user_id'));
             $this->db->where('delete_status',0);
+            //$this->db->limit(10);
+            $query = $this->db->get();
+            return $query;
+        }
+
+        public function fetch_friend($limit,$start){
+            $this->db->select('*');
+            $this->db->from('make_friends');
+            $this->db->where('parent_id', $this->session->userdata('user_id'));
+            $this->db->where('delete_status',0);
+            $this->db->limit($limit,$start);
             $query = $this->db->get();
             return $query;
         }

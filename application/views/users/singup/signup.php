@@ -30,11 +30,11 @@
 
                 <div class="row">
                     <div class="form-group half">
-                        <input type="password" name="password" placeholder="Password" class="form-control" >
+                        <input type="password" name="password" value="<?= set_value('password') ?>" placeholder="Password" class="form-control" >
                         <span class="text-danger"><?= form_error('password') ?></span>
                     </div>
                     <div class="form-group half">
-                        <input type="password" name="repassword" placeholder="Re-Password" class="form-control">
+                        <input type="password" name="repassword" value="<?= set_value('repassword') ?>" placeholder="Re-Password" class="form-control">
                         <span class="text-danger"><?= form_error('repassword') ?></span>
                     </div>
                 </div>
@@ -42,20 +42,38 @@
                     <div class="form-group">
                         <h3 class=""><b>Date of Birth</b></h3>
                         <select name="date" id="" class="birthdate">
-                            <option value="">Day</option>
-                            <?php for($i = 1; $i<=31; $i++){ 
+                            <?php 
+                            if(set_value('date') == true){
+                                echo "<option value=".set_value('date').">".set_value('date')."</option>";
+                                echo '<option value="">Day</option>';
+                            }else{
+                                echo '<option value="">Day</option>';
+                            }
+                            for($i = 1; $i<=31; $i++){ 
                                 echo "<option value='$i'>$i</option>";
                             }?>
                         </select>
                         <select name="month" id="" class="birthdate">
-                            <option value="">Month</option>
-                            <?php for($i = 1; $i<=12; $i++){ 
+                            <?php 
+                            if(set_value('month') == true){
+                                echo "<option value=".set_value('month').">".set_value('month')."</option>";
+                                echo '<option value="">Month</option>';
+                            }else{
+                                echo '<option value="">Month</option>';
+                            }
+                            for($i = 1; $i<=12; $i++){ 
                                 echo "<option value='$i'>$i</option>";
                             }?>
                         </select>
                         <select name="year" id="" class="birthdate">
-                            <option value="">Year</option>
-                            <?php for($i = 2019; $i>=1920; $i--){ 
+                            <?php 
+                            if(set_value('year') == true){
+                                echo "<option value=".set_value('year').">".set_value('year')."</option>";
+                                echo '<option value="">Year</option>';
+                            }else{
+                                echo '<option value="">Year</option>';
+                            }
+                            for($i = 2019; $i>=1920; $i--){ 
                                 echo "<option value='$i'>$i</option>";
                             }?> 
                         </select>
@@ -65,6 +83,7 @@
                     <div class="form-group">
                         <b><label class="radio-inline"><input type="radio" name="gender" value="Male"> Male </label></b>
                         <b><label class="radio-inline"><input type="radio" name="gender" value="Female"> Female</label></b>
+                        <span class="text-danger"><?= form_error('gender') ?></span>
                     </div>
                 </div>
                 <div class="row">
