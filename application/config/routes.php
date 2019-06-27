@@ -50,48 +50,49 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 |		my-controller/my-method	-> my_controller/my_method
 */
 //landign page controller
-$route['default_controller']    = 'Landing_page/';
+$route['default_controller']        = 'Landing_page/';
 //Sign Up controller
-$route['signup']                = 'users/SignUp/index';
+$route['signup']                    = 'users/SignUp/index';
+$route['SignUp']                    = 'users/SignUp/index';
 //Login controller 
-$route['login']                 = 'users/Login';// login interface 
-$route['check_validation']      = 'users/Login/Check_Validation'; // check login validation 
-$route['logout']                = 'users/Login/logout';
+$route['login']                     = 'users/Login';// login interface 
+$route['check_validation']          = 'users/Login/Check_Validation'; // check login validation 
+$route['logout']                    = 'users/Login/logout';
 //forgot password controller
-$route['forgatpassword']        = 'users/Forgot_Password/forgot'; //forgat password interface
-$route['check_email']           = 'users/Forgot_Password/forgot_val'; // check email registered or not if registered then send a temporary password
-$route['check_code']            = 'users/Forgot_Password/temp_password_val'; //check code valide or invalide
-$route['set_new_password']      = 'users/Forgot_Password/change_password'; // for change password
+$route['forgatpassword']            = 'users/Forgot_Password/forgot'; //forgat password interface
+$route['check_email']               = 'users/Forgot_Password/forgot_val'; // check email registered or not if registered then send a temporary password
+$route['check_code']                = 'users/Forgot_Password/temp_password_val'; //check code valide or invalide
+$route['set_new_password']          = 'users/Forgot_Password/change_password'; // for change password
 //Search navbar controller
-$route['posts']                 = 'users/Search/posts';//search for post
-$route['friends']               = 'users/Search/friends';//search for friend
-$route['video']                 = 'users/Search/videos';//search for video
-$route['image']                 = 'users/Search/images';//search for image
+$route['posts']                     = 'users/Search/posts';//search for post
+$route['friends']                   = 'users/Search/friends';//search for friend
+$route['video']                     = 'users/Search/videos';//search for video
+$route['image']                     = 'users/Search/images';//search for image
 //All sepaker
-$route['allspeaker']            = 'users/All_Speaker/index';
+$route['allspeaker']                = 'users/All_Speaker/index';
 //New Post
-$route['new_speec']             = 'users/NewSpeec/index'; //for new posts
-$route['publish_speec']         = 'users/NewSpeec/index';
+$route['new_speec']                 = 'users/NewSpeec/index'; //for new posts
+$route['publish_speec']             = 'users/NewSpeec/index';
 //MySpeec 
-$route['mypost']                = 'users/MySpeech/index';
+$route['mypost']                    = 'users/MySpeech/index';
 $route['editpost/(:any)/(:any)']    = 'users/MySpeech/edit_post/$1/$title';//edit retrive post
-$route['updatepost']     = 'users/MySpeech/update_post';
+$route['updatepost']                = 'users/MySpeech/update_post';
 //home controller
-$route['home']                  = 'users/Home';
-$route['details/(:any)/(:any)'] = 'users/Home/ReadFullNews/$1/title_$2';
+$route['home']                      = 'users/Home';
+$route['details/(:any)/(:any)']     = 'users/Home/ReadFullNews/$1/title_$2';
 //public_profile
-$route['view/(:any)/(:any)'] = 'users/Public_Profile/view_profile/$1/user_$2'; //for vewing public profile
+$route['view/(:any)/(:any)']        = 'users/Public_Profile/view_profile/$1/user_$2'; //for vewing public profile
 $route['view/(:any)/(:any)/(:any)'] = 'users/Public_Profile/posts/$1/user_$2/$posts'; //for vewing public post
 $route['workplace/(:any)/(:any)']   = 'users/Public_Profile/view_workplace/$1/$2';
 //Profile controller
-$route['profile']                 = 'users/Profile/index';
-$route['friendlist']              = 'users/Profile/total_friends';
-$route['removefriend/(:num)']     = 'users/Profile/remove_friend/$1';
-$route['editinfo']                = 'users/Profile/update_personal_info';
-$route['changeimage']             = 'users/Profile/Profilepic';
-$route['workplace']               = 'users/Profile/view_workplace';
+$route['profile']                   = 'users/Profile/index';
+$route['friendlist']                = 'users/Profile/total_friends';
+$route['removefriend/(:num)']       = 'users/Profile/remove_friend/$1';
+$route['editinfo']                  = 'users/Profile/update_personal_info';
+$route['changeimage']               = 'users/Profile/Profilepic';
+$route['workplace']                 = 'users/Profile/view_workplace';
 //Activities controller
-$route['loginactivities']   = 'users/Activities/loginactivities';
+$route['loginactivities']           = 'users/Activities/loginactivities';
 //ChangePassword controller
 $route['changepassword']            = 'users/ChangePassword';
 //Score controller
@@ -116,6 +117,9 @@ $route['addabout']                  = 'users/CV/add_aboutself'; // add about
 $route['editabout/(:num)']          = 'users/CV/eidt_aboutself/$1'; //edit about
 $route['deleteabout/(:num)']        = 'users/CV/delete_aboutself/$1'; // delete about
 $route['cv']                        = 'users/CV/cv_view'; // cv admin view
+// Job controller
+$route['createjob']                 = 'users/jobs/create_job';
 $route['live']                      = 'users/Live/index'; 
-$route['404_override'] = '';
-$route['translate_uri_dashes'] = true;
+$route['404_override']              = '';
+$route['translate_uri_dashes']      = true;
+

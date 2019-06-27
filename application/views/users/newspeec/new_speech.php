@@ -1,13 +1,13 @@
-    <div class="content-wrapper img-thumbnail">
-  
+    <div class="content-wrapper bg-white">
+        <br>
         <form action="<?= base_url()?>publish_speec" method="POST" enctype= "multipart/form-data" class="container">
         <div><?php //echo validation_errors(); ?></div>
             <div class="row">
                 <input type="text" name="post_title" class="form-control" value="<?= set_value('post_title') ?>" placeholder="Speek Your Title" style="font-size:20px;">
                 <span class="text-danger"><?= form_error('post_title') ?></span>
             </div>
-            <hr>
-            <div class="row"> 
+            <hr class="hide">
+            <div class="row hide"> 
                 <div class="col-md-10">
                     <i class="fas fa-align-center"></i>
                     <i class="fas fa-align-justify"></i>
@@ -56,7 +56,7 @@
                 
                 
             </div>
-           <hr>
+           <hr class="hide">
             <div class="row">
                 <textarea name="news_post_1" id="" cols="50" rows="10" class="form-control"><?= set_value('news_post_1') ?></textarea>
 
@@ -93,6 +93,11 @@
                     </select>
                 </div> 
 
+            </div>
+            <div class="row min-hide"><!-- show only mobile device--->
+                <div class="col-md-2">
+                <input type="submit" name="submit_speec" class="btn btn-success pull-right" value="Publish Speec">
+                </div>
             </div>
         </form>
     </div>

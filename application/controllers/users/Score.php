@@ -6,14 +6,14 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             parent::__construct();
             $this->load->model('users/Score_Model');
             if($this->session->userdata('user_id') == false){
-                redirect('login');
+                redirect(base_url('login',$this->session->set_flashdata('msg', 'You Need To SignIn. if you have no account <a href="'.base_url('signup').'">Click to SignUp</a>')));
             }
         }
         public function index(){
             $like = 0;
             $dislike = 0;
             $comment = 0;
-            $post = 0;
+            $post = 0; 
             $post_score = $this->Score_Model->count_post();
             
            // echo $post = $post_score->num_rows()."<br>";

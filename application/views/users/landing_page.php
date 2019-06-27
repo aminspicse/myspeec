@@ -33,7 +33,7 @@
 <br>
     <div class="container">
         <div class="row">
-            <div class="col-md-6">
+            <div class="col-md-6 hide">
                 <img src="<?= base_url('assets/users/image/earth.jpg')?>" class="eirth" alt="" width="100%">
             </div>
             <div class="col-md-6">
@@ -43,9 +43,13 @@
                         <input type="text" name="fname" value="<?= set_value('fname') ?>" required class="name" placeholder="First Name" >
                         <input type="text" name="lname" value="<?= set_value('lname') ?>" required class="name" placeholder="Last Name" >
                         <input type="email" name="username" value="<?= set_value('username') ?>" required class="username" placeholder="Email ID" >
+                        <span class="text-danger msg"><?= form_error('username')?></span>
                         <input type="phone" name="phone" value="<?= set_value('phone') ?>" value="<?= set_value('phone') ?>" required class="username" placeholder="Mobile Number" >
+                        <span class="text-danger msg"><?= form_error('phone')?></span>
                         <input type="password" name="password" value="<?= set_value('password') ?>" required class="username" placeholder="Password">
+                        <span class="text-danger msg"><?= form_error('password')?></span>
                         <input type="password" name="repassword" value="<?= set_value('repassword') ?>" required class="username" placeholder="Re-Enter Password">
+                        <span class="text-danger msg"><?= form_error('repassword')?></span>
                         <h4 style="width:100%"><strong>Date of Birth</strong></h4> <br>
                         <select name="date" id="" class="birthdate">
                             <?php 
@@ -105,11 +109,19 @@
     </footer>
 </body>
 <style>
+    @media (max-width: 767.98px) { 
+        .hide{
+            display:none;
+        }
+    }
+    .msg{
+        margin-bottom:-20px;
+    }
     .loginemail{
         
     }
     .loginpassword{
-        margin-left: 2px;
+        //margin-left: 2px;
     }
     .login-btn{
         margin-left: 2px;

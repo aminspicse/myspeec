@@ -46,19 +46,19 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     // end check friend of not
                     $output .= '
                     <div class="post_data bg-white row">
-                        <div class="col-1">
-                            <a href='.base_url('view/'.$row->user_id.'/'.url_title($row->fname.$row->lname)).'><img style="width: 40px" src='.$row->photo.'></a>
+                        <div class="col-md-1">
+                            <a href='.base_url('view/'.$row->user_id.'/'.url_title($row->fname.$row->lname)).'><img style="width: 80%" class="rounded-circle" src='.$row->photo.'></a>
                         </div>
-                        <div class="col-4">
+                        <div class="col-md-4 col-xs-6">
                             <p class="text-danger"><a href='.base_url('view/'.$row->user_id.'/'.url_title($row->fname.$row->lname)).'>'.$row->fname.' '.$row->lname.'</a></p>
                         </div>
-                        <div class="col-3">
+                        <div class="col-md-3">
                             <p class="text-danger"><a href='.base_url('chat/'.$row->user_id).'>Send Message</a></p>
                         </div>
-                        <div class="col-2">
+                        <div class="col-md-2">
                            <p><a href='.base_url('users/MakeFriend/friend_request/'.$row->user_id).'>'.$friend_status.'</a></p>
                         </div>
-                        <div class="col-1">
+                        <div class="col-md-1">
                            <p>'.$row->country.'</p>
                         </div>
                         

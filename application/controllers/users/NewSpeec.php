@@ -34,7 +34,7 @@
                         'max_size'      => 1024,
                         'max_width'     => 1000, 
                         'max_height'    => 2000,
-                        'encrype_name'  => true
+                        'encrype_name'  => true 
                     );
                     $this->load->library('upload', $config);
                     if($this->upload->do_upload('image_link')){

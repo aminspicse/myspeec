@@ -39,11 +39,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     <meta http-equiv="Pragma" content="no-cache">
     <meta http-equiv="Cache-Control" content="no-cache">
 <!-- facebook share--> 
-    <meta property="og:url"           content="<?= base_url()?>" />
+    <meta property="og:url"           content="<?= base_url($others)?>" />
     <meta property="og:type"          content="website" />
-    <meta property="og:title"         content="MySpeec" />
-    <meta property="og:description"   content="MySpeec is a digital free social media. We believe in freedom of speech. We believe open journalism. Use MySpace and highlight all the events that happen around you and express your opinion. এটি একটি ডিজিটাল মুক্তবাক সামাজিক মাধ্যম । আমরা বাক স্বাধীনতায় বিশ্বাস করি। আমরা ওপেন সাংবাদিকতায় বিশ্বাস করি। মাইস্পিস ব্যাবহার করুন আর আপনার আশেপাশে ঘটে যাওয়া সকল ঘটনা তুলে ধরুন এবং আপনার মতামত ব্যক্ত করুন। " />
-    <meta property="og:image"         content="http://www.myspeec.com/uploads/nomination-awamilig.jpg" />
+    <meta property="og:title"         content="<?= $title ?>" />
+    <meta property="og:description"   content="<?php if(isset($description)){ echo substr($description,0,500); }?>" />
+    <meta property="og:image"         content="<?php if(isset($img_url)){ echo $img_url; }?>" />
     <!-- START META FOR APPLE PHONE-->
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta content="yes" name="apple-touch-fullscreen" />
@@ -90,7 +90,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     <link rel="stylesheet" href="<?= base_url('assets/users/infinitpagination.css')?>">
   </head>
   <body class=" bg-light">
-    <header class="cd-main-header">
+  <div class="">
+    <header class="cd-main-header ">
         <nav class="navbar navbar-expand-md navbar-light  bg-light fixed-top ">
             <a class="navbar-brand" href="<?= base_url('home') ?>">MySpeec</a>
             
@@ -114,24 +115,34 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                         <a href="<?= base_url('sms')?>" title="SMS"><i class="fas fa-sms"><span class="badge badge-light">4</span></i></a> | 
                         <a href="<?= base_url('mypost')?>" title="MySpeec"><i class="fas fa-hashtag"></i></a> | 
                         <a href="<?= base_url("live")?>" onclick='live() + chat()' title='Live'><i class='fas fa-video'></i></a>
-                    </li>  
+                    </li>
+                      
                 </ul>
                 
                 <ul class="nav navbar-nav navbar-right">
-                    
                     <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img width="20px" class="rounded-circle" src="<?= $this->session->userdata("photo")?>" alt=""><?= $this->session->userdata("fname").' '.$this->session->userdata("lname")?></a>
+                        <a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></a>
                         <div class="dropdown-menu" aria-labelledby="dropdown01">
-                            <a class="dropdown-item" href="<?= base_url('profile') ?>">Profile</a>
-                            <a class="dropdown-item" href="<?= base_url('loginactivities') ?>">Log Activities</a>
-                            <a class="dropdown-item" href="<?= base_url('changepassword') ?>">Change Password</a>
-                            <a class="dropdown-item" href="<?= base_url('editinfo') ?>">Edit Profile</a>
-                            <a class="dropdown-item" href="<?= base_url('logout')?>">Logout</a>
+                            <a class="dropdown-item" href="<?= base_url('createpage')?>"><i class="fas fa-pager"></i> Page</a>
+                            <a class="dropdown-item" href="#"><i class="fas fa-hamburger"></i> Group</a>
+                            <a class="dropdown-item" href="<?= base_url('createjob')?>"><i class="fas fa-user-md"></i> Crate Job</a>
+                            <a class="dropdown-item" href="#"><i class="fas fa-cogs"></i> Setting</a>
+                            <a class="dropdown-item" href="#"><i class="fas fa-calendar-alt"></i> Event</a>
+                        </div>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img width="20px" class="rounded-circle" src="<?= $this->session->userdata("photo")?>" alt=""><?= $this->session->userdata("fname").' '.$this->session->userdata("lname")?></a>
+                        <div class="dropdown-menu" aria-labelledby="dropdown01">
+                            <a class="dropdown-item" href="<?= base_url('profile') ?>"><i class="fas fa-user-circle"></i> Profile</a>
+                            <a class="dropdown-item" href="<?= base_url('loginactivities') ?>"><i class="fas fa-acquisitions-incorporated"></i> Log Activities</a>
+                            <a class="dropdown-item" href="<?= base_url('changepassword') ?>"><i class="fas fa-key"></i> Change Password</a>
+                            <a class="dropdown-item" href="<?= base_url('editinfo') ?>"><i class="fas fa-edit"></i> Edit Profile</a>
+                            <a class="dropdown-item" href="<?= base_url('logout')?>"><i class="fas fa-sign-out-alt"></i> Logout</a>
                         </div>
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link" href="<?= base_url('score')?>" title="10 point = 1 Bangladeshi Taka">Your Scoure<span class="badge"><?= $score ?></span></a>
+                        <a class="nav-link" href="<?= base_url('score')?>" title="10 point = 1 Bangladeshi Taka">Scoure<span class="badge"><?= $score ?></span></a>
                     </li>
                     
 
@@ -142,12 +153,31 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             </div>
         </nav>
     </header>
-<hr>
-
+</div>
 <style>
     @media only screen and (min-width: 768px) {
 	  .mrg{
 		margin-left: 51px
-		}
-	}
+        }
+        .min-hide{
+            display:none;
+        }
+        .min-title{
+            text-align:center;
+        }
+    }
+    @media (max-width: 767.98px) { 
+        .content-wrapper{
+            margin-top: 10px;
+        }
+        .hide{
+            display: none;
+        }
+        .show{
+            display: block;
+        }
+        .news_title{
+            font-size: 24px;
+        }
+    }
 </style>

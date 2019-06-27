@@ -33,9 +33,9 @@ class Home extends CI_Controller {
                 }
 				$output .= '
 				<div class="post_data bg-white">
-					<h2 class="text-danger text-center"> <a href='.base_url('details/'.$row->news_id.'/'.url_title($row->news_title)).'>'.$row->news_title.'</a></h2>
+					<h2 class="text-danger min-title news_title"> <a href='.base_url('details/'.$row->news_id.'/'.url_title(sha1($row->news_title))).'>'.$row->news_title.'</a></h2>
                     <a></a>
-                    <p style="text-align: justify">'.trim(substr($row->news_post_1,0,500)).'...<a href='.base_url('details/'.$row->news_id.'/'.url_title($row->news_title)).'>See More</a></p>
+                    <p style="text-align: justify">'.trim(substr($row->news_post_1,0,500)).'...<a href='.base_url('details/'.$row->news_id.'/'.url_title(sha1($row->news_title))).'>See More</a></p>
 					<p class="text-center"> <i> Posted By: '.$user_status.' on: '.$row->news_insert_time.'</i></p>
 				</div>
 				';
@@ -68,9 +68,13 @@ class Home extends CI_Controller {
         $data['likevalidation']     = $this->Home_Model->Like_Validation($news_id);
         $data['dislikevalidation']  = $this->Home_Model->Dislike_Validation($news_id); 
         $data['keyword']            = '';//just for passing variable 
-        $data['score']              = ''; //just for passing variable 
+        $data['score']              = ''; //just for passing variable
+        
         foreach ($qry->result() as $tit) {
             $data['title'] = $tit->news_title;
+            $data['others']             = 'details/'.$news_id.'/'.$news_title;
+            $data['img_url']            = $tit->image_link;
+            $data['description']        = $tit->news_post_1;
         }
         
         $this->load->view('users/header',$data);

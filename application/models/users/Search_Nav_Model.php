@@ -21,12 +21,17 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         }  */
          
         public function Search_Post($search,$limit,$start){
+            //$this->db->where('delete_status', 0);
+            //$this->db->where('post_privacy',1);
             $this->db->select('*');  
             $this->db->from('news_post');
-            $this->db->or_like('news_title', $search, 'both');
+            //$this->db->where('post_privacy',1);
+            //$this->db->where('delete_status',0);
+            $this->db->like('news_title', $search, 'both');
             $this->db->or_like('news_post_1', $search,'both');
-            $this->db->or_like('news_post_2', $search,'both');
+            //$this->db->or_like('news_post_2', $search,'both');
             $this->db->order_by('news_insert_time', 'desc');
+            
             $this->db->limit($limit,$start);
             return $this->db->get();
                 

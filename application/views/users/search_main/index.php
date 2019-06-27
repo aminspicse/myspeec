@@ -12,6 +12,12 @@
                 <input type="submit" name="search" value="Friends" class="btn btn-link card-link">
             </form>
         </div>
+        <div class="col-md-1 col-xs-2 col-sm-2">
+            <form action="<?= base_url('friends')?>">
+                <input type="text" name="keyword" id="search" style="display:none" value="<?= $_GET['keyword'] ?>">
+                <input type="submit" name="search" value="Jobs" class="btn btn-link card-link">
+            </form>
+        </div>
         <div class="col-md-1 col-xs-1 col-sm-2">
             <form action="<?= base_url('video')?>">
                 <input type="text" name="keyword" style="display:none" value="<?= $_GET['keyword'] ?>">

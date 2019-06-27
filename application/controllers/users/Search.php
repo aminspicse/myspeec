@@ -32,6 +32,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             } 
             $data['title'] = $data['keyword'].$this->title;
             $data['score'] = '';//just passing variable 
+            $data['others'] = '';
             //$data['search_posts'] = $this->Search_Nav_Model->Search_Post($data['search']); 
             $this->load->view('users/header',$data);
             $this->load->view('users/leftnav');
@@ -58,7 +59,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     $comment_score = $this->Score_Model->count_comment($row->news_id);
                     $comment += $comment_score;
                     //end 
-                    $output .= '
+                    $output .= ' 
                         <div class="post_data bg-white row">
                         <div class="col-12">
                             <h4> 
@@ -86,6 +87,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             } 
             $data['score'] = '';//just passing variable 
             $data['title'] = $data['keyword'].$this->title; //title of browser
+            $data['others'] = '';
             //$data['search_friends'] = $this->Search_Nav_Model->Search_Friends($data['search']); 
             $this->load->view('users/header',$data);
             $this->load->view('users/leftnav');
@@ -146,6 +148,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             } 
             $data['score'] = '';//just passing variable
             $data['title'] = $data['keyword'].$this->title;
+            $data['others'] = '';
             $data['search_posts'] = $this->Search_Nav_Model->Search_Video($data['keyword']); 
             $this->load->view('users/header',$data);
             $this->load->view('users/leftnav');
@@ -162,6 +165,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             } 
             $data['score'] = '';
             $data['title'] = $data['keyword'].$this->title;
+            $data['others'] = '';
             $data['search_posts'] = $this->Search_Nav_Model->Search_Video($data['keyword']); 
             $this->load->view('users/header',$data);
             $this->load->view('users/leftnav');

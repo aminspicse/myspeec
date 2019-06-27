@@ -66,7 +66,7 @@
                                     }(document, 'script', 'facebook-jssdk'));</script>
                                     <!-- Your share button code -->
                                     <div class="fb-share-button" 
-                                        data-href="<?= base_url('details/'.$row->news_id)?>" 
+                                        data-href="<?= base_url('details/'.$row->news_id.'/'.url_title($row->news_title))?>" 
                                         data-layout="button_count">
                                 </div>
                                 <!-- End FB share button -->

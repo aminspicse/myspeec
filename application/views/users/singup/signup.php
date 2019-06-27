@@ -7,17 +7,17 @@
                 <div class="row">
                     <div class="form-group half">
                         <input type="text" name="fname" placeholder="First Name" value="<?= set_value('fname') ?>" class="form-control">
-                        <span class="text-danger"><?= form_error('fname') ?></span>
+                        <span class="text-danger msg"><?= form_error('fname') ?></span>
                     </div>
                     <div class="form-group half">
                         <input type="text" name="lname" placeholder="Last Name" value="<?= set_value('lname') ?>" class="form-control">
-                        <span class="text-danger"><?= form_error('lname') ?></span>
+                        <span class="text-danger msg"><?= form_error('lname') ?></span>
                     </div>
                 </div>
                 <div class="row">
                     <div class="form-group full">
                         <input type="email" name="username" placeholder="Email Address" value="<?= set_value('username') ?>" class="form-control">
-                        <span class="text-danger"><?= form_error('username') ?></span>
+                        <span class="text-danger msg"><?= form_error('username') ?></span>
                     </div>
                     
                 </div>
@@ -94,6 +94,9 @@
             </form>
         </div>
         <style>
+            .msg{
+                margin:0px;
+            }
             .form-control{
                 border: 2px solid black;
                 margin: 0px;
