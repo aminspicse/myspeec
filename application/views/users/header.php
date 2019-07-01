@@ -126,6 +126,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                             <a class="dropdown-item" href="<?= base_url('createpage')?>"><i class="fas fa-pager"></i> Page</a>
                             <a class="dropdown-item" href="#"><i class="fas fa-hamburger"></i> Group</a>
                             <a class="dropdown-item" href="<?= base_url('createjob')?>"><i class="fas fa-user-md"></i> Crate Job</a>
+                            <a class="dropdown-item" href="<?= base_url('viewjob')?>"><i class="fas fa-user-md"></i> View Job</a>
                             <a class="dropdown-item" href="#"><i class="fas fa-cogs"></i> Setting</a>
                             <a class="dropdown-item" href="#"><i class="fas fa-calendar-alt"></i> Event</a>
                         </div>

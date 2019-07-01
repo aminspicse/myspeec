@@ -416,9 +416,7 @@ Sidebar
 .cd-side-nav ul.cd-top-nav > li:last-of-type > a {
   border-bottom: none;
 }
-.cd-side-nav > ul > li > a {
-  padding-left: calc(5% + 24px);
-}
+
 .cd-side-nav > ul > li > a::before {
   /* icon before item name */
   position: absolute;

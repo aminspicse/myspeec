@@ -118,7 +118,11 @@ $route['editabout/(:num)']          = 'users/CV/eidt_aboutself/$1'; //edit about
 $route['deleteabout/(:num)']        = 'users/CV/delete_aboutself/$1'; // delete about
 $route['cv']                        = 'users/CV/cv_view'; // cv admin view
 // Job controller
-$route['createjob']                 = 'users/jobs/create_job';
+$route['createjob']                 = 'users/jobs/create_job'; // for create job
+$route['viewjob']                   = 'users/jobs/job_public';
+// Company controller
+$route['createcompany']             = 'company/Create_Company/company_create'; // for create a company
+
 $route['live']                      = 'users/Live/index'; 
 $route['404_override']              = '';
 $route['translate_uri_dashes']      = true;

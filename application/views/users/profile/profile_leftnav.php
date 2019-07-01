@@ -1,25 +1,25 @@
 <main class="cd-main-content">
 		<nav class="cd-side-nav">
-			<ul class="navbar-nav mr-auto">
-				<li class="">
-					<a href="<?= base_url('profile') ?>" class="card-link"> <i class="fa fa-user"></i> Profile</a>	
+			<ul>
+				<li style="margin-bottom: -20px; margin-left: -20px; margin-top: -20px">
+					<a href="<?= base_url('profile') ?>" class="card-link"><i class="fa fa-user"></i> View Profile</a>
 				</li>
-				<li>
-					<a href="<?= base_url('changeimage')?>" class="card-link">  <i class="fa fa-image"></i> Profile Picture</a>
+				<li style="margin-bottom: -20px; margin-left: -20px; margin-top: -20px">
+					<a href="<?= base_url('changeimage')?>" class="card-link"><i class="fa fa-image"></i> Profile Picture</a>
 				</li>
-				<li class="">
-					<a href="<?= base_url('editinfo') ?>" class="card-link" target=""> <i class="fas fa-edit"></i> Update Info</a>
-					
+				<li style="margin-bottom: -20px; margin-left: -20px; margin-top: -20px">
+					<a href="<?= base_url('editinfo') ?>" class="card-link" target=""><i class="fas fa-edit"></i> Update Profile</a>
 				</li>
-				<li class="">
-					<a href="<?= base_url('new_speec') ?>" class="card-link" target=""><i class="fa fa-newspaper"></i> New Speek</a>
-					
+				<li style="margin-bottom: -20px; margin-left: -20px; margin-top: -20px">
+					<a href="<?= base_url('new_speec') ?>" class="card-link" target=""><i class="fa fa-newspaper"></i> Create Article</a>
+                </li>
+				<li style="margin-bottom: -20px; margin-left: -20px; margin-top: -20px">
+					<a href="<?= base_url('createcompany') ?>" class="card-link" target=""> <i class="fa fa-unlock"></i> Create Company</a>
+                </li>
+				<li style="margin-bottom: -20px; margin-left: -20px; margin-top: -20px">
+					<a href="<?= base_url('createjob') ?>" class="card-link" target=""> <i class="fa fa-unlock"></i> Create Job</a>
 				</li>
-                <li class=" ">
-					<a href="<?= base_url('changepassword') ?>" class="card-link" target=""> <i class="fa fa-unlock"></i> Change Password</a>
-					
-				</li>
-                
+			</ul>
 				<!--
 				<li class="has-children comments">
 					<a href="#0">Comments</a>
@@ -31,7 +31,6 @@
 					</ul>
 				</li>
 				-->
-			</ul>
 
 			<ul class="navbar-nav mr-auto">
 				<li class="cd-label">&copy;myspeec-<?= date('y')?></li>

@@ -11,16 +11,17 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             }
         }
         public function create_job(){
+            $qry['company'] = $this->Jobs_Model->fetch_companylist();
             $this->form_validation->set_rules('job_title','Job Title','required');
             $this->form_validation->set_rules('company_name','Company Name','required');
             $this->form_validation->set_rules('company_location','Company Location','required');
-            $this->form_validation->set_rules('total_post','Total Post', 'required');
+            $this->form_validation->set_rules('total_post','Total Vacancy', 'required');
             $this->form_validation->set_rules('salary', 'Salary', 'required');
             $this->form_validation->set_rules('education_requirements', 'Educational Qualification','required');
             if($this->form_validation->run() == false){
                 $this->load->view('users/header',array('keyword' => '', 'title'=>'Create New Job - Myspeec', 'score' => '','others' =>''));
                 $this->load->view('users/profile/profile_leftnav');
-                $this->load->view('users/jobs/create_job');
+                $this->load->view('users/jobs/create_job',$qry);
             }else{
                 if(isset($_POST['create_job'])){
                     $data = array(
@@ -45,5 +46,33 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 
             }
 
+        }
+        public function job_public(){
+            $this->load->view('users/header',array('keyword' => '', 'title'=>'View Job - Myspeec', 'score' => '','others' =>''));
+            $this->load->view('users/profile/profile_leftnav');
+            $this->load->view('users/jobs/view_job_public');
+        }
+        public function fetch_job_public(){
+            $output = '';
+            $data = $this->Jobs_Model->fetech_job_public($this->input->post('limit'), $this->input->post('start'));
+            if($data->num_rows() > 0)
+            {
+                foreach($data->result() as $row)
+                {
+                    $output .= '
+                    <div class="post_data bg-white">
+                        <h2 class="text-danger min-title news_title"> <a href='.base_url('details/'.$row->job_id.'/'.url_title(sha1($row->job_title))).'>'.$row->job_title.'</a></h2>
+                        <a></a>
+                        <p style="text-align: justify">'.trim(substr($row->company_name,0,500)).'...<a href='.base_url('details/'.$row->job_id.'/'.url_title(sha1($row->job_title))).'>See More</a></p>
+                        <p class="text-center"> <i> Posted By: '.'al amin'.' on: '.$row->company_location.'</i></p>
+                    </div>
+                    ';
+                }
+            }
+            echo $output;
+        }
+        public function test(){
+            $data = $this->Jobs_Model->fetech_job_public(10,0);
+            echo $data->num_rows();
         }
     }
