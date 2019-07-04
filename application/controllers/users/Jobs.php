@@ -20,25 +20,28 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             $this->form_validation->set_rules('education_requirements', 'Educational Qualification','required');
             if($this->form_validation->run() == false){
                 $this->load->view('users/header',array('keyword' => '', 'title'=>'Create New Job - Myspeec', 'score' => '','others' =>''));
-                $this->load->view('users/profile/profile_leftnav');
+                $this->load->view('company/company_sidenav');
                 $this->load->view('users/jobs/create_job',$qry);
             }else{
                 if(isset($_POST['create_job'])){
                     $data = array(
                         'user_id'                   => $this->session->userdata('user_id'),
                         'job_title'                 => $_POST['job_title'],
-                        'company_name'              => $_POST['company_name'],
+                        'company_id'                => $_POST['company_name'],
                         'company_location'          => $_POST['company_location'],
-                        'Job_position'              => $_POST['Job_position'],
+                        'job_position'              => $_POST['job_position'],
                         'total_post'                => $_POST['total_post'],
                         'salary'                    => $_POST['salary'],
                         'job_location'              => $_POST['job_location'],
                         'employment_status'         => $_POST['employment_status'],
+                        'application_dedline'       => date('d-m-y',strtotime($_POST['application_dedline'])),
                         'education_requirements'    => $_POST['education_requirements'],
                         'job_responsibilities'      => $_POST['job_responsibilities'],
+                        'experience_requirements'   => $_POST['experience_requirements'],
                         'additional_requirements'   => $_POST['additional_requirements'],
                         'website_link'              => $_POST['website_link'],
-                        'facebook_link'             => $_POST['facebook_link']
+                        'facebook_link'             => $_POST['facebook_link'],
+                        'published_on'              => date("l jS \of F Y h:i:s A")
                         //'company_logu'             => $_POST['company_logu']
                     );
                 }
@@ -52,7 +55,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             $this->load->view('users/profile/profile_leftnav');
             $this->load->view('users/jobs/view_job_public');
         }
-        public function fetch_job_public(){
+        public function fetch_job_public(){ 
             $output = '';
             $data = $this->Jobs_Model->fetech_job_public($this->input->post('limit'), $this->input->post('start'));
             if($data->num_rows() > 0)
@@ -60,16 +63,25 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 foreach($data->result() as $row)
                 {
                     $output .= '
-                    <div class="post_data bg-white">
-                        <h2 class="text-danger min-title news_title"> <a href='.base_url('details/'.$row->job_id.'/'.url_title(sha1($row->job_title))).'>'.$row->job_title.'</a></h2>
+                    <div class="post_data bg-white"> 
+                        <h2 class="text-danger min-title news_title"> <a href='.base_url('viewfull/'.$row->job_id.'/'.url_title(sha1($row->job_title))).' target="new">'.$row->job_title.'</a></h2>
                         <a></a>
-                        <p style="text-align: justify">'.trim(substr($row->company_name,0,500)).'...<a href='.base_url('details/'.$row->job_id.'/'.url_title(sha1($row->job_title))).'>See More</a></p>
-                        <p class="text-center"> <i> Posted By: '.'al amin'.' on: '.$row->company_location.'</i></p>
+                        <p style="text-align: justify">'.trim(substr($row->company_name.', '.$row->job_location.', '.$row->education_requirements.', '.$row->experience_requirements.', '.$row->job_responsibilities.', '.$row->salary,0,500)).'...<a href='.base_url('viewfull/'.$row->job_id.'/'.url_title(sha1($row->job_title))).' target="new">View full job</a></p>
+                        <p class="text-center"> <i> Published on: <a href="#">'.$row->published_on.'</a> Dedline: <a href="#">'.$row->application_dedline.'</a></i></p>
                     </div>
                     ';
                 }
             }
             echo $output;
+        }
+        public function viewfulljob($job_id){
+            $qry['viewjob'] = $this->Jobs_Model->fetch_view_full_job($job_id);
+            foreach ($qry['viewjob'] as $view) {
+                $title = $view->job_title;
+            }
+            $this->load->view('users/header',array('keyword' => '', 'title'=>$title.' - myspeec', 'score' => '','others' =>''));
+            $this->load->view('users/profile/profile_leftnav');
+            $this->load->view('users/jobs/view_full_job_public',$qry);
         }
         public function test(){
             $data = $this->Jobs_Model->fetech_job_public(10,0);

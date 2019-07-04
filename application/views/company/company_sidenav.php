@@ -1,18 +1,7 @@
 <main class="cd-main-content">
 		<nav class="cd-side-nav">
 			<ul>
-				<li style="margin-bottom: -20px; margin-left: -20px; margin-top: -20px">
-					<a href="<?= base_url('profile') ?>" class="card-link"><i class="fa fa-user"></i> View Profile</a>
-				</li>
-				<li style="margin-bottom: -20px; margin-left: -20px; margin-top: -20px">
-					<a href="<?= base_url('changeimage')?>" class="card-link"><i class="fa fa-image"></i> Profile Picture</a>
-				</li>
-				<li style="margin-bottom: -20px; margin-left: -20px; margin-top: -20px">
-					<a href="<?= base_url('editinfo') ?>" class="card-link" target=""><i class="fas fa-edit"></i> Update Profile</a>
-				</li>
-				<li style="margin-bottom: -20px; margin-left: -20px; margin-top: -20px">
-					<a href="<?= base_url('new_speec') ?>" class="card-link" target=""><i class="fa fa-newspaper"></i> Create Article</a>
-                </li>
+				
 				<li style="margin-bottom: -20px; margin-left: -20px; margin-top: -20px">
 					<a href="<?= base_url('createcompany') ?>" class="card-link" target=""> <i class="fa fa-unlock"></i> Create Company</a>
                 </li>

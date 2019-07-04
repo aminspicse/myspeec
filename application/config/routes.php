@@ -118,11 +118,16 @@ $route['editabout/(:num)']          = 'users/CV/eidt_aboutself/$1'; //edit about
 $route['deleteabout/(:num)']        = 'users/CV/delete_aboutself/$1'; // delete about
 $route['cv']                        = 'users/CV/cv_view'; // cv admin view
 // Job controller
-$route['createjob']                 = 'users/jobs/create_job'; // for create job
-$route['viewjob']                   = 'users/jobs/job_public';
-// Company controller
+$route['createjob']                 = 'users/Jobs/create_job'; // for create job
+$route['viewjob']                   = 'users/Jobs/job_public';
+$route['viewfull/(:any)/(:any)']    = 'users/Jobs/viewfulljob/$1/$2';
+// Create_Company controller
 $route['createcompany']             = 'company/Create_Company/company_create'; // for create a company
-
+// Company Controller
+$route['mycompany']                 = 'company/Company/fetch_all_company'; // view for all company for one time
+$route['deletecompany/(:any)']      = 'company/Company/delete_company/$1'; // for delete company
+$route['company/(:any)/(:any)']     = 'company/Company/view_company_individual/$1/$2';// view company
+$route['changephoto/(:any)']        = 'company/Company/change_photo/$1'; // change company photo 
 $route['live']                      = 'users/Live/index'; 
 $route['404_override']              = '';
 $route['translate_uri_dashes']      = true;

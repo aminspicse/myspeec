@@ -26,7 +26,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                         'company_website'   => $_POST['company_website'],
                         'company_facebook'  => $_POST['company_facebook'],
                         'company_est_date'  => $_POST['company_est_date'],
-                        'company_address'   => $_POST['company_address']
+                        'company_address'   => $_POST['company_address'],
+                        'company_about'     => $_POST['company_about']
                     );
                 }
                 $this->db->insert('company_list',$data);

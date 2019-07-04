@@ -24,8 +24,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             <div class="row">
                 <div class="col-md-2">Post Name</div>
                 <div class="col-md-4">
-                    <input type="text" name="Job_position" class="" value="<?= set_value('Job_position') ?>" placeholder="Post Name" >
-                    <span class="text-danger"><?= form_error('Job_position') ?></span>
+                    <input type="text" name="job_position" class="" value="<?= set_value('job_position') ?>" placeholder="Post Name" >
+                    <span class="text-danger"><?= form_error('job_position') ?></span>
                 </div>
                 <div class="col-md-2"><label for="">Total Vacancy</label></div>
                 <div class="col-md-4">
@@ -60,6 +60,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 <div class="col-md-4">
                     <input type="text" name="employment_status" class="" value="<?= set_value('employment_status') ?>" placeholder="Employment Status">
                     <span class="text-danger"><?= form_error('employment_status') ?></span>
+                </div>
+                <div class="col-md-2"><label for="">Application Dedline</label></div>
+                <div class="col-md-4">
+                    <input type="date" name="application_dedline" class="" value="<?= set_value('application_dedline') ?>" placeholder="Employment Status">
+                    <span class="text-danger"><?= form_error('application_dedline') ?></span>
                 </div>
             </div>
             <div class="row">

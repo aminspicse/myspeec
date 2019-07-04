@@ -57,19 +57,21 @@
                 <input type="date" name="company_est_date" class="widthinput" value="<?= set_value('company_est_date')?>" placeholder="Company Enst. Date" require="required">
                 <span class="text-danger"><?= form_error('company_est_date')?></span>
             </div>
+            
         </div>
-        <div class="row">
-            <div class="col-md-3"><label for="">company Logu:</label></div>
-            <div class="col-md-4">
-                <input type="date" name="company_logu" class="widthinput" value="<?= set_value('company_logu')?>" placeholder="Company Enst. Date" require="required">
-                <span class="text-danger"><?= form_error('company_logu')?></span>
-            </div>
-        </div>
+        
         <div class="row">
             <div class="col-md-3"><label for="">Company Address:</label></div>
             <div class="col-md-4">
                 <textarea name="company_address" class="widthinput" placeholder="Company Address"><?= set_value('company_address')?></textarea>
                 <span class="text-danger"><?= form_error('company_address')?></span>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-3"><label for="">Company Address:</label></div>
+            <div class="col-md-4">
+                <textarea name="company_about" class="widthinput" placeholder="Company About"><?= set_value('company_about')?></textarea>
+                <span class="text-danger"><?= form_error('company_about')?></span>
             </div>
         </div>
         <div class="row">
