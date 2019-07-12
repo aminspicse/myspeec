@@ -2,14 +2,22 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 ?>
 <div class="content-wrapper bg-white">
-    <h2 class="text-center text-success">Your Total Earning Score <?= $score ?></h2>
-    <input type="number" id="score" value="<?= $score ?>" style="display:none">
-    <h4>10 score means 1 Bangladeshi Taka. You Earn Minimum 100 score to withdraw your score point. Withdraw is available 
-        Mobile Recharge, Bkas, Rocket, International Debit Card, Master Card. Mobile Recharge is available just for 
-        Bangladesh and Indian Mobile operator.
-    </h4>
-    <button class="btn btn-danger" onclick="check()">Withdraw</button>
-    <h2 id="data"></h2>
+    <div class="row">
+        <div class="col-md-12">
+        <h2 class="text-center text-success">Your Total Earning Score <?= $score ?></h2>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <input type="number" id="score" value="<?= $score ?>" style="display:none">
+            <h5 style="text-align: justify">10 score means 1 Bangladeshi Taka. You Earn Minimum 100 score to withdraw your score. Withdraw is available 
+                Mobile Recharge, Bkash, Rocket, International Debit Card, Master Card. Mobile Recharge is available just for 
+                Bangladesh and Indian Mobile operator.
+            </h5>
+            <button class="btn btn-danger" onclick="check()">Withdraw</button>
+            <h2 id="data"></h2>
+        </div>
+    </div>
 </div>
 <script>
     function check(){

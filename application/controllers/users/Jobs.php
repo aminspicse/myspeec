@@ -76,6 +76,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         }
         public function viewfulljob($job_id){
             $qry['viewjob'] = $this->Jobs_Model->fetch_view_full_job($job_id);
+            $title = 'This job is already deleted';
             foreach ($qry['viewjob'] as $view) {
                 $title = $view->job_title;
             }

@@ -49,17 +49,18 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                         <div class="col-md-1">
                             <a href='.base_url('view/'.$row->user_id.'/'.url_title($row->fname.$row->lname)).'><img style="width: 80%" class="rounded-circle" src='.$row->photo.'></a>
                         </div>
-                        <div class="col-md-4 col-xs-6">
-                            <p class="text-danger"><a href='.base_url('view/'.$row->user_id.'/'.url_title($row->fname.$row->lname)).'>'.$row->fname.' '.$row->lname.'</a></p>
+                        <div class="col-md-4 col-xs-6"> 
+                            <p class="text-danger" style="margin-top: 0px"><a href='.base_url('view/'.$row->user_id.'/'.url_title($row->fname.$row->lname)).'>'.$row->fname.' '.$row->lname.'</a></p>
+                            <p style="margin-top: -10px">'.$row->phone.'</p>
                         </div>
                         <div class="col-md-3">
-                            <p class="text-danger"><a href='.base_url('chat/'.$row->user_id).'>Send Message</a></p>
+                            <p class="text-danger" style="margin-top: 20px"><a href='.base_url('chat/'.$row->user_id).'>Send Message</a></p>
                         </div>
                         <div class="col-md-2">
-                           <p><a href='.base_url('users/MakeFriend/friend_request/'.$row->user_id).'>'.$friend_status.'</a></p>
+                           <p style="margin-top: 20px"><a href='.base_url('users/MakeFriend/friend_request/'.$row->user_id).'>'.$friend_status.'</a></p>
                         </div>
                         <div class="col-md-1">
-                           <p>'.$row->country.'</p>
+                           <p style="margin-top: 20px">'.$row->country.'</p>
                         </div>
                         
                     </div>

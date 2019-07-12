@@ -13,7 +13,7 @@
             </form>
         </div>
         <div class="col-md-1 col-xs-2 col-sm-2">
-            <form action="<?= base_url('friends')?>">
+            <form action="<?= base_url('jobs')?>">
                 <input type="text" name="keyword" id="search" style="display:none" value="<?= $_GET['keyword'] ?>">
                 <input type="submit" name="search" value="Jobs" class="btn btn-link card-link">
             </form>

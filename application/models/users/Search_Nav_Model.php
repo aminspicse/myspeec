@@ -47,6 +47,21 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             return $this->db->get();
                 
         }
+        // search job 
+        public function Search_Job($search, $limit, $start){
+            $this->db->where('delete_status',0);
+            $this->db->select('*');
+            $this->db->from('post_job');
+            $this->db->join('company_list','post_job.company_id = company_list.company_id');
+            
+            $this->db->or_like('job_title', $search,'both');
+            $this->db->or_like('job_position', $search,'both');
+            $this->db->or_like('company_location', $search,'both');
+            $this->db->or_like('company_location', $search,'both');
+            $this->db->order_by('job_id','DESC');
+            $this->db->limit($limit, $start);
+            return $this->db->get();
+        }
         // count following 
         public function total_following($parent_id){
             $this->db->select('*');

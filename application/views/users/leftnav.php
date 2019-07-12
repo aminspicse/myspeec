@@ -1,21 +1,17 @@
 <main class="cd-main-content">
 		<nav class="cd-side-nav">
-			<ul class="navbar-nav mr-auto">
-				<li class="nav-item">
+			<ul>
+				<li style="margin-bottom: -20px; margin-left: -20px; margin-top: -20px">
 					<a href="<?= base_url('home') ?>" class="card-link"> <i class="fa fa-home"></i> Home</a>
-					 
 				</li>
-				<li class="">
+				<li style="margin-bottom: -20px; margin-left: -20px; margin-top: -20px">
 					<a href="#" class="card-link" target="_new"> <i class="fa fas fa-play"></i> Videos</a>
-					
 				</li>
-				<li class="">
+				<li style="margin-bottom: -20px; margin-left: -20px; margin-top: -20px">
 					<a href="<?= base_url('new_speec') ?>" class="card-link" target="_new"> <i class="fa fa-newspaper"></i> New Speek</a>
-					
 				</li>
-				<li class="">
+				<li style="margin-bottom: -20px; margin-left: -20px; margin-top: -20px">
 					<a href="<?= base_url('allspeaker')?>" class="card-link"> <i class="fa fa-user-plus"></i> All Speeker</a>
-					
 				</li>
 			</ul>
 

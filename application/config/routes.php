@@ -66,6 +66,7 @@ $route['set_new_password']          = 'users/Forgot_Password/change_password'; /
 //Search navbar controller
 $route['posts']                     = 'users/Search/posts';//search for post
 $route['friends']                   = 'users/Search/friends';//search for friend
+$route['jobs']                      = 'users/Search/jobs';//search for job
 $route['video']                     = 'users/Search/videos';//search for video
 $route['image']                     = 'users/Search/images';//search for image
 //All sepaker
