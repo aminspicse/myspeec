@@ -29,13 +29,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 $config['encrypt_name'] = true;
                 $this->load->library('upload',$config);
                 if($this->upload->do_upload('company_logu') == true){
-                   /* $data = array(
-                        'company_logu' => $this->upload->data(),
-                        'cover_photo'   => $this->upload->data()
-                    );
-                    $logu = $data['company_logu']['file_name'];
-                    $cover = $data['cover_photo']['file_name'];
-                    */
                     $data = array(
                         'user_id'       => $this->session->userdata('user_id'),
                         'company_id'    => $company_id,
@@ -50,15 +43,23 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 }
             }
         }
-        // for changeing profile photo 
-       /* function change_profile_photo($company_id){
+        public function view_companyjob($company_url,$company_id){
             $query['photos'] = $this->Company_Model->fetch_company_profilephoto($company_id);
-            $this->load->view('users/header',array('keyword' => '', 'title' =>'Change Logu or Cover Photo - Myspeec', 'score' => '','others' =>''));
+            $query['job'] = $this->Company_Model->company_job($company_id);
+            $this->load->view('users/header',array('keyword' => '', 'title' =>'My Company - Myspeec', 'score' => '','others' =>''));
             $this->load->view('company/company_sidenav');
             $this->load->view('company/index',$query);
-            $this->load->view('company/change_photo',$query);
+            $this->load->view('company/viewjob',$query);
+        }
+        public function delete_job($company_url, $company_id, $job_id){
 
-        }*/
+            if($this->Company_Model->deletejob($company_id, $job_id) == true){
+                redirect(base_url('companyjob/'.$company_url.'/'.$company_id),$this->session->set_flashdata('msg','Successfully Deleted a Job'));
+            }
+        }
+        public function editcompanyinfo($company_id){
+            echo "<h1>hello world</h1>";
+        }
         public function change_photo($company_id){
            
             $query['photos'] = $this->Company_Model->fetch_company_profilephoto($company_id);

@@ -13,7 +13,7 @@
             <a href="<?= base_url('company/'.$photo->company_url.'/'.$photo->company_id)?>">About</a>
         </div>
         <div class="col-md-1">
-            <a href="">Job</a>
+            <a href="<?= base_url('companyjob/'.$photo->company_url.'/'.$photo->company_id)?>">Job</a>
         </div>
         <div class="col-md-2">
             <a href="<?= base_url('changephoto/'.$photo->company_id) ?>">Change Logu</a>

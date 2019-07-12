@@ -27,6 +27,25 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             $this->db->limit(1);
             return $this->db->get();
         }
+        // COMPANY JOB
+        public function company_job($company_id){
+            $this->db->select('*');
+            $this->db->from('post_job');
+            $this->db->join('company_list', 'post_job.company_id = company_list.company_id');
+            $this->db->where('post_job.user_id',$this->session->userdata('user_id'));
+            $this->db->where('post_job.company_id',$company_id);
+            $this->db->where('post_job.delete_status',0);
+            $this->db->order_by('post_job.job_id', 'desc');
+            return $this->db->get();
+        }
+        //delete company job 
+        public function deletejob($company_id, $job_id){
+            $this->db->where('user_id',$this->session->userdata('user_id'));
+            $this->db->where('company_id',$company_id);
+            $this->db->where('job_id', $job_id);
+            $this->db->update('post_job', array('delete_status'=>1));
+            return true;
+        }
         // view a company
         public function view_company_individual($company_id){
             $this->db->select('*');

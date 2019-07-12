@@ -12,7 +12,7 @@
             </p>
            <p><b>Company Address:</b></p>
            <p><?= $row->company_address?></p>
-           <a href="">Edit</a>
+           <a href="<?= base_url('editcompany/'.$row->company_url.'/'.$row->company_id)?>">Edit</a>
         </div>
         <div class="col-md-6">
             <p><b>About Company:</b></p>
