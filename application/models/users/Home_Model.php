@@ -25,7 +25,7 @@
             $this->db->where('news_post.delete_status', 0);
             $this->db->where('post_privacy',1);
             $this->db->limit($limit, $start);
-            $this->db->order_by('news_id','desc');
+            $this->db->order_by('rand()');
 			$query = $this->db->get();
 			return $query;
 		}

@@ -23,7 +23,7 @@ class Home extends CI_Controller {
 		$output = '';
 		$data = $this->Home_Model->fetch_data($this->input->post('limit'), $this->input->post('start'));
 		if($data->num_rows() > 0)
-		{
+		{ 
 			foreach($data->result() as $row)
 			{
                 if($row->user_privacy == 1){
