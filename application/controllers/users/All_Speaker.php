@@ -33,7 +33,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             
             $data = $this->AllSpeaker_Model->allspeaker_fetch($this->input->post('limit'), $this->input->post('start'));
             if($data->num_rows() > 0)
-            {
+            { 
                 foreach($data->result() as $row)
                 {
                     // check friend or not //start

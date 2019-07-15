@@ -16,6 +16,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             $this->db->select('*');
             $this->db->from('users');
             $this->db->limit($limit, $start);
+            $this->db->order_by('rand()');
             $query = $this->db->get();
             return $query;
         }
