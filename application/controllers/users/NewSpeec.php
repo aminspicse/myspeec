@@ -50,10 +50,11 @@
                         );
                         
                         $check = $this->NewSpeec_Model->insert_speec($data);
-                        if($check == false){
+                        if($check == false){ 
                             redirect(base_url('new_speec'));
                         }else{
-                            redirect(base_url('home'));
+                            $message = '<h2 class="text-center text-success">Successfully Posted</h2>';
+                            redirect(base_url('home'), $this->session->set_flashdata('msg',$message));
                         }
                     }else{
                         echo "<script> document.getElementById('img').innerHTML = 'Image is to large'</script>";

@@ -1,6 +1,10 @@
 
         <div class="content-wrapper" style="">
-           
+           <div class="row">
+            <div class="col-md-12">
+              <?= $this->session->userdata('msg')?></h2>
+            </div>
+           </div>
           <div id="load_data"></div>
           <div id="load_data_message"></div>
 
