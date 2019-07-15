@@ -2,14 +2,12 @@
         <div class="content-wrapper" style="">
            <div class="row">
             <div class="col-md-12">
-              <?= $this->session->userdata('msg')?></h2>
+                <?= $this->session->userdata('msg')?>
             </div>
            </div>
           <div id="load_data"></div>
           <div id="load_data_message"></div>
-
         </div>
-
     </body>
 	</html>
 	
@@ -49,7 +47,7 @@
         {
           if(data == '')
           {
-            $('#load_data_message').html('<h3 class="text-center">No More Data Found</h3>');
+            $('#load_data_message').html('<h3 class="text-center">No More Post Found</h3>');
             action = 'active';
           }
           else
