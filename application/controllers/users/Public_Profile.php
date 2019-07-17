@@ -117,9 +117,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             }
             echo $output;
         }
-        public function workplace($user_id){
-
-        }
+       
         
     }
-?>

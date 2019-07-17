@@ -20,7 +20,7 @@
                     <a href="<?= base_url('view/'.$rows->user_id.'/'.url_title($rows->fname.' '.$rows->lname).'/posts')?>" class="card-link">Posts</a>
                 </div>
                 <div class="col-md-1 col-xs-4">
-                    <a href="" class="card-link">CV</a>
+                    <a href="<?= base_url('viewcv/'.$rows->user_id.'/'.url_title($rows->fname.' '.$rows->lname))?>" class="card-link">CV</a>
                 </div>
                 <div class="col-md-2 col-xs-4">
                     <a href="<?= base_url('workplace/'.$rows->user_id.'/'.url_title($rows->fname.' '.$rows->lname))?>" class="card-link">workplace</a>

@@ -2,16 +2,15 @@
 
     class Videos extends CI_Controller{
 
-
         function index(){
-            $this->load->view('header',array('search' => '', 'score' => '','others' =>'');
-            $this->load->view('leftnav');
-           // $this->load->view('videos/index.php');
+            //$this->load->library('encryption');
+            $this->load->library('encrypt');
+            $msg = 'Hello World';
+            echo $this->encrypt->encode($msg);
         }
 
         public function count(){
-            echo $count = $this->db->get('messages')->num_rows();
+            //echo $count = $this->db->get('messages')->num_rows();
         }
 
     }
-?>

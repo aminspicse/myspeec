@@ -7,7 +7,7 @@
             $this->load->library('form_validation');
             date_default_timezone_set('asia/dhaka');
             if($this->session->userdata('user_id') == null){
-                redirect('login');
+                redirect(base_url().'login.asp', $this->session->set_flashdata('msg', 'You Need To SignIn. if you have no account <a href="'.base_url('signup.asp').'">Click to SignUp</a>'));
             }
         } 
         public $title = 'All Post';

@@ -85,6 +85,8 @@ $route['details/(:any)/(:any)']     = 'users/Home/ReadFullNews/$1/title_$2';
 $route['view/(:any)/(:any)']        = 'users/Public_Profile/view_profile/$1/user_$2'; //for vewing public profile
 $route['view/(:any)/(:any)/(:any)'] = 'users/Public_Profile/posts/$1/user_$2/$posts'; //for vewing public post
 $route['workplace/(:any)/(:any)']   = 'users/Public_Profile/view_workplace/$1/$2';
+// Public cv controller
+$route['viewcv/(:any)/(:any)']      = 'users/Public_Cv/public_cv/$1/$2'; // for public view in cv
 //Profile controller
 $route['profile']                   = 'users/Profile/index';
 $route['friendlist']                = 'users/Profile/total_friends';

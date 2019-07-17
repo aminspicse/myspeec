@@ -312,7 +312,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 redirect(base_url('profile'),$this->session->set_flashdata('msg','<p class="text-danger">Successfully Deleted a About Self</p>'));
             }
         }
-
+ 
         public function cv_view(){
             $data['query'] = $this->Profile_Model->profile(); // passing personal information 
             $data['total_friend'] = $this->Profile_Model->total_friend();//fetching total friend

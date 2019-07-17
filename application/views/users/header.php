@@ -123,7 +123,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></a>
                         <div class="dropdown-menu" aria-labelledby="dropdown01">
-                            <a class="dropdown-item" href="<?= base_url('createpage')?>"><i class="fas fa-pager"></i> Page</a>
+                            <a class="dropdown-item" href="<?= base_url()?>"><i class="fas fa-pager"></i> Page</a>
                             <a class="dropdown-item" href="#"><i class="fas fa-hamburger"></i> Group</a>
                             <a class="dropdown-item" href="<?= base_url('viewjob')?>"><i class="fas fa-user-md"></i> View Job</a>
                             <a class="dropdown-item" href="#"><i class="fas fa-cogs"></i> Setting</a>
