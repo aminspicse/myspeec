@@ -37,7 +37,7 @@
     function load_data(limit, start)
     {
       $.ajax({
-        url:"<?php echo base_url('users/Search/post_fetch'); ?>",
+        url:"<?php echo base_url('searchpost'); ?>",
         method:"POST",
         data:{search:search, limit:limit, start:start},
         cache: false,

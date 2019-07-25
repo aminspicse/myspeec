@@ -15,9 +15,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                         <td><a href="<?= base_url('SMS/chating/').$row->user_id ?>">Send Message</a></td>
                         <td><a href="<?= base_url('MakeFriend/friend_request/').$row->user_id ?>"><?php 
                             $qry = $this->MakeFriend_Model->friend_filter($this->session->userdata('user_id'), $row->user_id);
-                            if($qry->num_rows()>0){
+                            if($qry->num_rows()>0)
+                            {
                                 echo "Connected";
-                            }else{
+                            }
+                            else
+                            {
                                 echo "Connect";
                             }
                         ?></a></td>

@@ -23,7 +23,7 @@
     <nav class="navbar navbar-expand-sm navbar-fixed" style="background-color: #e7eff7">
         <div class="container">
             <a href="" class="navbar-brand">myspeec</a>
-            <form action="<?= base_url('users/Login/Check_Validation') ?>" method="get" class="form-inline">
+            <form action="<?= base_url('check_validation') ?>" method="get" class="form-inline">
                 <input type="text" name="username" class="loginemail" required placeholder="Email ">
                 <input type="password" name="password" class="loginpassword" required placeholder="Password">
                 <button type="submit" name="login" class="login-btn btn-success">Login </button>

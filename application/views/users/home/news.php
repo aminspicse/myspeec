@@ -39,7 +39,7 @@
     function load_data(limit, start)
     {
       $.ajax({
-        url:"<?php echo base_url('users/Home/fetch'); ?>",
+        url:"<?php echo base_url('fetchhomedata'); ?>",
         method:"POST",
         data:{limit:limit, start:start},
         cache: false,

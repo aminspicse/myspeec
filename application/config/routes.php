@@ -1,129 +1,100 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-/*
-| -------------------------------------------------------------------------
-| URI ROUTING
-| -------------------------------------------------------------------------
-| This file lets you re-map URI requests to specific controller functions.
-|
-| Typically there is a one-to-one relationship between a URL string
-| and its corresponding controller class/method. The segments in a
-| URL normally follow this pattern:
-|
-|	example.com/class/method/id/
-|
-| In some instances, however, you may want to remap this relationship
-| so that a different class/function is called than the one
-| corresponding to the URL.
-|
-| Please see the user guide for complete details:
-|
-|	https://codeigniter.com/user_guide/general/routing.html
-|
-| -------------------------------------------------------------------------
-| RESERVED ROUTES
-| -------------------------------------------------------------------------
-|
-| There are three reserved routes:
-|
-|	$route['default_controller'] = 'welcome';
-|
-| This route indicates which controller class should be loaded if the
-| URI contains no data. In the above example, the "welcome" class
-| would be loaded.
-|
-|	$route['404_override'] = 'errors/page_missing';
-|
-| This route will tell the Router which controller/method to use if those
-| provided in the URL cannot be matched to a valid route.
-|
-|	$route['translate_uri_dashes'] = FALSE;
-|
-| This is not exactly a route, but allows you to automatically route
-| controller and method names that contain dashes. '-' isn't a valid
-| class or method name character, so it requires translation.
-| When you set this option to TRUE, it will replace ALL dashes in the
-| controller and method URI segments.
-|
-| Examples:	my-controller/index	-> my_controller/index
-|		my-controller/my-method	-> my_controller/my_method
-*/
 //landign page controller
 $route['default_controller']        = 'Landing_page/';
 //Sign Up controller
-$route['signup']                    = 'users/SignUp/index';
-$route['SignUp']                    = 'users/SignUp/index';
+$route['signup']                    = 'users/SignUpController/index';
+$route['SignUp']                    = 'users/SignUpController/index';
 //Login controller 
-$route['login']                     = 'users/Login';// login interface 
-$route['check_validation']          = 'users/Login/Check_Validation'; // check login validation 
-$route['logout']                    = 'users/Login/logout';
+$route['login']                     = 'users/LoginController';// login interface 
+$route['check_validation']          = 'users/LoginController/Check_Validation'; // check login validation 
+$route['logout']                    = 'users/LoginController/logout';
 //forgot password controller
-$route['forgatpassword']            = 'users/Forgot_Password/forgot'; //forgat password interface
-$route['check_email']               = 'users/Forgot_Password/forgot_val'; // check email registered or not if registered then send a temporary password
-$route['check_code']                = 'users/Forgot_Password/temp_password_val'; //check code valide or invalide
-$route['set_new_password']          = 'users/Forgot_Password/change_password'; // for change password
+$route['forgatpassword']            = 'users/ForgotPasswordController/forgot'; //forgat password interface
+$route['check_email']               = 'users/ForgotPasswordController/forgot_val'; // check email registered or not if registered then send a temporary password
+$route['check_code']                = 'users/ForgotPasswordController/temp_password_val'; //check code valide or invalide
+$route['set_new_password']          = 'users/ForgotPasswordController/change_password'; // for change password
 //Search navbar controller
-$route['posts']                     = 'users/Search/posts';//search for post
-$route['friends']                   = 'users/Search/friends';//search for friend
-$route['jobs']                      = 'users/Search/jobs';//search for job
-$route['video']                     = 'users/Search/videos';//search for video
-$route['image']                     = 'users/Search/images';//search for image
+$route['posts']                     = 'users/SearchController/posts';//search for post
+$route['searchpost']                = 'users/SearchController/post_fetch'; // fetch scrol pagination
+$route['friends']                   = 'users/SearchController/friends';//search for friend
+$route['searchfriend']              = 'users/SearchController/fetch_friends'; // fetch scrol pagination
+$route['jobs']                      = 'users/SearchController/jobs';//search for job
+$route['searchjob']                 = 'users/SearchController/fetch_jobs'; // fetch scrol pagination
+$route['video']                     = 'users/SearchController/videos';//search for video
+$route['image']                     = 'users/SearchController/images';//search for image
 //All sepaker
-$route['allspeaker']                = 'users/All_Speaker/index';
+$route['allspeaker']                = 'users/AllSpeakerController/index';
+$route['fetchallspeaker']           = 'users/AllSpeakerController/fetch_friend';
 //New Post
-$route['new_speec']                 = 'users/NewSpeec/index'; //for new posts
-$route['publish_speec']             = 'users/NewSpeec/index';
-//MySpeec 
-$route['mypost']                    = 'users/MySpeech/index';
-$route['editpost/(:any)/(:any)']    = 'users/MySpeech/edit_post/$1/$title';//edit retrive post
-$route['updatepost']                = 'users/MySpeech/update_post';
+$route['new_speec']                 = 'users/PostController/index'; //for new posts
+$route['publish_speec']             = 'users/PostController/index';
+//MySpeecController
+$route['mypost']                    = 'users/MySpeecController/index';
+$route['editpost/(:any)/(:any)']    = 'users/MySpeecController/edit_post/$1/$title';//edit retrive post
+$route['updatepost']                = 'users/MySpeecController/update_post';
+$route['deletepost/(:any)']         = 'users/MySpeecController/delete_post/$1';
+$route['fetchmypost']               = 'users/MySpeecController/myspeec_fetch'; // fetch user posr for scrol pagination
+
 //home controller
-$route['home']                      = 'users/Home';
-$route['details/(:any)/(:any)']     = 'users/Home/ReadFullNews/$1/title_$2';
+$route['home']                      = 'users/HomeController';
+$route['details/(:any)/(:any)']     = 'users/HomeController/ReadFullNews/$1/title_$2';
+$route['fetchhomedata']             = 'users/HomeController/fetchhomedata';
+$route['likedislike']               = 'users/HomeController/Like_Dislike';
+$route['commentpost']               = 'users/HomeController/Comment_news';
 //public_profile
-$route['view/(:any)/(:any)']        = 'users/Public_Profile/view_profile/$1/user_$2'; //for vewing public profile
-$route['view/(:any)/(:any)/(:any)'] = 'users/Public_Profile/posts/$1/user_$2/$posts'; //for vewing public post
-$route['workplace/(:any)/(:any)']   = 'users/Public_Profile/view_workplace/$1/$2';
+$route['view/(:any)/(:any)']        = 'users/PublicProfileController/view_profile/$1/user_$2'; //for vewing public profile
+$route['view/(:any)/(:any)/(:any)'] = 'users/PublicProfileController/posts/$1/user_$2/$posts'; //for vewing public post
+$route['fetchpublicpost']           = 'users/PublicProfileController/fetch_posts'; // fetch for scrol pagination
+$route['workplace/(:any)/(:any)']   = 'users/PublicProfileController/view_workplace/$1/$2';
+// MakeFriendController
+$route['friendrequest/(:any)']      = 'users/MakeFriendController/friend_request/$1';
+$route['follow/(:any)']             = 'users/MakeFriendController/makefriend/$1';
 // Public cv controller
-$route['viewcv/(:any)/(:any)']      = 'users/Public_Cv/public_cv/$1/$2'; // for public view in cv
+$route['viewcv/(:any)/(:any)']      = 'users/PublicCvController/public_cv/$1/$2'; // for public view in cv
 //Profile controller
-$route['profile']                   = 'users/Profile/index';
-$route['friendlist']                = 'users/Profile/total_friends';
-$route['removefriend/(:num)']       = 'users/Profile/remove_friend/$1';
-$route['editinfo']                  = 'users/Profile/update_personal_info';
-$route['changeimage']               = 'users/Profile/Profilepic';
-$route['workplace']                 = 'users/Profile/view_workplace';
-//Activities controller
-$route['loginactivities']           = 'users/Activities/loginactivities';
+$route['profile']                   = 'users/ProfileController/index';
+$route['friendlist']                = 'users/ProfileController/total_friends';
+$route['fetchtotalfriend']          = 'users/ProfileController/fetch_total_friend'; // fetch for scrol pagination
+$route['removefriend/(:num)']       = 'users/ProfileController/remove_friend/$1';
+$route['editinfo']                  = 'users/ProfileController/update_personal_info';
+$route['changeimage']               = 'users/ProfileController/Profilepic';
+$route['workplace']                 = 'users/ProfileController/view_workplace';
+//ActivitiesController 
+$route['loginactivities']           = 'users/ActivitiesController/loginactivities';
+$route['fetchloginactivities']      = 'users/ActivitiesController/fetch_loginactivities';
 //ChangePassword controller
-$route['changepassword']            = 'users/ChangePassword';
+$route['changepassword']            = 'users/ChangePasswordController';
 //Score controller
-$route['score']                     = 'users/Score/index';
+$route['score']                     = 'users/ScoreController/index';
 //SMS Controller
-$route['sms']                       = 'users/SMS/index';
-$route['chat/(:num)']               = 'users/SMS/chating/$1';
+$route['sms']                       = 'users/SMSController/index';
+$route['chat/(:num)']               = 'users/SMSController/chating/$1';
 // CV controller
-$route['addeducation']              = 'users/CV/addeducation'; // Add education
-$route['editeducation/(:num)']      = 'users/CV/edit_education/$1'; // edit education data
-$route['deleteeducation/(:num)']    = 'users/CV/delete_education/$1'; // delete educaton
-$route['addexperience']             = 'users/CV/addexperience'; // Add Edperiece
-$route['editexperience/(:num)']     = 'users/CV/edit_experience/$1'; // Edit Experience
-$route['deleteexperience/(:num)']   = 'users/CV/delete_experience/$1'; // delete experience 
-$route['addskill']                  = 'users/CV/addskill';// add skill
-$route['editskill/(:num)']          = 'users/CV/edit_skill/$1'; // edit skill
-$route['deleteskill/(:num)']        = 'users/CV/delete_skill/$1'; // delete skill
-$route['addtraining']               = 'users/CV/addtraining'; // add traiining
-$route['edittraining/(:num)']       = 'users/CV/edit_training/$1'; // edit training 
-$route['deletetraining/(:num)']     = 'users/CV/delete_training/$1';// delete training
-$route['addabout']                  = 'users/CV/add_aboutself'; // add about
-$route['editabout/(:num)']          = 'users/CV/eidt_aboutself/$1'; //edit about
-$route['deleteabout/(:num)']        = 'users/CV/delete_aboutself/$1'; // delete about
-$route['cv']                        = 'users/CV/cv_view'; // cv admin view
-// Job controller
-$route['createjob']                 = 'users/Jobs/create_job'; // for create job
-$route['viewjob']                   = 'users/Jobs/job_public';
-$route['viewfull/(:any)/(:any)']    = 'users/Jobs/viewfulljob/$1/$2';
+$route['addeducation']              = 'users/CvController/addeducation'; // Add education
+$route['editeducation/(:num)']      = 'users/CvController/edit_education/$1'; // edit education data
+$route['deleteeducation/(:num)']    = 'users/CvController/delete_education/$1'; // delete educaton
+$route['addexperience']             = 'users/CvController/addexperience'; // Add Edperiece
+$route['editexperience/(:num)']     = 'users/CvController/edit_experience/$1'; // Edit Experience
+$route['deleteexperience/(:num)']   = 'users/CvController/delete_experience/$1'; // delete experience 
+$route['addskill']                  = 'users/CvController/addskill';// add skill
+$route['editskill/(:num)']          = 'users/CvController/edit_skill/$1'; // edit skill
+$route['deleteskill/(:num)']        = 'users/CvController/delete_skill/$1'; // delete skill
+$route['addtraining']               = 'users/CvController/addtraining'; // add traiining
+$route['edittraining/(:num)']       = 'users/CvController/edit_training/$1'; // edit training 
+$route['deletetraining/(:num)']     = 'users/CvController/delete_training/$1';// delete training
+$route['addabout']                  = 'users/CvController/add_aboutself'; // add about
+$route['editabout/(:num)']          = 'users/CvController/eidt_aboutself/$1'; //edit about
+$route['deleteabout/(:num)']        = 'users/CvController/delete_aboutself/$1'; // delete about
+$route['cv']                        = 'users/CvController/cv_view'; // cv admin view
+//CvPdfController
+$route['cvdownload']                = 'users/CvPdfController/download_cv';
+// JobController
+$route['createjob']                 = 'users/JobController/create_job'; // for create job
+$route['viewjob']                   = 'users/JobController/job_public';
+$route['viewfull/(:any)/(:any)']    = 'users/JobController/viewfulljob/$1/$2';
+$route['fetchalljob']               = 'users/JobController/fetch_job_public';
 // Create_Company controller
 $route['createcompany']             = 'company/Create_Company/company_create'; // for create a company
 // Company Controller
@@ -134,7 +105,8 @@ $route['companyjob/(:any)/(:any)']     = 'company/Company/view_companyjob/$1/$2'
 $route['deletejob/(:any)/(:any)/(:any)']   = 'company/Company/delete_job/$1/$2/$3'; // delete job 
 $route['editcompany/(:any)/(:any)']               = 'compnay/Company/editcompanyinfo/$1/$2'; // edit company data
 $route['changephoto/(:any)']        = 'company/Company/change_photo/$1'; // change company photo 
-$route['live']                      = 'users/Live/index'; 
+//LiveController
+$route['live']                      = 'users/LiveController/index'; 
 $route['404_override']              = '';
 $route['translate_uri_dashes']      = true;
 

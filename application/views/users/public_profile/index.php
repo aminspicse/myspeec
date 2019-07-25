@@ -26,7 +26,7 @@
                     <a href="<?= base_url('workplace/'.$rows->user_id.'/'.url_title($rows->fname.' '.$rows->lname))?>" class="card-link">workplace</a>
                 </div>
                 <div class="col-md-2 col-xs-4">
-                    <a href="<?= base_url('users/MakeFriend/makefriend/').$user_id ?>" class="card-link">
+                    <a href="<?= base_url('follow/').$user_id ?>" class="card-link">
                     <?php if($filter_request->num_rows()>0){
                         echo "Connected";
                      }else{

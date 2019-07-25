@@ -38,7 +38,7 @@
      function load_data(limit, start)
      {
        $.ajax({
-         url:"<?php echo base_url('users/Profile/fetch_total_friend'); ?>",
+         url:"<?php echo base_url('fetchtotalfriend'); ?>",
          method:"POST",
          data:{limit:limit, start:start},
          cache: false,

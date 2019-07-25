@@ -3,6 +3,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 ?>
     <div class="content-wrapper bg-white">
         <br>
+        <?= $this->session->flashdata('message')?>
         <form action="" method="POST" enctype= "multipart/form-data" class="container">
             <div class="row">
                 <div class="col-md-2"><label for="">Job Title</label></div>

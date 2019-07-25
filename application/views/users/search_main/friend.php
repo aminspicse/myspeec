@@ -36,7 +36,7 @@
     function load_data(limit, start)
     {
       $.ajax({
-        url:"<?php echo base_url('users/Search/fetch_friends'); ?>",
+        url:"<?php echo base_url('searchfriend'); ?>",
         method:"POST",
         data:{search:search, limit:limit, start:start},
         cache: false,

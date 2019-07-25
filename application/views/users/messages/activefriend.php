@@ -15,7 +15,7 @@
                         <div class="card-body contacts_body">
                             <ui class="contacts">
                                 <?php foreach($count_friend->result() as $row){ 
-									$active_friend = $this->SMS_Model->active_friend($row->parent_id, $row->sub_id);
+									$active_friend = $this->SMS->active_friend($row->parent_id, $row->sub_id);
 								?>
                                 <li class="active">
                                     <div class="d-flex bd-highlight">
@@ -24,7 +24,7 @@
                                             <span class="online_icon"></span>
                                         </div>
                                         <div class="user_info">
-                                            <span> <a href="<?= base_url('users/SMS/chating/').$active_friend['user_id'] ?>"><?= $active_friend['fname'].' '.$active_friend['lname'] ?></a> </span>
+                                            <span> <a href="<?= base_url('chat/').$active_friend['user_id'] ?>"><?= $active_friend['fname'].' '.$active_friend['lname'] ?></a> </span>
                                             <p><?= $active_friend['fname']?> is online</p>
                                         </div>
                                     </div>
@@ -99,7 +99,7 @@
 						</div>
 						
 						<div class="card-footer">
-							<form action="<?= base_url('users/SMS/chating/').$frinfo->user_id?>" method="post">
+							<form action="<?= base_url('chat/').$frinfo->user_id?>" method="post">
 							<div class="input-group">
 								<div class="input-group-append">
 									<span class="input-group-text attach_btn"><i class="fas fa-paperclip"></i></span>

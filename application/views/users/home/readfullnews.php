@@ -29,7 +29,7 @@
                         <h6 class="text-center"><b>End of The Speec </b></h6>
                         <p>Posted By: <a href="<?= base_url('view/'.$row->user_id.'/'.url_title($row->fname.' '.$row->lname))?>" class="card-link"><?= $row->fname.' '.$row->lname;?></a> On <?= $row->news_insert_time;?></p>
                         <hr>
-                        <form action="<?= base_url() ?>users/Home/Like_Dislike" method="get">
+                        <form action="<?= base_url('likedislike') ?>" method="get">
                             <p>
                                 <!-- start like and like count -->
                                 <?php if($likevalidation->num_rows()>0){ ?>
@@ -74,7 +74,7 @@
                              </p>
                             <input type="text" name="news_id" style="display:none" value="<?= $row->news_id; ?>">
                         </form> 
-                        <form action="<?= base_url() ?>users/Home/Comment_news" method="get">
+                        <form action="<?= base_url('commentpost') ?>" method="get">
                             <label for=""><strong>Write Your Comment</strong></label>
                             <textarea name="comment" id="" cols="30" rows="3" class="form-control" style="font-size: 16px"></textarea>
                             <br>

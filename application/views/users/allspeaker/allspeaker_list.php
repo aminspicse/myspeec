@@ -37,7 +37,7 @@
     function load_data(limit, start)
     {
       $.ajax({
-        url:"<?php echo base_url('users/All_Speaker/fetch_friend'); ?>",
+        url:"<?php echo base_url('fetchallspeaker'); ?>",
         method:"POST",
         data:{limit:limit, start:start},
         cache: false,

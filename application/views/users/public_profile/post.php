@@ -34,7 +34,7 @@
      function load_data(limit, start)
      {
        $.ajax({
-         url:"<?php echo base_url('users/Public_Profile/fetch_posts'); ?>",
+         url:"<?php echo base_url('fetchpublicpost'); ?>",
          method:"POST",
          data:{limit:limit, start:start, user_id:user_id},
          cache: false,

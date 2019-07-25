@@ -37,7 +37,7 @@
     function load_data(limit, start)
     {
       $.ajax({
-        url:"<?php echo base_url('users/Activities/fetch_loginactivities'); ?>",
+        url:"<?php echo base_url('fetchloginactivities'); ?>",
         method:"POST",
         data:{limit:limit, start:start},
         cache: false,

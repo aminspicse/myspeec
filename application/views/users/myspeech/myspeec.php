@@ -36,7 +36,7 @@
     function load_data(limit, start)
     {
       $.ajax({
-        url:"<?php echo base_url('users/MySpeech/myspeec_fetch'); ?>",
+        url:"<?php echo base_url('fetchmypost'); ?>",
         method:"POST",
         data:{limit:limit, start:start},
         cache: false,

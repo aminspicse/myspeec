@@ -8,7 +8,7 @@
                     <div class="col-6">
                         <?= $this->session->flashdata('msg')?>
                     </div>
-                    <div class="col-md-2"><a href="users/CV_PDF/download_cv">Download</a></div>
+                    <div class="col-md-2"><a href="<?= base_url('cvdownload') ?>">Download</a></div>
                     </div>
                 </div>
                 <div class="row card-body">
