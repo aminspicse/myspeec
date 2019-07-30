@@ -2,7 +2,7 @@
 What is My Speec 
 ###################
 
-Myspeec is a free and Digital social media 
+Myspeec is a free Digital social media 
 
 *******************
 Release Information
