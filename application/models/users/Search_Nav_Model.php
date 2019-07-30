@@ -2,8 +2,10 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 
-    class Search_Nav_Model extends CI_Model{
-        function __construct(){
+    class Search_Nav_Model extends CI_Model
+    {
+        function __construct()
+        {
             parent::__construct();
         }
         
@@ -20,7 +22,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             $this->db->order_by($this->like_count(32), 'desc');
         }  */
          
-        public function Search_Post($search,$limit,$start){
+        public function Search_Post($search,$limit,$start)
+        {
             //$this->db->where('delete_status', 0);
             //$this->db->where('post_privacy',1);
             $this->db->select('*');  
@@ -37,7 +40,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 
         } 
 
-        public function Search_Friends($search,$limit,$start){
+        public function Search_Friends($search,$limit,$start)
+        {
             $this->db->select('*');
             $this->db->from('users');
             $this->db->or_like('fname',$search, 'both');
@@ -48,7 +52,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 
         }
         // search job 
-        public function Search_Job($search, $limit, $start){
+        public function Search_Job($search, $limit, $start)
+        {
             $this->db->where('delete_status',0);
             $this->db->select('*');
             $this->db->from('post_job');
@@ -63,7 +68,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             return $this->db->get();
         }
         // count following 
-        public function total_following($parent_id){
+        public function total_following($parent_id)
+        {
             $this->db->select('*');
             $this->db->from('make_friends');
             $this->db->where('parent_id', $parent_id);
@@ -72,7 +78,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             return $qry->num_rows();
         }
         //count followers 
-        public function total_followers($sub_id){
+        public function total_followers($sub_id)
+        {
             $this->db->select('*');
             $this->db->from('make_friends');
             $this->db->where('sub_id',$sub_id);
@@ -82,7 +89,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             return $qry->num_rows();
         }
 
-        public function Search_Video($search){
+        public function Search_Video($search)
+        {
             $condition = "news_title like '$search' and 'video_link != null'"; 
             $this->db->select('*');  
             $this->db->from('news_post');

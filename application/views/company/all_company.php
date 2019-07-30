@@ -1,11 +1,11 @@
 <div class="content-wrapper " style="">
-        <div class="row bg-white">
-            <h3 class="text-success text-center"><?= $this->session->flashdata('msg')?></h3>
-        </div>
+        
+            <?= $this->session->flashdata('message')?>
+
     <?php foreach($company as $company):?>
         <div class="row bg-white">
             <div class="col-md-1">
-                <?php $photos = $this->Company_Model->fetch_company_profilephoto($company->company_id);
+                <?php $photos = $this->Company->fetch_company_profilephoto($company->company_id);
                     foreach($photos->result() as $photo){
                 ?>
                 <a href=""><img src="<?= $photo->company_logu?>" style="width: 50px" class="rounded-circle img-thumbnail" alt=""></a>
@@ -16,7 +16,7 @@
             </div>
             <div class="col-md-2">
                 <a href="<?= base_url('company/'.$company->company_url.'/'.$company->company_id)?>">view</a>
-                <a href="">Edit</a>
+                <a href="<?= base_url('company/edit/'.$company->company_url.'/'.$company->company_id)?>">Edit</a>
                 <a href="<?= base_url('deletecompany/'.$company->company_id)?>">Delete</a>
             </div>
         </div>

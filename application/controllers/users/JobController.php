@@ -67,7 +67,18 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             }
 
         }
-        
+
+        // delete job
+        public function delete_job($company_url, $company_id, $job_id)
+        {
+
+            if($this->Job->deletejob($company_id, $job_id) == true)
+            {
+                redirect(base_url('companyjob/'.$company_url.'/'.$company_id),$this->session->set_flashdata('msg','Successfully Deleted a Job'));
+            }
+        }
+
+        // view public job 
         public function job_public()
         {
             $this->load->view('users/header',array('keyword' => '', 'title'=>'View Job - Myspeec', 'score' => '','others' =>''));
@@ -106,6 +117,24 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             $this->load->view('users/header',array('keyword' => '', 'title'=>$title.' - myspeec', 'score' => '','others' =>''));
             $this->load->view('users/profile/profile_leftnav');
             $this->load->view('users/jobs/view_full_job_public',$qry);
+        }
+
+        public function applyjob($job_id)
+        {
+            if($this->Job->check_jobid_valide_ornot($job_id) == true)
+            {
+                if($this->Job->applyjob($job_id) == true)
+                {
+                    $success = "<h4 class='text-center text-success'>Apply has been successfully</h4>";
+                    redirect(base_url('viewfull/'.$job_id.'/Apply Success',$this->session->set_flashdata('message',$success)));
+                }
+            }
+            else
+            {
+                $error = "<h4 class='text-center text-danger'>Maybe you try to biolate someting</h4>";
+                redirect(base_url('viewfull/'.$job_id.'/Biolation',$this->session->set_flashdata('message',$error)));
+            }
+            
         }
         
     }

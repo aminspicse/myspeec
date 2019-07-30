@@ -1,5 +1,6 @@
 <div class="content-wrapper bg-white" style="">
     <h3>Create A New Company</h3>
+    <?= $this->session->flashdata('message')?>
     <form action="" method="post">
         <div class="row">
             <div class="col-md-3"><label for="">Company Name:</label></div>

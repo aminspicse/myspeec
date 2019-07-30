@@ -1,5 +1,6 @@
 
         <div class="content-wrapper bg-white" style="">
+          <?= $this->session->flashdata('message')?>
            <?php foreach($viewjob as $row):?>
                <div class="row">
                     <div class="col-md-8">
@@ -32,7 +33,11 @@
                </div>
                <div class="row">
                     <div class="col-md-12">
-                         <button class="btn btn-success btn-center">Apply Online</button>
+                    <?php  if($this->Job->check_job_applyed_ornot($row->job_id) == false){?>
+                         <a href="<?= base_url('applyjob/'.$row->job_id)?>" class="btn btn-success">Apply Job</a>
+                    <?php }else{
+                         echo '<a class="btn btn-danger">Already Applied This job</a>';
+                    } ?>
                     </div>
                </div>
                <div class="row">
