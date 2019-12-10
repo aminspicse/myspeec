@@ -54,16 +54,30 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         // search job 
         public function Search_Job($search, $limit, $start)
         {
-            $this->db->where('delete_status',0);
+            //$this->db->where('delete_status',0);
             $this->db->select('*');
             $this->db->from('post_job');
             $this->db->join('company_list','post_job.company_id = company_list.company_id');
-            
+            //$this->db->where('post_job.delete_status',0);
             $this->db->or_like('job_title', $search,'both');
             $this->db->or_like('job_position', $search,'both');
             $this->db->or_like('company_location', $search,'both');
             $this->db->or_like('company_location', $search,'both');
             $this->db->order_by('job_id','DESC');
+            $this->db->limit($limit, $start);
+            return $this->db->get();
+        }
+        // search for abbreviation
+        public function Search_Abbr($search,$limit,$start)
+        {
+            //$this->db->where('abbr_status',0);
+            $this->db->select('*');
+            $this->db->from('abbreviation');
+            $this->db->join('users','abbreviation.user_id = users.user_id');
+            $this->db->or_like('short_form',$search,'both');
+            $this->db->or_like('long_form',$search,'both');
+            $this->db->or_like('description',$search,'both');
+            $this->db->order_by('abbr_id','DESC');
             $this->db->limit($limit, $start);
             return $this->db->get();
         }
@@ -88,7 +102,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             $qry = $this->db->get();
             return $qry->num_rows();
         }
-
+       
         public function Search_Video($search)
         {
             $condition = "news_title like '$search' and 'video_link != null'"; 
@@ -102,5 +116,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             return $this->db->get();
                 
         }
+
     }
 

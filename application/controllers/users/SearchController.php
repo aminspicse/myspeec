@@ -184,7 +184,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 foreach ($qry->result() as $row) 
                 {
                     $output .= '
-                    <div class="post_data bg-white"> 
+                    <div class="post_data bg-white row"> 
                         <h2 class="text-danger min-title news_title"> <a href='.base_url('viewfull/'.$row->job_id.'/'.url_title(sha1($row->job_title))).' target="new">'.$row->job_title.'</a></h2>
                         <a></a>
                         <p style="text-align: justify">'.trim(substr($row->company_name.', '.$row->job_location.', '.$row->education_requirements.', '.$row->experience_requirements.', '.$row->job_responsibilities.', '.$row->salary,0,500)).'...<a href='.base_url('viewfull/'.$row->job_id.'/'.url_title(sha1($row->job_title))).' target="new">View full job</a></p>
@@ -195,7 +195,44 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             }
             echo $output;
         }
-
+        public function abbreviations()
+        {
+            if(isset($_GET['search']))
+            {
+                $data['keyword'] = $_GET['keyword'];
+                
+            } 
+            $data['score'] = '';//just passing variable 
+            $data['title'] = $data['keyword'].$this->title; //title of browser
+            $data['others'] = '';
+            //$data['search_friends'] = $this->Search_Nav_Model->Search_Friends($data['search']); 
+            $this->load->view('users/header',$data);
+            $this->load->view('users/leftnav');
+            $this->load->view('users/search_main/index',$data);
+            $this->load->view('users/search_main/abbreviation');
+        }
+        // fetch jobs
+        public function fetch_abbreviation()
+        { 
+            $output = '';
+            $qry =  $this->Search_Nav_Model->Search_Abbr($this->input->post('search'),$this->input->post('limit'),$this->input->post('start'));
+            if($qry->num_rows()>0)
+            {
+                foreach ($qry->result() as $row) 
+                {
+                    $output .= '
+                    <div class="post_data bg-white row"> 
+                        <h3>'.$row->short_form.' = '.$row->long_form.' </h3>
+                        <a></a>
+                        <p> '.$row->description.' </p>
+                        <a></a>
+                        <p> Published By <a href='.base_url("view/".$row->user_id.'/'.$row->fname.$row->lname).'>'.$row->fname.' '.$row->lname.' </a> '.$row->created_at.'</p>
+                    </div>
+                    ';
+                }
+            }
+            echo $output;
+        }
         public function videos()
         {  
 

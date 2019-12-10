@@ -138,7 +138,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 }
             }
         }
-
+ 
         public function view_companyjob($company_url,$company_id)
         {
             $query['photos'] = $this->Company->fetch_company_profilephoto($company_id);
@@ -149,7 +149,26 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             $this->load->view('company/viewjob',$query);
         }
 
-        
+        public function appliedlist($job_id, $company_id)
+        {
+            $query['photos'] = $this->Company->fetch_company_profilephoto($company_id);
+            $query['job'] = $this->Company->company_job($company_id);
+            $query['appliedlist'] = $this->Company->appliedlist($job_id);
+            $this->load->view('users/header',array('keyword' => '', 'title' =>'My Company - Myspeec', 'score' => '','others' =>''));
+            $this->load->view('company/company_sidenav');
+            $this->load->view('company/index',$query);
+            $this->load->view('company/appliedlist',$query); 
+        }
+
+        // for application reject
+
+        public function applicationreject($apply_id,$job_id,$company_id)
+        {
+            if($this->Company->applicationreject($apply_id) == true)
+            {
+                redirect(base_url('applicantlist/'.$job_id.'/'.$company_id, $this->session->set_flashdata('msg','An Applicant hasbeen Rejected')));
+            }
+        }
 
         public function change_photo($company_id)
         {

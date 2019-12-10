@@ -1,10 +1,10 @@
 
         <div class="content-wrapper bg-white" style="">
-        <br>
+        
             <?php foreach($query->result() as $row){ ?>
                 <div class="row">
                     <div class="col-12">
-                        <h2 class="text-center" style="font-size:25px"><a href="" class="card-link"><?= $row->news_title ?></a></h2>
+                        <h2 class="" style="font-size:25px"><a href="" class="card-link"><?= $row->news_title ?></a></h2>
                     </div>
                 </div>
                 <div class="row "> 

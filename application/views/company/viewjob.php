@@ -4,7 +4,7 @@
     ?>
     
     <div class="row bg-dark">
-        <div class="col-md-10">
+        <div class="col-md-9">
             <h4><a href="<?= base_url('viewfull/'.$row->job_id.'/'.$row->job_title)?>" target="_new"><?= $row->job_title?></a>
                 <small class="text-danger" style="font-size: 15px;">
                 <?= 'Published on: '.$row->published_on?>
@@ -12,8 +12,9 @@
                 </small>
             </h4>
         </div>
-        <div class="col-md-2">
+        <div class="col-md-3">
         <a href="<?= base_url('viewfull/'.$row->job_id.'/'.$row->job_title)?>" target="_new">View</a>
+        <a href="<?= base_url('applicantlist/'.$row->job_id.'/'.$row->company_id)?>">Applied <span class="budg">40</span></a>
         <a href="">Edit</a>
         <a href="<?= base_url('deletejob/'.$row->company_url.'/'.$row->company_id.'/'.$row->job_id)?>">Delete</a>
         </div>

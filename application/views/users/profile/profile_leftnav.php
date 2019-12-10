@@ -22,6 +22,9 @@
 				<li style="margin-bottom: -20px; margin-left: -20px; margin-top: -20px">
 					<a href="<?= base_url('mycompany') ?>" class="card-link" target=""> <i class="fa fa-unlock"></i> My Company</a>
 				</li>
+				<li style="margin-bottom: -20px; margin-left: -20px; margin-top: -20px">
+					<a href="<?= base_url('abbreviation/create') ?>" class="card-link" target=""> <i class="fa fa-bookmark"></i> Abbreviation</a>
+				</li>
 			</ul>
 				<!-- 
 				<li class="has-children comments">

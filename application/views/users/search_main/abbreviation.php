@@ -1,18 +1,15 @@
 
-        <div class="content-wrapper" style="">
-           <div class="row">
-            <div class="col-md-7">
-                <?= $this->session->userdata('msg')?>
-            </div>
-           </div>
-          <div id="load_data"></div>
-          <div id="load_data_message"></div>
-        </div>
+      <div id="load_data"></div>
+      <div id="load_data_message"></div>
+
+        
+    </div><!-- main content -->
+    </main>
     </body>
 	</html>
 	
 	
-    
+     
 
 <script>
   $(document).ready(function(){
@@ -20,7 +17,8 @@
     var limit = 10;
     var start = 0;
     var action = 'inactive';
-
+    var search = document.getElementById('search_main').value;
+    //alert(search);
     function lazzy_loader(limit)
     {
       var output = '';
@@ -39,15 +37,15 @@
     function load_data(limit, start)
     {
       $.ajax({
-        url:"<?php echo base_url('fetchhomedata'); ?>",
+        url:"<?php echo base_url('searchabbreviation'); ?>",
         method:"POST",
-        data:{limit:limit, start:start},
+        data:{search:search, limit:limit, start:start},
         cache: false,
         success:function(data)
         {
           if(data == '')
           {
-            $('#load_data_message').html('<h3 class="text-center">No More Post Found</h3>');
+            $('#load_data_message').html('<h3 class="text-center">No More Abbreviation Found</h3>');
             action = 'active';
           }
           else

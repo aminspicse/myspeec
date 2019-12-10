@@ -26,7 +26,8 @@ $route['friends']                   = 'users/SearchController/friends';//search 
 $route['searchfriend']              = 'users/SearchController/fetch_friends'; // fetch scrol pagination
 $route['jobs']                      = 'users/SearchController/jobs';//search for job
 $route['searchjob']                 = 'users/SearchController/fetch_jobs'; // fetch scrol pagination
-$route['video']                     = 'users/SearchController/videos';//search for video
+$route['abbreviations']              = 'users/SearchController/abbreviations';//search for abbreviation
+$route['searchabbreviation']        = 'users/SearchController/fetch_abbreviation';//search for abbreviation
 $route['image']                     = 'users/SearchController/images';//search for image
 
 //All sepaker
@@ -64,7 +65,7 @@ $route['follow/(:any)']             = 'users/MakeFriendController/makefriend/$1'
 // Public cv controller
 $route['viewcv/(:any)/(:any)']      = 'users/PublicCvController/public_cv/$1/$2'; // for public view in cv
 
-//Profile controller
+//Profile controller 
 $route['profile']                   = 'users/ProfileController/index';
 $route['friendlist']                = 'users/ProfileController/total_friends';
 $route['fetchtotalfriend']          = 'users/ProfileController/fetch_total_friend'; // fetch for scrol pagination
@@ -106,7 +107,7 @@ $route['deleteabout/(:num)']        = 'users/CvController/delete_aboutself/$1'; 
 $route['cv']                        = 'users/CvController/cv_view'; // cv admin view
 
 //CvPdfController
-$route['cvdownload']                = 'users/CvPdfController/download_cv';
+$route['cvdownload']                = 'users/CvPdfControllerUser/download_cv';
 
 // JobController
 $route['createjob']                 = 'users/JobController/create_job'; // for create job
@@ -116,7 +117,7 @@ $route['applyjob/(:any)']           = 'users/JobController/applyjob/$1';
 $route['fetchalljob']               = 'users/JobController/fetch_job_public'; // fetch for scrol pagination
 $route['deletejob/(:any)/(:any)/(:any)']   = 'users/JobController/delete_job/$1/$2/$3'; // delete job 
 
-
+ 
 //Company controller
 $route['createcompany']             = 'company/CompanyController/cratecompany'; // for create a company
 $route['mycompany']                 = 'company/CompanyController/fetch_all_company'; // view for all company for one time
@@ -125,7 +126,14 @@ $route['company/(:any)/(:any)']     = 'company/CompanyController/view_company_in
 $route['companyjob/(:any)/(:any)']  = 'company/CompanyController/view_companyjob/$1/$2';// view company job
 $route['company/edit/(:any)/(:any)']= 'company/CompanyController/editcompany/$1/$2'; // edit company data
 $route['changephoto/(:any)']        = 'company/CompanyController/change_photo/$1'; // change company photo 
+$route['applicantlist/(:any)/(:any)'] = 'company/CompanyController/appliedlist/$1/$2'; // total applicant list of this job 
+$route['applicationreject/(:any)/(:any)/(:any)']  = 'company/CompanyController/applicationreject/$1/$2/$3'; // application reject
 
+//CvpdfCOmpnay controller
+$route['downloadcvemployee/(:any)'] = 'company/CvPdfCompanyController/download_cv/$1';
+
+// Abbrivation Controller
+$route['abbreviation/create']       = 'abbreviation/AbbreviationController/index';
 //LiveController
 $route['live']                      = 'users/LiveController/index'; 
 $route['404_override']              = '';

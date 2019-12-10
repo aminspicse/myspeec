@@ -93,7 +93,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
   <div class="">
     <header class="cd-main-header ">
         <nav class="navbar navbar-expand-md navbar-light  bg-light fixed-top ">
-            <a class="navbar-brand" href="">MySpeec</a>
+            <a class="navbar-brand" href="<?= base_url() ?>">MySpeec</a>
             
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>

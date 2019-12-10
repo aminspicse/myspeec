@@ -20,7 +20,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             }
         }
         
-        public function fetch_all_company(){ // for view all company
+        // for view all company
+        public function fetch_all_company()
+        { 
             $this->db->select('*');
             $this->db->from('company_list');
             //$this->db->join('profile_photo','profile_photo.company_id=company_list.company_id');
@@ -85,12 +87,43 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             $this->db->where('company_url',$company_url);
             return $this->db->get();
         }
+
         public function updatecompanydata($company_id, $company_url, $data)
         {
             $this->db->where('user_id',$this->session->userdata('user_id'));
             $this->db->where('company_id',$company_id);
             $this->db->where('company_url', $company_url);
             if($this->db->update('company_list',$data))
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        // fetch all applicant list for 
+        public function appliedlist($job_id)
+        {
+            $this->db->select('*')
+                ->from('apply_job a')
+                ->join('users b', 'a.user_id = b.user_id')
+                //->join('post_job c','a.job_id = c.job_id')
+                ->where('a.job_id',$job_id)
+                ->where('a.apply_status',1)
+                ->where('a.reject_status',0);
+
+            return $this->db->get();
+        }
+
+        // application reject 
+        public function applicationreject($apply_id)
+        {
+            $data = array('reject_status' => 1);
+            $this->db->where('apply_id', $apply_id);
+            
+            if($this->db->update('apply_job',$data))
             {
                 return true;
             }

@@ -2,7 +2,7 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 //require_once dirname(__FILE__).'libraries/tcpdf/tcpdf.php';
 
-    class CvPdfController extends CI_Controller
+    class CvPdfControllerUser extends CI_Controller
     {
         public $tbls = '';
 

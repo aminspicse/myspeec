@@ -19,9 +19,9 @@
             </form>
         </div>
         <div class="col-md-1 col-xs-1 col-sm-2">
-            <form action="<?= base_url('video')?>">
+            <form action="<?= base_url('abbreviations')?>">
                 <input type="text" name="keyword" style="display:none" value="<?= $_GET['keyword'] ?>">
-                <input type="submit" name="search" value="Videos" class="btn btn-link card-link">
+                <input type="submit" name="search" value="Abbr.." class="btn btn-link card-link">
             </form>
         </div>
         <div class="col-md-1 col-xs-1 col-sm-2">

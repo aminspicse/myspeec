@@ -36,15 +36,15 @@ class HomeController extends CI_Controller
                     $user_status = '<a>Hidden</a>';
                 }
 				$output .= '
-				<div class="post_data bg-white">
-					<h2 class="text-danger min-title news_title"> <a href='.base_url('details/'.$row->news_id.'/'.url_title(sha1($row->news_title))).'>'.$row->news_title.'</a></h2>
+				<div class="post_data bg-white col-md-12">
+					<h5 class="text-danger"> <a href='.base_url('details/'.$row->news_id.'/'.url_title(sha1($row->news_title))).'>'.$row->news_title.'</a></h5>
                     <a></a>
                     <p style="text-align: justify">'.trim(substr($row->news_post_1,0,500)).'...<a href='.base_url('details/'.$row->news_id.'/'.url_title(sha1($row->news_title))).'>See More</a></p>
 					<p class="text-center"> <i> Posted By: '.$user_status.' on: '.$row->news_insert_time.'</i></p>
-				</div>
+                </div>
 				';
 			}
-		}
+		} 
 		echo $output;
 	}
 	//end
