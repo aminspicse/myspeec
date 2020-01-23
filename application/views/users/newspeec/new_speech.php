@@ -68,7 +68,7 @@
 
             <div class="row">
                 <div class="col-md-4">
-                    <label for="">you must select a image >= 1000 kb</label>
+                    <label for="" class="text-danger">select a image <= 1024 kb</label>
                     <div class="input-group ">
                     <div class="input-group-prepend">
                         <span class="input-group-text">Upload</span>
@@ -80,19 +80,25 @@
                     </div>
 
                 </div>
-                <div class="col-md-6">
+                <div class="col-md-4">
                     <label for="">Provide a Embeded Youtube video URL</label>
                     <input type="url" name="video_link" value="<?= set_value('video_link') ?>" class="form-control">
                     <span><?= form_error('video_link') ?></span>
                 </div>
                 <div class="col-md-2 checkbox">
-                    <label for="">Privacy </label>
+                    <label for="">User Privacy </label>
                     <select name="user_privacy" id="" class="form-control">
                         <option value="1">Public</option>
                         <option value="0">Private</option>
                     </select>
                 </div> 
-
+                <div class="col-md-2 checkbox">
+                    <label for="">Post Privacy </label>
+                    <select name="post_privacy" id="" class="form-control">
+                        <option value="1">Public</option>
+                        <option value="0">Private</option>
+                    </select>
+                </div> 
             </div>
             <div class="row min-hide"><!-- show only mobile device--->
                 <div class="col-md-2">

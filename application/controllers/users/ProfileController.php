@@ -1,5 +1,4 @@
 <?php 
-
     class ProfileController extends CI_Controller
     {
         function __construct()
@@ -12,9 +11,9 @@
             if($this->session->userdata('user_id') == false)
             {
                 redirect(base_url().'login.asp', $this->session->set_flashdata('msg', 'You Need To SignIn. if you have no account <a href="'.base_url('signup.asp').'">Click to SignUp</a>'));
-            }
-            
+            }   
         }
+
         function index()
         {
             $data['query'] = $this->Profile->profile();
@@ -47,6 +46,7 @@
             $this->load->view('users/profile/heading', $data);
             $this->load->view('users/profile/workplace', $data);
         }
+
         function total_friends()
         {
             $data['query'] = $this->Profile->profile();
@@ -56,6 +56,7 @@
             $this->load->view('users/profile/heading',$data);
             $this->load->view('users/profile/totalfriend'); 
         }
+
         // fetch total friend
         public function fetch_total_friend()
         {
@@ -63,7 +64,6 @@
             $friend = $this->Profile->fetch_friend($this->input->post('limit'), $this->input->post('start'));
             foreach($friend->result() as $row){
                 $qry = $this->Profile->totalfriends($row->sub_id);
-
                 $count_following =  $this->Search_Nav_Model->total_following($row->sub_id);
                 $count_followers = $this->Search_Nav_Model->total_followers($row->sub_id);
                 $output .= '
@@ -96,8 +96,9 @@
             } 
             echo $output;
         }
+
         function remove_friend($id){
-            $this->Profile_Model->removefriend($id);
+            $this->Profile->removefriend($id);
             //$this->total_friends();
             redirect(base_url('friendlist'));
         }
@@ -115,7 +116,6 @@
                     $this->load->view('users/profile/update_personal_info');
                 }else{
                     if(isset($_POST['update'])){
-
                         $updates = array(
                             'user_id'   => $this->session->userdata('user_id'),
                             'fname'     => $_POST['fname'],
@@ -128,12 +128,9 @@
                             'permanent_address' => $_POST['permanent_address'],
                             'nid'               => $_POST['nid']
                         );
-
-                            $this->Profile->UpdateInfo($updates);
-                            redirect(base_url('logout')); 
-                        
+                        $this->Profile->UpdateInfo($updates);
+                        redirect(base_url('logout'));    
                     }
-
                 }
             }else{
                 $data['msg'] = "Please Login First";
@@ -143,17 +140,14 @@
         }
 
         public function Profilepic(){
-            
-
             if(isset($_POST['submit'])){
                 $config = array(
                     'upload_path'   => './uploads/profilephotos/',
-                    'allowed_types' => 'jpg|png|gif',
+                    'allowed_types' => 'jpg|png|gif|bmp',
                     'max_size'      => 100,
                     'max_width'     => 300,
                     'max_height'    => 500,
                     'encrypt_name'  => true
-                    
                 );
 
                 $this->load->library('upload', $config);
@@ -175,7 +169,6 @@
                     $error = array('error' => $this->upload->display_errors());
                     $this->load->view('users/profile/upload_profile_pic', $error);
                 }
-
             }else{
                 $this->load->view('users/header',array('keyword' => '', 'title'=>'', 'score' => '','others' =>''));
                 $this->load->view('users/profile/profile_leftnav');

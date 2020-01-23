@@ -44,6 +44,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             $this->db->join('company_list b','a.company_id = b.company_id');
             $this->db->limit($limit,$start);
             $this->db->where('a.delete_status',0);
+            //$this->db->where('a.application_dedline' <= date('Y-m-d'));
             $this->db->order_by('a.job_id','desc');
             return $this->db->get();
         }

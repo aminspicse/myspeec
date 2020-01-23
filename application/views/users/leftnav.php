@@ -13,6 +13,9 @@
 				<li style="margin-bottom: -20px; margin-left: -20px; margin-top: -20px">
 					<a href="<?= base_url('allspeaker')?>" class="card-link"> <i class="fa fa-user-plus"></i> All Speeker</a>
 				</li>
+				<li style="margin-bottom: -20px; margin-left: -20px; margin-top: -20px">
+					<a href="<?= base_url('abbr')?>" class="card-link"> <i class="fa fa-codepen"></i> Abbreviation</a>
+				</li>
 			</ul>
 
 			

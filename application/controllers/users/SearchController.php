@@ -184,9 +184,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 foreach ($qry->result() as $row) 
                 {
                     $output .= '
-                    <div class="post_data bg-white row"> 
-                        <h2 class="text-danger min-title news_title"> <a href='.base_url('viewfull/'.$row->job_id.'/'.url_title(sha1($row->job_title))).' target="new">'.$row->job_title.'</a></h2>
-                        <a></a>
+                    <div class="post_data bg-white"> 
+                        <h4> <a href='.base_url('viewfull/'.$row->job_id.'/'.url_title(sha1($row->job_title))).' target="new">'.$row->job_title.'</a></h4>
+                        
                         <p style="text-align: justify">'.trim(substr($row->company_name.', '.$row->job_location.', '.$row->education_requirements.', '.$row->experience_requirements.', '.$row->job_responsibilities.', '.$row->salary,0,500)).'...<a href='.base_url('viewfull/'.$row->job_id.'/'.url_title(sha1($row->job_title))).' target="new">View full job</a></p>
                         <p class="text-center"> <i> Published on: <a href="#">'.$row->published_on.'</a> Dedline: <a href="#">'.$row->application_dedline.'</a></i></p>
                     </div>
@@ -221,12 +221,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 foreach ($qry->result() as $row) 
                 {
                     $output .= '
-                    <div class="post_data bg-white row"> 
-                        <h3>'.$row->short_form.' = '.$row->long_form.' </h3>
+                    <div class="post_data bg-white"> 
+                        <h4>'.$row->short_form.' = '.$row->long_form.' </h4>
                         <a></a>
                         <p> '.$row->description.' </p>
                         <a></a>
-                        <p> Published By <a href='.base_url("view/".$row->user_id.'/'.$row->fname.$row->lname).'>'.$row->fname.' '.$row->lname.' </a> '.$row->created_at.'</p>
+                        <p> Created By <a href='.base_url("view/".$row->user_id.'/'.$row->fname.$row->lname).'>'.$row->fname.' '.$row->lname.' </a> '.$row->created_at.'</p>
                     </div>
                     ';
                 }

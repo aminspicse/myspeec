@@ -1,6 +1,5 @@
 
-        <div class="content-wrapper bg-white" style="">
-        
+        <div class="content-wrapper bg-white" style="">       
             <?php foreach($query->result() as $row){ ?>
                 <div class="row">
                     <div class="col-12">
@@ -9,25 +8,30 @@
                 </div>
                 <div class="row "> 
                     <div class="col-md-4 col-xs-12">
-                        <figure class="figure">
-                            <img src="<?= $row->image_link ?>" alt="" width="100%" class='figure-img img-thumbnail'>
-                            <figcaption class="figure-caption text-right"></figcaption>
-                        </figure>
+                        <?php if($row->image_link != ''){?>
+                            <figure class="figure">
+                                <a href="<?= $row->image_link?>" target="_new"><img src="<?= $row->image_link ?>" alt="" width="100%" class='figure-img img-thumbnail'></a>
+                                <figcaption class="figure-caption text-right"></figcaption>
+                            </figure>
+                        <?php } ?>
                         <?php if($row->video_link != ''){?>
-                        <p><strong>Related video:</strong></p>
-                        <iframe src="<?= $row->video_link; ?>" allowfullscreen style=" width:100%;" frameborder="0"></iframe>
+                            <p><strong>Related video:</strong></p>
+                            <iframe src="<?= $row->video_link; ?>" allowfullscreen style=" width:100%;" frameborder="0"></iframe>
                         <?php } ?>
                     </div>
                     <div class="col-md-8 col-xs-12">
                         <?php 
-                        //echo pref_replace("#\[nl\]#", "<br>\n",$row->news_post_1);
-                        //echo $txt;
-                        echo "<p style=''>".nl2br($row->news_post_1)."</p>";//"<pre>".."</pre>"; 
-                        echo nl2br($row->news_post_2);
+                            echo "<p style=''>".nl2br($row->news_post_1)."</p>";//"<pre>".."</pre>"; 
+                            echo nl2br($row->news_post_2);
+                            if($row->user_privacy == '1'){
+                                $link = '<a href='.base_url('view/'.$row->user_id.'/'.url_title($row->fname.' '.$row->lname)).'>'.$row->fname.' '.$row->lname.'</a>';
+                            }else{
+                                $link = "Hidden";
+                            }
                         ?>
                         
                         <h6 class="text-center"><b>End of The Speec </b></h6>
-                        <p>Posted By: <a href="<?= base_url('view/'.$row->user_id.'/'.url_title($row->fname.' '.$row->lname))?>" class="card-link"><?= $row->fname.' '.$row->lname;?></a> On <?= $row->news_insert_time;?></p>
+                        <p>Posted By: <?= $link ?> On <?= $row->news_insert_time;?></p>
                         <hr>
                         <form action="<?= base_url('likedislike') ?>" method="get">
                             <p>
@@ -81,7 +85,7 @@
                             <input type="submit" name="post_comment" style="margin-top: -20px" value="Comment" class="float-right btn btn-info pull-right">
                             <input type="text" name="news_id" style="display:none" value="<?= $row->news_id; ?>">
                         </form>
-            <?php }; ?> 
+            <?php } ?> 
                         <br><br>
                         <div class="img-thumbnail">
                     <?php foreach($commentquery->result() as $com){ ?>
@@ -97,7 +101,7 @@
                                     <!--Start comment edit-->
                                     <?php if($com->user_id == $this->session->userdata('user_id')){?>
                                         <small><span  data-toggle="modal" class="fas fa-pen-alt" data-target="#myModal"></span>
-                                        <span><a href="<?= base_url('users/Home/delete_comment/').$row->news_id.'/'.$com->comment_id?>" class="fas fa-trash-alt card-link"></a></span>
+                                        <span><a href="<?= base_url('deletecomment/').$row->news_id.'/'.$com->comment_id?>" class="fas fa-trash-alt card-link"></a></span>
                                         </small>
                                         <?php }?>
                                     <!--end comment edit-->
@@ -136,11 +140,9 @@
                             <!--end comment main body -->
                         </div>
                     <?php }?>
-                        </div>
                     </div>
                 </div>
-            
+            </div> 
         </div>
     </body>
-
 </html>

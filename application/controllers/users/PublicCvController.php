@@ -10,6 +10,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             $this->load->model('users/MakeFriend');
             $this->load->model('users/Score');
         } 
+
         public function public_cv($user_id, $user_name)
         {
             // start validation for friend request 
@@ -24,7 +25,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             { 
                 $title = $tit->fname.' '.$tit->lname;
             }
-
             $this->load->view('users/header',array('title' => $title, 'keyword'=>$title, 'score' => '','others' =>''));
             $this->load->view('users/leftnav');
             $this->load->view('users/public_profile/index.php', $data);

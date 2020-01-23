@@ -42,7 +42,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                         'salary'                    => $_POST['salary'],
                         'job_location'              => $_POST['job_location'],
                         'employment_status'         => $_POST['employment_status'],
-                        'application_dedline'       => date('d-m-y',strtotime($_POST['application_dedline'])),
+                        'application_dedline'       => date('Y-m-d',strtotime($_POST['application_dedline'])),
                         'education_requirements'    => $_POST['education_requirements'],
                         'job_responsibilities'      => $_POST['job_responsibilities'],
                         'experience_requirements'   => $_POST['experience_requirements'],
@@ -96,7 +96,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 {
                     $output .= '
                     <div class="post_data bg-white"> 
-                        <h2 class="text-danger min-title news_title"> <a href='.base_url('viewfull/'.$row->job_id.'/'.url_title(sha1($row->job_title))).' target="new">'.$row->job_title.'</a></h2>
+                        <h4> <a href='.base_url('viewfull/'.$row->job_id.'/'.url_title(sha1($row->job_title))).' target="new">'.$row->job_title.'</a></h4>
                         <a></a>
                         <p style="text-align: justify">'.trim(substr($row->company_name.', '.$row->job_location.', '.$row->education_requirements.', '.$row->experience_requirements.', '.$row->job_responsibilities.', '.$row->salary,0,500)).'...<a href='.base_url('viewfull/'.$row->job_id.'/'.url_title(sha1($row->job_title))).' target="new">View full job</a></p>
                         <p class="text-center"> <i> Published on: <a href="#">'.$row->published_on.'</a> Dedline: <a href="#">'.$row->application_dedline.'</a></i></p>

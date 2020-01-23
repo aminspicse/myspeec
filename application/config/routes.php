@@ -51,6 +51,8 @@ $route['details/(:any)/(:any)']     = 'users/HomeController/ReadFullNews/$1/titl
 $route['fetchhomedata']             = 'users/HomeController/fetchhomedata';
 $route['likedislike']               = 'users/HomeController/Like_Dislike';
 $route['commentpost']               = 'users/HomeController/Comment_news';
+$route['deletecomment/(:any)/(:any)']= 'users/HomeController/delete_comment/$1/$2';
+//$route['test'] = ''
 
 //public_profile
 $route['view/(:any)/(:any)']        = 'users/PublicProfileController/view_profile/$1/user_$2'; //for vewing public profile
@@ -117,7 +119,6 @@ $route['applyjob/(:any)']           = 'users/JobController/applyjob/$1';
 $route['fetchalljob']               = 'users/JobController/fetch_job_public'; // fetch for scrol pagination
 $route['deletejob/(:any)/(:any)/(:any)']   = 'users/JobController/delete_job/$1/$2/$3'; // delete job 
 
- 
 //Company controller
 $route['createcompany']             = 'company/CompanyController/cratecompany'; // for create a company
 $route['mycompany']                 = 'company/CompanyController/fetch_all_company'; // view for all company for one time
@@ -134,6 +135,10 @@ $route['downloadcvemployee/(:any)'] = 'company/CvPdfCompanyController/download_c
 
 // Abbrivation Controller
 $route['abbreviation/create']       = 'abbreviation/AbbreviationController/index';
+
+//AbbreviationPublicController
+$route['abbr']                      = 'abbreviation/AbbreviationPublicController/abbreviations';
+$route['abbr/fetch']                = 'abbreviation/AbbreviationPublicController/fetch_abbreviation';
 //LiveController
 $route['live']                      = 'users/LiveController/index'; 
 $route['404_override']              = '';

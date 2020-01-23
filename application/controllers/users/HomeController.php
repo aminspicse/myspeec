@@ -168,6 +168,10 @@ class HomeController extends CI_Controller
             
         }
     }
+    function get_date()
+    {
+        echo date('Y-m-d');
+    }
 
 }
 
