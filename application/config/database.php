@@ -82,7 +82,7 @@ $db['default'] = array(
 	'dbdriver' => 'mysqli',
 	'dbprefix' => '',
 	'pconnect' => FALSE,
-	'db_debug' => (ENVIRONMENT !== 'production'),
+	'db_debug' => (ENVIRONMENT == 'production'),
 	'cache_on' => false,
 	'cachedir' => '',
 	'char_set' => 'utf8',

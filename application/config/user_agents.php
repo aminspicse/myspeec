@@ -27,7 +27,7 @@ $platforms = array(
 	'win98'				=> 'Windows 98',
 	'windows 95'		=> 'Windows 95',
 	'win95'				=> 'Windows 95',
-	'windows phone'			=> 'Windows Phone',
+	'windows phone'		=> 'Windows Phone',
 	'windows'			=> 'Unknown Windows OS',
 	'android'			=> 'Android',
 	'blackberry'		=> 'BlackBerry',
@@ -64,7 +64,7 @@ $browsers = array(
 	'Edge'			=> 'Edge',
 	'Chrome'		=> 'Chrome',
 	// Opera 10+ always reports Opera/9.80 and appends Version/<real version> to the user agent string
-	'Opera.*?Version'	=> 'Opera',
+	'Opera.*?Version'=> 'Opera',
 	'Opera'			=> 'Opera',
 	'MSIE'			=> 'Internet Explorer',
 	'Internet Explorer'	=> 'Internet Explorer',

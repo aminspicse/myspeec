@@ -26,7 +26,7 @@ $route['friends']                   = 'users/SearchController/friends';//search 
 $route['searchfriend']              = 'users/SearchController/fetch_friends'; // fetch scrol pagination
 $route['jobs']                      = 'users/SearchController/jobs';//search for job
 $route['searchjob']                 = 'users/SearchController/fetch_jobs'; // fetch scrol pagination
-$route['abbreviations']              = 'users/SearchController/abbreviations';//search for abbreviation
+$route['abbreviations']             = 'users/SearchController/abbreviations';//search for abbreviation
 $route['searchabbreviation']        = 'users/SearchController/fetch_abbreviation';//search for abbreviation
 $route['image']                     = 'users/SearchController/images';//search for image
 

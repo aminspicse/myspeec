@@ -156,16 +156,13 @@ class HomeController extends CI_Controller
                     'news_id'  => $_GET['news_id'],
                     'likes' => '0'
                 );
-
                 $this->Home_Model->LikeDislike($likedata);
                 redirect(base_url().'details/'.$_GET['news_id'].'/disliked');
             }
-
         }
         else
         {
-            redirect(base_url().'login', $this->session->set_flashdata('msg', 'You Need To SignIn. if you have no account <a href="'.base_url('signup.asp').'">Click to SignUp</a>'));
-            
+            redirect(base_url().'login', $this->session->set_flashdata('msg', 'You Need To SignIn. if you have no account <a href="'.base_url('signup.asp').'">Click to SignUp</a>'));   
         }
     }
     function get_date()
